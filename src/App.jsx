@@ -34,6 +34,11 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="min-h-screen flex flex-col relative">
+        <div className="h-[292px] w-[292px] rounded-full bg-amber-950 absolute -left-27 -top-12"></div>
+        <div></div>
+        <div className="flex"></div>
+      </div>
     </div>
   );
 }
