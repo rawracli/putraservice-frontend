@@ -8,7 +8,7 @@ function navbar() {
     dropdown.classList.toggle("hidden");
   };
   return (
-    <div className="fixed w-full flex items-center justify-center h-23 from-black/18 to-[#9C9C9C]/18 bg-gradient-to-r text-white font-semibold">
+    <div className="z-20 fixed w-full flex items-center justify-center h-23 from-black/18 to-[#9C9C9C]/18 bg-gradient-to-r text-white font-semibold">
       <div className="flex items-center justify-center w-full mx-22">
         <div className="w-full h-full flex items-center">
           <img src={Logo} alt="Logo" className="w-16 " />
