@@ -7,6 +7,7 @@ import Review from "./components/Review";
 function App() {
   return (
     <div className="App">
+      {/* 1st section */}
       <div
         className="min-h-screen bg-no-repeat bg-cover"
         style={{ backgroundImage: `url(${Banner})` }}
@@ -34,10 +35,33 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="min-h-screen flex flex-col relative">
-        <div className="h-[292px] w-[292px] rounded-full bg-amber-950 absolute -left-27 -top-12"></div>
-        <div></div>
-        <div className="flex"></div>
+
+      {/* harga mulai dari */}
+      <div className="h-[174px] w-full bg-gradient-to-b from-[#660708] to-[#BA181B] flex items-center justify-center">
+        <h2 className="text-white font-bold text-5xl">
+          HARGA DI MULAI DARI 75.000 !!
+        </h2>
+      </div>
+
+      {/* tentang */}
+      <div className="relative h-screen">
+        {/* Background */}
+        <div className="absolute inset-0 h-full w-full">
+          <div className="overflow-hidden justify-between min-h-screen flex flex-col relative">
+            <div className="flex justify-end items-center mt-11 mr-26.5">
+              <div className="size-[310px] rounded-full bg-[#941A1D] absolute -left-27 -top-8"></div>
+              <div className="rounded-full bg-[#A42619] size-[124px]"></div>
+              <div className="rounded-full bg-[#E5533F] w-[43px] h-[48px] mt-29"></div>
+            </div>
+            <div className="relative justify-end flex h-[500px] w-full">
+              <div className="absolute rounded-full border-[#730B00] border-45 size-[385px]  -bottom-1 -right-39"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative">
+        </div>
       </div>
     </div>
   );
