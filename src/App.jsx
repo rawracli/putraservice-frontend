@@ -70,8 +70,12 @@ function App() {
             </div>
           </div>
           <div className="w-full flex flex-col pl-13 pt-2">
-            <h2 className="text-[#A4161A] font-semibold text-xl tracking-wide leading-13">Tentang</h2>
-            <h3 className="font-semibold text-[2.6rem] leading-13 text-balance tracking-wide pb-4">Kepercayaan dan Kualitas Dalam Setiap Layanan</h3>
+            <h2 className="text-[#A4161A] font-semibold text-xl tracking-wide leading-13">
+              Tentang
+            </h2>
+            <h3 className="font-semibold text-[2.6rem] leading-13 text-balance tracking-wide pb-4">
+              Kepercayaan dan Kualitas Dalam Setiap Layanan
+            </h3>
             <p className="text-[#484848] tracking-widest leading-loose pr-54">
               Putra Service menyadari sepenuhnya betapa pentingnya membangun
               kepercayaan dengan pelanggan, dengan pengalaman belasan tahun
@@ -81,7 +85,7 @@ function App() {
             </p>
             <Link
               className="w-fit text-white bg-[#A30F00] hover:bg-[#730B00] transition-all py-2.5 px-8 rounded-lg mt-4"
-              to="/service"
+              to="/about"
             >
               Read More...
             </Link>
@@ -101,6 +105,29 @@ function App() {
           </div>
         </div>
         <div className="h-full w-full"> test</div>
+      </div>
+
+      <div className="relative min-h-screen">
+        {/* Background */}
+        <div className="min-h-screen absolute top-0 bottom-0 left-0 right-0">
+           <div className="absolute rounded-full border-[#A30F00] border-32 size-[281px] top-15 -left-32"></div>
+           <div className="absolute rounded-full border-[#A30F00] border-48 h-[436px] w-[456px] bottom-0 -right-79.5"></div>
+        </div>
+        {/* Content */}
+        <div className="relative min-h-screen flex flex-col justify-center items-center text-center">
+          <div className=" flex flex-col h-full ">
+            <h2  className="text-[#A20000] font-bold text-[4rem] tracking-[0.017em]">PUTRA SERVICE</h2>
+            <h4 className="italic text-2xl tracking-[0.017em]">Siap Melayani Pelanggan Dengan Sepenuh Hati</h4>
+          </div>
+            <div className="h-full mt-15 flex items-center justify-center">
+              <Link
+              className="w-fit text-[#A4161A] font-semibold hover:bg-[#A30F00] active:bg-[#730B00] hover:text-white border-2 border-[#A4161A] transition-all py-3 px-8 rounded-lg"
+              to="/about"
+            >
+              Pesan sekarang
+            </Link>
+            </div>
+        </div>
       </div>
     </div>
   );
