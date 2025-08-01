@@ -88,6 +88,20 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* mengapa harus kami */}
+      <div className="min-h-screen flex flex-col items-center bg-[#9A0E00]">
+        <div className="flex w-full h-29 items-end text-white">
+          <div className="flex items-center w-full justify-between">
+            <div className="w-94 bg-white h-5"></div>
+            <h2 className=" font-bold text-[2.75rem] tracking-[0.04em] bottom-0">
+              Mengapa Harus Kami ?
+            </h2>
+            <div className="w-94 bg-white h-5"></div>
+          </div>
+        </div>
+        <div className="h-full w-full"> test</div>
+      </div>
     </div>
   );
 }
