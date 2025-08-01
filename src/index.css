@@ -7,3 +7,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html, body {
+  scrollbar-width: none; /* Untuk Firefox */
+  -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+}
+
+/* Untuk browser berbasis WebKit (Chrome, Safari, dll.) */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}
