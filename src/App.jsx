@@ -1,13 +1,20 @@
 // import { useState } from 'react'
 import "./App.css";
 import { Link } from "react-router-dom";
-import Banner from "./assets/banner.jpg";
 import Review from "./components/Review";
+import Card from "./components/Card.jsx";
+
+import Banner from "./assets/banner.jpg";
 import AcWall from "./assets/ac wall.png";
 import Tenaga from "./assets/tenagaProf.png";
 import Peralatan from "./assets/peralatan.png";
 import Harga from "./assets/hargaKom.png";
-import Card from "./components/Card.jsx";
+import Photo1 from "./assets/photos/1.jpg";
+import Photo2 from "./assets/photos/2.jpg";
+import Photo3 from "./assets/photos/3.jpg";
+import Photo4 from "./assets/photos/4.jpg";
+import Photo5 from "./assets/photos/5.jpg";
+import Photo6 from "./assets/photos/6.jpg";
 
 import StarBorder from "./components/StarBorder/StarBorder.jsx";
 function App() {
@@ -139,6 +146,28 @@ function App() {
               "Hilangkan kekhawatiran anda dengan memanfaatkan layanan perbaikan kami, dan biarkan para ahli kami yg menanganinya."
             }
           />
+        </div>
+      </div>
+
+      {/* dokumentasi */}
+      <div className="h-screen flex items-center ">
+        <div className="flex flex-col pl-33 pr-17">
+          <h4 className="text-[#A4161A] font-semibold text-xl pl-2">Work</h4>
+          <h2 className="font-semibold text-[5.4rem] w-70 wrap-anywhere text-balance leading-26 tracking-wide">
+            DOKUMEN TASI
+          </h2>
+        </div>
+        <div className="flex-1 h-full items-center justify-center flex flex-col gap-3 pr-3">
+          <div className="flex w-full h-64 mt-10 gap-3">
+            <img src={Photo1} alt="" srcset="" className="rounded-lg w-[257px] object-cover"/>
+            <img src={Photo2} alt="" srcset="" className="rounded-lg w-[257px] object-cover"/>
+            <img src={Photo3} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[50%_20%]"/>
+          </div>
+          <div className="flex w-full h-64 gap-3">
+            <img src={Photo4} alt="" srcset="" className="rounded-lg w-[257px] object-cover"/>
+            <img src={Photo5} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[30%]"/>
+            <img src={Photo6} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[50%_100%]"/>
+          </div>
         </div>
       </div>
 
