@@ -5,6 +5,7 @@ import Banner from "./assets/banner.jpg";
 import Review from "./components/Review";
 import AcWall from "./assets/ac wall.png";
 
+import StarBorder from "./components/StarBorder/StarBorder.jsx";
 function App() {
   return (
     <div className="App">
@@ -24,12 +25,20 @@ function App() {
               lainnya. Dengan pengalaman dan keahlian yang luas, kami menawarkan
               layanan service AC yang cepat, efektif, dan harga yang kompetitif.
             </p>
+            <StarBorder
+              as="div"
+              className="w-fit text-white"
+              color="white"
+              speed="2s"
+              thickness={2}
+            >
             <Link
-              className="w-fit bg-[#A30F00] hover:bg-[#730B00] transition-all py-2.5 px-13 rounded-lg mt-9"
+                className="relative z-1 flex bg-[#A30F00] hover:bg-[#730B00] border border-[#FF0000] text-white text-center py-2.5 px-13 rounded-[15px]"
               to="/service"
             >
               Layanan
             </Link>
+            </StarBorder>
           </div>
           <div className="w-full justify-end flex items-end mb-12">
             <Review starsStyle={{ height: "30px", width: "32px" }} />
