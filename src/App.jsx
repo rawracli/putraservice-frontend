@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import Banner from "./assets/banner.jpg";
 import Review from "./components/Review";
 import AcWall from "./assets/ac wall.png";
+import Tenaga from "./assets/tenagaProf.png";
+import Peralatan from "./assets/peralatan.png";
+import Harga from "./assets/hargaKom.png";
+import Card from "./components/Card.jsx";
 
 import StarBorder from "./components/StarBorder/StarBorder.jsx";
 function App() {
@@ -32,12 +36,12 @@ function App() {
               speed="2s"
               thickness={2}
             >
-            <Link
+              <Link
                 className="relative z-1 flex bg-[#A30F00] hover:bg-[#730B00] border border-[#FF0000] text-white text-center py-2.5 px-13 rounded-[15px]"
-              to="/service"
-            >
-              Layanan
-            </Link>
+                to="/service"
+              >
+                Layanan
+              </Link>
             </StarBorder>
           </div>
           <div className="w-full justify-end flex items-end mb-12">
@@ -103,8 +107,8 @@ function App() {
       </div>
 
       {/* mengapa harus kami */}
-      <div className="min-h-screen flex flex-col items-center bg-[#9A0E00]">
-        <div className="flex w-full h-29 items-end text-white">
+      <div className="min-h-[105vh] flex flex-col items-center bg-[#9A0E00]">
+        <div className="flex w-full h-29 text-white items-end">
           <div className="flex items-center w-full justify-between">
             <div className="w-94 bg-white h-5"></div>
             <h2 className=" font-bold text-[2.75rem] tracking-[0.04em] bottom-0">
@@ -113,29 +117,55 @@ function App() {
             <div className="w-94 bg-white h-5"></div>
           </div>
         </div>
-        <div className="h-full w-full"> test</div>
+        <div className="flex justify-around items-center flex-1 w-full px-8">
+          <Card
+            image={Tenaga}
+            title={"TENAGA PROFESIONAL"}
+            description={
+              "Team Kami bekerja secara jujur, efektif, efisien berbekal keahlian, komitmen dan pengalaman sudah lebih dari 10 tahun."
+            }
+          />
+          <Card
+            image={Peralatan}
+            title={"PERALATAN YANG CANGGIH"}
+            description={
+              "Dengan dukungan peralatan canggih dan, kami mampu mendeteksi kerusakan AC secara lebih akurat dan melakukan perbaikan dengan lebih efisien."
+            }
+          />
+          <Card
+            image={Harga}
+            title={"HARGA KOMPETITIF"}
+            description={
+              "Hilangkan kekhawatiran anda dengan memanfaatkan layanan perbaikan kami, dan biarkan para ahli kami yg menanganinya."
+            }
+          />
+        </div>
       </div>
 
-      <div className="relative min-h-screen">
+      <div className="overflow-hidden relative min-h-screen">
         {/* Background */}
         <div className="min-h-screen absolute top-0 bottom-0 left-0 right-0">
-           <div className="absolute rounded-full border-[#A30F00] border-32 size-[281px] top-15 -left-32"></div>
-           <div className="absolute rounded-full border-[#A30F00] border-48 h-[436px] w-[456px] bottom-0 -right-79.5"></div>
+          <div className="absolute rounded-full border-[#A30F00] border-32 size-[281px] top-15 -left-32"></div>
+          <div className="absolute rounded-full border-[#A30F00] border-48 h-[436px] w-[456px] bottom-0 -right-79.5"></div>
         </div>
         {/* Content */}
         <div className="relative min-h-screen flex flex-col justify-center items-center text-center">
           <div className=" flex flex-col h-full ">
-            <h2  className="text-[#A20000] font-bold text-[4rem] tracking-[0.017em]">PUTRA SERVICE</h2>
-            <h4 className="italic text-2xl tracking-[0.017em]">Siap Melayani Pelanggan Dengan Sepenuh Hati</h4>
+            <h2 className="text-[#A20000] font-bold text-[4rem] tracking-[0.017em]">
+              PUTRA SERVICE
+            </h2>
+            <h4 className="italic text-2xl tracking-[0.017em]">
+              Siap Melayani Pelanggan Dengan Sepenuh Hati
+            </h4>
           </div>
-            <div className="h-full mt-15 flex items-center justify-center">
-              <Link
+          <div className="h-full mt-15 flex items-center justify-center">
+            <Link
               className="w-fit text-[#A4161A] font-semibold hover:bg-[#A30F00] active:bg-[#730B00] hover:text-white border-2 border-[#A4161A] transition-all py-3 px-8 rounded-lg"
               to="/about"
             >
               Pesan sekarang
             </Link>
-            </div>
+          </div>
         </div>
       </div>
     </div>
