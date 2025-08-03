@@ -7,8 +7,16 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="flex flex-col min-h-113 text-white bg-[#0A0A0A]">
-      <div className="flex w-full pl-16 pr-56 pt-25 pb-10">
+    <footer className="relative overflow-hidden flex flex-col min-h-113 text-white bg-[#0A0A0A]">
+      {/* Background */}
+      <div className="absolute flex inset-0">
+          <div className="absolute w-27 h-57 rotate-[36deg] bg-[#1F1F1F] top-0 -right-11"></div>
+          <div className="absolute w-29 h-57 rotate-[36deg] bg-[#282828] bottom-3 -right-14"></div>
+          <div className="absolute w-25 h-65 rotate-[-34deg] bg-[#282828] -bottom-13 -left-18"></div>
+      </div>
+
+      {/* Foreground */}
+      <div className="relative flex w-full pl-16 pr-56 pt-25 pb-10">
         <div className="w-49 mr-35">
           <img src={Logo} alt="logo" className="w-35" />
           <p className="text-[0.75rem] leading-[0.885rem] pt-3.5 text-[#DBDBDB]">
