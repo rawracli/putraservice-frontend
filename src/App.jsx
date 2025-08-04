@@ -16,7 +16,9 @@ import Photo4 from "./assets/photos/4.jpg";
 import Photo5 from "./assets/photos/5.jpg";
 import Photo6 from "./assets/photos/6.jpg";
 
-import StarBorder from "./components/StarBorder/StarBorder.jsx";
+import StarBorder from "./components/reactBits/StarBorder.jsx";
+import Lanyard from "./components/reactBits/Lanyard/Lanyard.jsx"
+
 function App() {
   return (
     <div className="App">
@@ -147,6 +149,20 @@ function App() {
             }
           />
         </div>
+      </div>
+
+       {/* garansi */}
+      <div className="flex min-h-[95vh] items-center justify-center font-semibold">
+        <h2 className="text-[7.5rem] tracking-[0.016em] pr-3">BERGARANSI</h2>
+        <div className="relative flex items-center">
+          <h5 className="text-[#A20000] shadow-black drop-shadow-md text-shadow-[5px_2.5px_2px_rgba(0,_0,_0,_0.21)] text-xl pt-25">
+            Selama
+          </h5>
+          <h3 className="absolute leading-70 left-10 -bottom-30 text-[#A20000] text-[21rem] tracking-[-0.07em] text-shadow-[20px_10px_4px_rgba(0,_0,_0,_0.21)]">
+            1<sup className="text-[4rem] text-shadow-none -top-57 ">*</sup>
+          </h3>
+        </div>
+        <h4 className="pl-28 pt-15 text-6xl">Bulan</h4>
       </div>
 
       {/* dokumentasi */}
