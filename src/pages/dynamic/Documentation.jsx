@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Masonry from "../../components/Masonry/Masonry";
+import Masonry from "../../components/reactBits/Masonry/Masonry";
 import bgImage from "../../assets/Pict-Documentation/background-1.jpg";
 
 function Documentation() {
