@@ -1,8 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/source-serif-pro');
 @import "tailwindcss";
 
 @theme {
   --animate-star-movement-bottom: star-movement-bottom linear infinite alternate;
   --animate-star-movement-top:    star-movement-top    linear infinite alternate;
+  --font-source-serif: 'Source Serif Pro', sans-serif;
 
   @keyframes star-movement-bottom {
     0%   { transform: translate(0%, 0%); opacity: 1; -webkit-transform: translate(0%, 0%); -moz-transform: translate(0%, 0%); -ms-transform: translate(0%, 0%); -o-transform: translate(0%, 0%); }

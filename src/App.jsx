@@ -17,6 +17,17 @@ import Photo4 from "./assets/photos/4.jpg";
 import Photo5 from "./assets/photos/5.jpg";
 import Photo6 from "./assets/photos/6.jpg";
 import FAQ from "./assets/faq.webp";
+import Line from "./assets/line.png";
+import AmorCake from "./assets/Logo/amorcakes.png";
+import BPJS from "./assets/Logo/BPJS Kesehatan.png";
+import GlassHouse from "./assets/Logo/glass house.png";
+import Gourmet from "./assets/Logo/gourmet.png";
+import Gramedia from "./assets/Logo/gramedia.png";
+import JanjiJiwa from "./assets/Logo/janji jiwa.png";
+import KimiaFarma from "./assets/Logo/kimia farma.png";
+import Pegadaian from "./assets/Logo/pegadaian.png";
+import SCG from "./assets/Logo/scg.png";
+import Smartfren from "./assets/Logo/smartfren.png";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 
@@ -88,7 +99,7 @@ function App() {
         {/* Content */}
         <div className="relative flex h-full w-full py-30">
           <div className="relative min-w-fit pl-34">
-            <img src={AcWall} alt="" srcset="" className="h-123 w-fit" />
+            <img src={AcWall} alt="" srcSet="" className="h-123 w-fit" />
             <div className="absolute bg-[#88271A] w-fit px-13 py-4.5 items-center flex bottom-[1.85rem] left-10">
               <h4 className="text-white font-bold text-2xl">
                 10++ Years Of Experinces
@@ -167,7 +178,51 @@ function App() {
           </h3>
         </div>
         <h4 className="pl-28 pt-15 text-6xl">Bulan</h4>
-          <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} fov={34}/>
+        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} fov={34} />
+      </div>
+
+      {/* pemercaya */}
+      {/* //TODO: optimize this section */}
+      <div className="relative text-white bg-gradient-to-r from-black to-[#660708] h-118 items-center justify-center flex flex-col">
+        <img src={Line} alt="" className="absolute" draggable="false" />
+        <div className="relative">
+          <h2 className="font-source-serif text-[2.8rem] font-semibold text-center pb-13">
+            Mereka yang Telah Mempercayai Layanan Kami
+          </h2>
+            <div className="grid grid-cols-5 gap-2 mx-55">
+          <div className="h-25 flex items-center">
+            <img src={Gourmet} alt="" />
+          </div>
+          <div className="h-25 flex items-center">
+            <img src={Gramedia} alt="" />
+          </div>
+            <div className="h-25 flex items-center">
+              <img src={AmorCake} alt="" />
+            </div>
+            <div className="h-25 flex items-center">
+              <img src={BPJS} alt="" />
+            </div>
+              <div className="h-25 flex items-center">
+              <img src={Smartfren} alt="" />
+            </div>
+            <div className="h-25 flex items-center justify-center">
+              <img src={GlassHouse} alt="" className="h-25"/>
+            </div>
+            <div className="h-25 flex items-center">
+              <img src={JanjiJiwa} alt="" />
+            </div>
+            <div className="h-25 flex items-center">
+              <img src={SCG} alt="" />
+            </div>
+            <div className="h-25 flex items-center">
+              <img src={Pegadaian} alt="" />
+            </div>
+            <div className="h-25 flex items-center pb-7">
+              <img src={KimiaFarma} alt="" />
+            </div>
+          
+          </div>
+        </div>
       </div>
 
       {/* dokumentasi */}
@@ -180,14 +235,44 @@ function App() {
         </div>
         <div className="flex-1 h-full items-center justify-center flex flex-col gap-3 pr-3">
           <div className="flex w-full h-64 mt-10 gap-3">
-            <img src={Photo1} alt="" srcset="" className="rounded-lg w-[257px] object-cover"/>
-            <img src={Photo2} alt="" srcset="" className="rounded-lg w-[257px] object-cover"/>
-            <img src={Photo3} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[50%_20%]"/>
+            <img
+              src={Photo1}
+              alt=""
+              srcSet=""
+              className="rounded-lg w-[257px] object-cover"
+            />
+            <img
+              src={Photo2}
+              alt=""
+              srcSet=""
+              className="rounded-lg w-[257px] object-cover"
+            />
+            <img
+              src={Photo3}
+              alt=""
+              srcSet=""
+              className="rounded-lg w-[257px] object-cover object-[50%_20%]"
+            />
           </div>
           <div className="flex w-full h-64 gap-3">
-            <img src={Photo4} alt="" srcset="" className="rounded-lg w-[257px] object-cover"/>
-            <img src={Photo5} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[30%]"/>
-            <img src={Photo6} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[50%_100%]"/>
+            <img
+              src={Photo4}
+              alt=""
+              srcSet=""
+              className="rounded-lg w-[257px] object-cover"
+            />
+            <img
+              src={Photo5}
+              alt=""
+              srcSet=""
+              className="rounded-lg w-[257px] object-cover object-[30%]"
+            />
+            <img
+              src={Photo6}
+              alt=""
+              srcSet=""
+              className="rounded-lg w-[257px] object-cover object-[50%_100%]"
+            />
           </div>
         </div>
       </div>
@@ -250,7 +335,7 @@ function App() {
             />
           </div>
         </div>
-        <img src={FAQ} alt="faq" srcset="" className="h-screen pl-14 pr-27" />
+        <img src={FAQ} alt="faq" srcSet="" className="h-screen pl-14 pr-27" />
       </div>
 
       <div className="overflow-hidden relative min-h-screen">
