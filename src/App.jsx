@@ -2,7 +2,8 @@
 import "./App.css";
 import { Link } from "react-router-dom";
 import Review from "./components/Review";
-import Card from "./components/Card.jsx";
+import Card from "./components/whyChooseUse/Card.jsx";
+import DropDown from "./components/faq/DropDown.jsx";
 
 import Banner from "./assets/banner.jpg";
 import AcWall from "./assets/ac wall.png";
@@ -15,9 +16,12 @@ import Photo3 from "./assets/photos/3.jpg";
 import Photo4 from "./assets/photos/4.jpg";
 import Photo5 from "./assets/photos/5.jpg";
 import Photo6 from "./assets/photos/6.jpg";
+import FAQ from "./assets/faq.webp";
+
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 import StarBorder from "./components/reactBits/StarBorder.jsx";
-import Lanyard from "./components/reactBits/Lanyard/Lanyard.jsx"
+import Lanyard from "./components/reactBits/Lanyard/Lanyard.jsx";
 
 function App() {
   return (
@@ -151,7 +155,7 @@ function App() {
         </div>
       </div>
 
-       {/* garansi */}
+      {/* garansi */}
       <div className="flex min-h-[95vh] items-center justify-center font-semibold">
         <h2 className="text-[7.5rem] tracking-[0.016em] pr-3">BERGARANSI</h2>
         <div className="relative flex items-center">
@@ -185,6 +189,67 @@ function App() {
             <img src={Photo6} alt="" srcset="" className="rounded-lg w-[257px] object-cover object-[50%_100%]"/>
           </div>
         </div>
+      </div>
+
+      {/* FAQ */}
+      <div className="flex min-h-screen bg-[#FFEAEA] pl-35">
+        <div className="flex flex-col pt-16 pr-3 flex-1">
+          <h2 className="font-semibold text-[2.7rem] tracking-[0.03em] pb-6">
+            Paling Sering Ditanyakan
+          </h2>
+          <div className="">
+            <DropDown
+              title={"AC saya tidak dingin, kenapa ya?"}
+              open="true"
+              content={
+                <>
+                  <p>Penyebab umum AC tidak dingin antara lain:</p>
+                  <ul className="list-disc pl-6 leading-tight">
+                    <li>Filter kotor</li>
+                    <li>Freon kurang atau habis</li>
+                    <li>Instalasi bocor</li>
+                    <li>Kompresor bermasalah</li>
+                  </ul>
+                  <p>
+                    Solusinya akan diketahui setelah pemeriksaan langsung oleh
+                    teknisi.
+                  </p>
+                </>
+              }
+            />
+            <DropDown
+              title={"Bisa panggil teknisi ke rumah?"}
+              content={
+                <p>
+                  Tentu. Kami melayani servis panggilan ke rumah/kantor, tinggal
+                  atur jadwalnya. Kami datang sesuai janji tanpa tambahan biaya
+                  transport untuk area dalam jangkauan.
+                </p>
+              }
+            />
+            <DropDown
+              title={"Kapan waktu terbaik untuk servis AC?"}
+              content={
+                <p>
+                  Idealnya setiap 3-4 bulan sekali, tergantung intensitas
+                  pemakaian. Untuk AC kantor atau tempat usaha, sebaiknya
+                  dilakukan lebih sering.
+                </p>
+              }
+            />
+            <DropDown
+              title={"Apakah teknisi Anda berpengalaman dan bersertifikat?"}
+              content={
+                <p>
+                  Teknisi kami akan mengatur semua kebutuhan listrik selama
+                  servis berlangsung. Namun, akses ke stop kontak dan saklar
+                  listrik tetap diperlukan.
+                </p>
+              }
+            />
+          </div>
+        </div>
+        <img src={FAQ} alt="faq" srcset="" className="h-screen pl-14 pr-27" />
       </div>
 
       <div className="overflow-hidden relative min-h-screen">
