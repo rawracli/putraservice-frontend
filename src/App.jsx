@@ -156,7 +156,7 @@ function App() {
       </div>
 
       {/* garansi */}
-      <div className="flex min-h-[95vh] items-center justify-center font-semibold">
+      <div className="relative flex min-h-[95vh] items-center justify-center font-semibold overflow-hidden">
         <h2 className="text-[7.5rem] tracking-[0.016em] pr-3">BERGARANSI</h2>
         <div className="relative flex items-center">
           <h5 className="text-[#A20000] shadow-black drop-shadow-md text-shadow-[5px_2.5px_2px_rgba(0,_0,_0,_0.21)] text-xl pt-25">
@@ -167,6 +167,7 @@ function App() {
           </h3>
         </div>
         <h4 className="pl-28 pt-15 text-6xl">Bulan</h4>
+          <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} fov={34}/>
       </div>
 
       {/* dokumentasi */}
