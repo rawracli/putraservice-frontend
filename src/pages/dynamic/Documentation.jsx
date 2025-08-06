@@ -5,11 +5,12 @@ import bgImage from "../../assets/Pict-Documentation/background-1.jpg";
 
 function Documentation() {
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/docs`)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/docs`);
         const data = response.data.map((doc) => ({
           id: doc.id.toString(),
           img: `${import.meta.env.VITE_API_URL_IMAGE}/storage/${doc.image}`,
@@ -17,8 +18,14 @@ function Documentation() {
           height: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
         }));
         setItems(data);
-      })
-      .catch((error) => console.error("Error fetching docs:", error));
+      } catch (error) {
+        console.error("Error fetching docs:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -47,8 +54,13 @@ function Documentation() {
           </div>
         </div>
 
-        <div className="w-full mt-10 mb-10">
-          {items.length > 0 ? (
+        <div className="w-full mt-10 mb-10 flex justify-center items-center">
+          {isLoading ? (
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 border-4 border-gray-300 border-t-[#A30F00] rounded-full animate-spin"></div>
+              <p className="mt-3 text-gray-700">Loading data...</p>
+            </div>
+          ) : items.length > 0 ? (
             <Masonry
               items={items}
               ease="power3.out"
@@ -61,7 +73,7 @@ function Documentation() {
               colorShiftOnHover={false}
             />
           ) : (
-            <p className="text-gray-800 text-center">Loading...</p>
+            <p className="text-gray-800 text-center">Tidak ada data dokumentasi.</p>
           )}
         </div>
       </div>
