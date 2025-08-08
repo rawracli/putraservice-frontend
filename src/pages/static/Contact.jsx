@@ -1,4 +1,7 @@
 import photo from "../../assets/Contact/bg.png"
+import baba from "../../assets/Contact/ant-design_global-outlined.png"
+import bobo from "../../assets/Contact/ic_round-email.png"
+import baibai from "../../assets/Contact/mdi_telephone.png"
 
 function Contact() {
   return (
@@ -49,9 +52,13 @@ function Contact() {
                   </p>
                   <hr className="border-white mb-4 " />
                   <br/>
-                  <p className="mb-2 text-white">📞 0813 - 3333 - 0073</p>
+                  <div className="flex my-2">
+                  <img src={baibai} alt="" className="w-8 h-8 mr-2" />
+                  <p className="mb-2 text-white "> 0813 - 3333 - 0073</p>
+                  </div>
+                  <div className="flex my-2">
+                  <img src={bobo} alt="" className="w-8 h-8 mr-2" />
                   <p className="mb-2 text-white">
-                    📧{" "}
                     <a
                       href="mailto:admin@putraservice.com"
                       className="underline"
@@ -59,8 +66,11 @@ function Contact() {
                       admin@putraservice.com
                     </a>
                   </p>
+                  </div>
+                  <div className="flex my-2">
+                  <img src={baba} alt="" className="w-8 h-8 mr-2" />
                   <p>
-                    🌐{" "}
+                    {" "}
                     <a
                       href="https://putraservice.com"
                       className="underline text-white"
@@ -68,6 +78,7 @@ function Contact() {
                       https://putraservice.com
                     </a>
                   </p>
+                  </div>
                 </div>
               </div>
             </div>
