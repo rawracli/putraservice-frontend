@@ -52,12 +52,12 @@ function App() {
         className="min-h-screen bg-no-repeat bg-cover"
         style={{ backgroundImage: `url(${Banner})` }}
       >
-        <div className="flex pt-25 pl-20 pr-16 min-h-screen">
+        <div className="flex pt-28 pl-15 min-h-screen">
           <div className="w-full h-full flex flex-col pt-19 text-white">
-            <h1 className="text-7xl font-semibold tracking-wider leading-21">
+            <h1 className="text-[3.85rem] font-bold tracking-wide leading-16">
               SERVICE AC SUKABUMI
             </h1>
-            <p className="pt-3 leading-5">
+            <p className="pt-3 pb-5  leading-5 font-poppins text-sm text-[#D3D3D3] pl-2 text-balance">
               Kami adalah tim profesional yang menyediakan jasa service AC untuk
               memenuhi kebutuhan pendinginan udara di rumah, kantor, dan tempat
               lainnya. Dengan pengalaman dan keahlian yang luas, kami menawarkan
@@ -71,7 +71,7 @@ function App() {
               thickness={2}
             >
               <Link
-                className="relative z-1 flex bg-[#A30F00] hover:bg-[#730B00] border border-[#FF0000] text-white text-center py-2.5 px-13 rounded-[15px]"
+                className="relative z-1 flex bg-[#A30F00] hover:bg-[#730B00] border border-[#FF0000] text-white text-center py-2 px-13 rounded-lg"
                 to="/service"
               >
                 Layanan
@@ -118,8 +118,8 @@ function App() {
 
       {/* harga mulai dari */}
       <div className="h-[174px] w-full bg-gradient-to-b from-[#660708] to-[#BA181B] flex items-center justify-center">
-        <h2 className="text-white font-bold text-5xl">
-          HARGA DI MULAI DARI 75.000 !!
+        <h2 className="text-white font-inter font-bold text-5xl">
+          HARGA MULAI DARI 75.000 !!
         </h2>
       </div>
 
@@ -142,7 +142,7 @@ function App() {
         <div className="relative flex h-full w-full py-30">
           <div className="relative min-w-fit pl-34">
             <img src={AcWall} alt="" srcSet="" className="h-123 w-fit" />
-            <div className="absolute bg-[#88271A] w-fit px-13 py-4.5 items-center flex bottom-[1.85rem] left-10">
+            <div className="absolute bg-[#88271A] w-fit px-13 py-4.5 mt-5 items-center flex bottom-[1.7rem] left-10">
               <h4 className="text-white font-bold text-2xl">
                 10++ Years Of Experinces
               </h4>
@@ -155,7 +155,7 @@ function App() {
             <h3 className="font-semibold text-[2.6rem] leading-13 text-balance tracking-wide pb-4">
               Kepercayaan dan Kualitas Dalam Setiap Layanan
             </h3>
-            <p className="text-[#484848] tracking-widest leading-loose pr-54">
+            <p className="text-[#484848] font-poppins tracking-widest leading-loose pr-54">
               Putra Service menyadari sepenuhnya betapa pentingnya membangun
               kepercayaan dengan pelanggan, dengan pengalaman belasan tahun
               dalam bidang perbaikan (service) AC yang bertanggung jawab dan
@@ -163,7 +163,7 @@ function App() {
               terbaik dan terpercaya untuk Anda.
             </p>
             <Link
-              className="w-fit text-white bg-[#A30F00] hover:bg-[#730B00] transition-all py-2.5 px-8 rounded-lg mt-4"
+              className="w-fit text-white bg-[#A30F00] font-semibold hover:bg-[#730B00] transition-all py-2.5 px-8 rounded-lg mt-4"
               to="/about"
             >
               Read More...
@@ -209,7 +209,7 @@ function App() {
       </div>
 
       {/* garansi */}
-      <div className="relative flex min-h-[95vh] items-center justify-center font-semibold overflow-hidden">
+      <div className="relative flex min-h-[95vh] items-center justify-center font-semibold overflow-hidden font-inter">
         <h2 className="text-[7.5rem] tracking-[0.016em] pr-3">BERGARANSI</h2>
         <div className="relative flex items-center">
           <h5 className="text-[#A20000] shadow-black drop-shadow-md text-shadow-[5px_2.5px_2px_rgba(0,_0,_0,_0.21)] text-xl pt-25">
@@ -248,7 +248,7 @@ function App() {
               <img src={Smartfren} alt="" />
             </div>
             <div className="h-25 flex items-center justify-center">
-              <img src={GlassHouse} alt="" className="h-25"/>
+              <img src={GlassHouse} alt="" className="h-25" />
             </div>
             <div className="h-25 flex items-center">
               <img src={JanjiJiwa} alt="" />
@@ -282,7 +282,6 @@ function App() {
           </div>
           <img src={Bg} alt="" className="absolute bottom-0 left-0 w-155" />
           <div className="z-10 w-1/2 mt-16 flex flex-col gap-4 justify-evenly *:rounded-lg">
-            
             <Layanan
               image={Service}
               title={"Service AC"}
@@ -441,14 +440,14 @@ function App() {
         {/* Content */}
         <div className="relative min-h-screen flex flex-col justify-center items-center text-center">
           <div className=" flex flex-col h-full ">
-            <h2 className="text-[#A20000] font-bold text-[4rem] tracking-[0.017em]">
+            <h2 className="text-[#A20000] font-bold text-[4rem] leading-29 tracking-[0.014  em]">
               PUTRA SERVICE
             </h2>
-            <h4 className="italic text-2xl tracking-[0.017em]">
+            <h4 className="italic text-2xl font-poppins tracking-[0.013em]">
               Siap Melayani Pelanggan Dengan Sepenuh Hati
             </h4>
           </div>
-          <div className="h-full mt-15 flex items-center justify-center">
+          <div className="h-full mt-12 flex items-center justify-center">
             <Link
               className="w-fit text-[#A4161A] font-semibold hover:bg-[#A30F00] active:bg-[#730B00] hover:text-white border-2 border-[#A4161A] transition-all py-3 px-8 rounded-lg"
               to="/about"

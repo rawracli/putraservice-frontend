@@ -90,15 +90,15 @@ function Navbar() {
             </div>
             <div className="invisible absolute group-hover:visible flex hover:scale-100 transition-all top-12 left-0 px-3 pb-2">
               <div
-                className={`divide-y-[1.5px] shadow-md ${isOnTop ? "divide-white" : "divide-black"}`}
+                className={`flex flex-col divide-y-[1.5px] shadow-md ${isOnTop ? "divide-white" : "divide-black"}`}
                 id="dropdown"
               >
-                <div className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
-                  <Link to="/contact">Kontak</Link>
-                </div>
-                <div className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
-                  <Link to="/documentation">Dokumentasi</Link>
-                </div>
+                <Link to="/contact" className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
+                 Kontak
+                </Link>
+                <Link to="/documentation" className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
+                  Dokumentasi
+                </Link>
               </div>
             </div>
           </div>

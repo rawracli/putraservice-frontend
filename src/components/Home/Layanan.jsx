@@ -12,12 +12,12 @@ const Layanan = ({image, title, description, className = ""}) => {
         <h4 className="text-[clamp(1rem,2vw,1.5rem)] font-bold pt-1.5">
           {title}
         </h4>
-        <p className="text-[clamp(6px,2vw,14px)] leading-snug tracking-wide font-light text-[#D1D0CF]">
+        <p className="text-[clamp(6px,2vw,14px)] font-inter leading-snug tracking-wide font-light text-[#D1D0CF]">
           {description}
         </p>
         <Link
           to={"/layanan"}
-          className="text-[#BA181B] bg-white absolute bottom-3 right-0 text-xs font-semibold py-1.5 pl-4 pr-3 rounded-md"
+          className="text-[#BA181B] bg-white font-inter absolute bottom-3 right-0 text-xs font-semibold py-1.5 pl-4 pr-3 rounded-md"
         >
           Read More...
         </Link>
