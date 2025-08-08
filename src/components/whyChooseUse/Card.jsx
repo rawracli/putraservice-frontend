@@ -8,7 +8,7 @@ export default function Card({ image, title, description }) {
       <h3 className="font-semibold text-[1.3rem] tracking-wide leading-13 pt-6">
         {title}
       </h3>
-      <p className="tracking-wider text-pretty text-[#484848] leading-relaxed">
+      <p className="tracking-wider font-poppins text-pretty text-[#484848] leading-relaxed">
         {description}
       </p>
       <Link className="flex items-end w-fit gap-6 h-full font-semibold pb-8">

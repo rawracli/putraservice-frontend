@@ -21,7 +21,7 @@ function DropDown({title, content, open = "false"}) {
           />
         </svg>
       </summary>
-      <div className="bg-white text-[#3D3D3D] shadow-[0px_8px_2px_rgba(0,_0,_0,_0.21)] text-sm pt-2 pb-4 px-6 rounded-bl-xl rounded-br-xl">
+      <div className="bg-white text-[#3D3D3D] font-inter shadow-[0px_8px_2px_rgba(0,_0,_0,_0.21)] text-sm pt-2 pb-4 px-6 rounded-bl-xl rounded-br-xl">
         {content}
       </div>
     </details>

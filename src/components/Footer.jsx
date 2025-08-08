@@ -73,7 +73,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-end flex-1 pb-7 pl-5"><p>© Copyright 2025 <span className="font-semibold">PUTRA SERVICE</span>. All Rights Reserved</p></div>
+      <div className="flex flex-col items-center justify-end flex-1 font-inter pb-7 pl-5"><p>© Copyright 2025 <span className="font-semibold">PUTRA SERVICE</span>. All Rights Reserved</p></div>
     </footer>
   );
 }
