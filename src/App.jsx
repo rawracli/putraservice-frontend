@@ -36,6 +36,8 @@ import Bersih from "./assets/Home/Layanan/Logo/bersih.png";
 import Ganti from "./assets/Home/Layanan/Logo/ganti.png";
 import Instalasi from "./assets/Home/Layanan/Logo/instalasi.png";
 import Service from "./assets/Home/Layanan/Logo/service.png";
+import Discount from "./assets/discount.png";
+import Paku from "./assets/paku.png";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 
@@ -76,8 +78,40 @@ function App() {
               </Link>
             </StarBorder>
           </div>
-          <div className="w-full justify-end flex items-end mb-12">
-            <Review starsStyle={{ height: "30px", width: "32px" }} />
+          <div className="w-full justify-between flex flex-col items-end mb-8">
+            <div className="relative shadow-[13px_10px_2px_rgba(0,_0,_0,_0.21)] bg-[#A42619] w-83 h-54 mt-25 mr-11 pr-3 pl-6 pt-6 pb-6">
+              <img
+                src={Paku}
+                alt="paku"
+                className="absolute w-27 -top-9 right-18"
+              />
+              <img
+                src={Discount}
+                alt="discount"
+                className="absolute -right-3 -bottom-4 w-16"
+              />
+              <div className="z-10 flex flex-col h-full">
+                <h4 className="text-[#FFDF3E] text-sm font-extrabold mb-1">
+                  Promo Spesial !
+                </h4>
+                <div className="text-white font-bold text-[12px] flex-1 flex flex-col justify-between">
+                  <div>
+                    <p>Cuci AC makin hemat :</p>
+                    <ul className="list-disc pl-5">
+                      <li>Cuci 5 → bayar hanya 4</li>
+                      <li>cuci 6-9 → bayar jumlah unit dikurangi 1</li>
+                      <li>cuci 10-14 → bayar jumlah unit dikurangi 2</li>
+                      <li>cuci 15-19 → bayar jumlah unit dikurangi 3</li>
+                    </ul>
+                    <p>Dan Seterusnya!</p>
+                  </div>
+                  <p className="">Berlaku hanya dalam 1 kali transaksi</p>
+                </div>
+              </div>
+            </div>
+            <Review
+              starsStyle={{ height: "25px", width: "23px", marginRight: "3px" }}
+            />
           </div>
         </div>
       </div>
