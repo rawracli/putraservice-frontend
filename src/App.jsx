@@ -43,6 +43,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 import StarBorder from "./components/reactBits/StarBorder.jsx";
 import Lanyard from "./components/reactBits/Lanyard/Lanyard.jsx";
+import EmblaCarousel from "./components/Home/EmblaCarousel.jsx";
 
 function App() {
   return (
@@ -316,6 +317,17 @@ function App() {
             />
           </div>
         </div>
+      </div>
+
+      {/* testimoni */}
+      <div className="h-fit">
+        <div className="h-62 flex flex-col items-center justify-center font-semibold text-center">
+          <h3 className="text-[#A4161A] text-[1.3rem] pb-1">Testimoni</h3>
+          <h2 className="text-[2.65rem] leading-12">
+            Apa Kata Mereka Tentang <br /> Layanan Kami
+          </h2>
+        </div>
+        <EmblaCarousel />
       </div>
 
       {/* dokumentasi */}
