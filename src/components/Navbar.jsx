@@ -49,6 +49,7 @@ function Navbar() {
         <div className="flex w-full h-full gap-8 text-sm items-center ml-11 justify-center ">
           <NavLink
             to="/"
+            onClick= {() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
               isActive
                 ? "border-[#A42619] border-b-2 relative"
@@ -60,6 +61,7 @@ function Navbar() {
           </NavLink>
           <NavLink
             to="/about"
+            onClick= {() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
               isActive
                 ? "border-[#A42619] border-b-2 relative"
@@ -71,6 +73,7 @@ function Navbar() {
           </NavLink>
           <NavLink
             to="/service"
+            onClick= {() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
               isActive
                 ? "border-[#A42619] border-b-2 relative"
@@ -93,10 +96,10 @@ function Navbar() {
                 className={`flex flex-col divide-y-[1.5px] shadow-md ${isOnTop ? "divide-white" : "divide-black"}`}
                 id="dropdown"
               >
-                <Link to="/contact" className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
+                <Link to="/contact" onClick= {() => window.scrollTo(0, 0)} className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
                  Kontak
                 </Link>
-                <Link to="/documentation" className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
+                <Link to="/documentation" onClick= {() => window.scrollTo(0, 0)} className={`py-2.5 px-4  transition-all ${isOnTop ? "hover:bg-black/30" : "bg-[#FFFBFB] hover:bg-gray-100"}`}>
                   Dokumentasi
                 </Link>
               </div>
