@@ -32,7 +32,7 @@ function Contact() {
                 <input
                   type="text"
                   class="shadow mt-1 placeholder:text-[12px] appearance-none border rounded w-110 py-10 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="nama"
+                  id="pesan"
                   placeholder="Kirim pesan"
                 />
                 </div>
