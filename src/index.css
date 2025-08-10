@@ -27,14 +27,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html, body {
-  scrollbar-width: none; /* Untuk Firefox */
-  -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
-}
-
-/* Untuk browser berbasis WebKit (Chrome, Safari, dll.) */
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-  display: none;
+    --cards: 4;
+  --cardHeight: 87vh;
+  --cardTopPadding: 1.5em;
+  --cardMargin: 4vw;
 }
