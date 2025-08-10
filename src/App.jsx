@@ -46,6 +46,7 @@ import Lanyard from "./components/reactBits/Lanyard/Lanyard.jsx";
 import EmblaCarousel from "./components/Home/EmblaCarousel.jsx";
 
 function App() {
+  const photos = [Photo1, Photo2, Photo3, Photo4, Photo5, Photo6];
   return (
     <div className="App">
       {/* 1st section */}
@@ -338,47 +339,15 @@ function App() {
             DOKUMEN TASI
           </h2>
         </div>
-        <div className="flex-1 h-full items-center justify-center flex flex-col gap-3 pr-3">
-          <div className="flex w-full h-64 mt-10 gap-3">
+        <div className="flex-1 grid grid-cols-3 grid-rows-2 gap-3 pr-3">
+          {photos.map((photo, index) => (
             <img
-              src={Photo1}
+            key={index}
+              src={photo}
               alt=""
-              srcSet=""
-              className="rounded-lg w-[257px] object-cover"
+              className="rounded-lg w-full aspect-[1/1] object-cover"
             />
-            <img
-              src={Photo2}
-              alt=""
-              srcSet=""
-              className="rounded-lg w-[257px] object-cover"
-            />
-            <img
-              src={Photo3}
-              alt=""
-              srcSet=""
-              className="rounded-lg w-[257px] object-cover object-[50%_20%]"
-            />
-          </div>
-          <div className="flex w-full h-64 gap-3">
-            <img
-              src={Photo4}
-              alt=""
-              srcSet=""
-              className="rounded-lg w-[257px] object-cover"
-            />
-            <img
-              src={Photo5}
-              alt=""
-              srcSet=""
-              className="rounded-lg w-[257px] object-cover object-[30%]"
-            />
-            <img
-              src={Photo6}
-              alt=""
-              srcSet=""
-              className="rounded-lg w-[257px] object-cover object-[50%_100%]"
-            />
-          </div>
+          ))}
         </div>
       </div>
 

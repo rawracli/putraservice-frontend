@@ -143,7 +143,7 @@ const EmblaCarousel = () => {
   // );
 
   return (
-    <div className="bg-[#A20000] grid grid-rows-2 gap-5 min-h-screen py-9">
+    <div className="bg-[#A20000] grid grid-rows-2 gap-5 overflow-hidden min-h-screen py-9">
       <div className="overflow-hidden mx-auto flex items-center justify-center" ref={emblaRefTop}>
         <div className="flex">
           {testimonialsForward.map((testimonial, index) => (
