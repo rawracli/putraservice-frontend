@@ -1,8 +1,8 @@
-import Logo from "../assets/logo.svg";
-import Facebook from "../assets/facebook.svg";
-import Instagram from "../assets/instagram.svg";
-import Whatsapp from "../assets/whatsapp.svg";
-import X from "../assets/x.svg";
+import Logo from "../assets/Logo/logo.svg";
+import Facebook from "../assets/Logo/facebook.svg";
+import Instagram from "../assets/Logo/instagram.svg";
+import Whatsapp from "../assets/Logo/whatsapp.svg";
+import X from "../assets/Logo/x.svg";
 import { Link } from "react-router-dom";
 
 function Footer() {

@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
-import DropDown from "../assets/dropdown.png";
-import Logo from "../assets/logo.svg";
+import DropDown from "../assets/Logo/dropdown.png";
+import Logo from "../assets/Logo/logo.svg";
 import { useEffect, useState } from "react";
 
 function Navbar() {

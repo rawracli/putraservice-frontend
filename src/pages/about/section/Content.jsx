@@ -1,28 +1,12 @@
-import bg from "../../assets/About/bg.jpg";
-import pp from "../../assets/About/pp.png";
+import React from 'react'
+import pp from "../../../assets/About/pp.png";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-function About() {
-  const cards = [
-  { id: 1, title: "Card 1", color: "#52B2CF" },
-  { id: 2, title: "Card 2", color: "#E5A36F" },
-  { id: 3, title: "Card 3", color: "#9CADCE" },
-  { id: 4, title: "Card 4", color: "#D4AFB9" },
-];
-
-  return (
-    <div className="flex flex-col contact">
-      <div
-        className="flex items-center w-full bg-no-repeat bg-contain min-h-104"
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-        <h1 className="text-white text-[45px] tracking-[0] ml-20 pt-10 font-bold">
-          TENTANG KAMI
-        </h1>
-      </div>
-      <div className="p-25 bg-gradient-to-b from-[#660708] to-[#A20000]">
+function Content() {
+    return (
+        <div className="p-25 bg-gradient-to-b from-[#660708] to-[#A20000]">
         <div className="flex items-center min-h-screen">
           <div className="flex h-109 gap-13 pl-21">
             <div className="grid grid-flow-col grid-cols-2 grid-rows-2 gap-4 w-129">
@@ -85,49 +69,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="relative flex flex-col items-center overflow-hidden isolate h-104">
-        <div className="w-[130%] absolute z-50 bg-[#A20000] h-30 rounded-b-[200rem_30rem] top-0"></div>
-        <div className="w-[130%] absolute z-40 bg-[#B3181B] h-30 rounded-b-[200rem_30rem] top-14"></div>
-        <div className="w-[130%] absolute z-30 bg-[#C81C1F] h-30 rounded-b-[200rem_30rem] top-29"></div>
-        <div className="w-[130%] absolute z-20 bg-[#F53B3F] h-30 rounded-b-[200rem_30rem] top-44"></div>
-        <div className="w-[130%] absolute z-10 bg-[#FFADAE] h-30 rounded-b-[200rem_30rem] top-59"></div>
-        <div className="w-[130%] absolute z-0 bg-[#FFDCDC] h-30 rounded-b-[200rem_30rem] top-74"></div>
-      </div>
-
-      <div className="w-[90%] mx-auto">
-        <ul
-          id="cards"
-          className="list-none pl-0 grid grid-cols-1 gap-[var(--cardMargin)]"
-          style={{
-            gridTemplateRows: `repeat(var(--cards), var(--cardHeight))`,
-            paddingBottom: `calc(var(--cards) * var(--cardTopPadding))`,
-            marginBottom: `var(--cardMargin)`,
-          }}
-        >
-          {cards.map((card) => (
-            <li
-              key={card.id}
-              className="card sticky top-0"
-              style={{
-                "--index": card.id,
-                paddingTop: `calc(var(--index) * var(--cardTopPadding))`,
-              }}
-            >
-              <div
-                className="card-body box-border p-[30px] rounded-[50px] shadow-[0_0_30px_rgba(0,0,0,0.3)] flex justify-center items-center transition-all duration-500"
-                style={{
-                  backgroundColor: card.color,
-                  height: `var(--cardHeight)`,
-                }}
-              >
-                <h2 className="text-[2.5em]">{card.title}</h2>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
+    )
 }
 
-export default About;
+export default Content

@@ -1,6 +1,6 @@
 import { VscQuote } from "react-icons/vsc";
-import Stars from "./Stars";
-import Profile from "../../assets/profile.png";
+import Stars from "../Stars";
+import Profile from "../../../assets/Home/profile.png";
 
 const Testimoni = (props) => {
   const {rating, description, name, date} = props;
