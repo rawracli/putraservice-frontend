@@ -1,5 +1,5 @@
-import Arrow from "../../assets/arrow.png";
-import { Link } from "react-router-dom";
+import Arrow from "../../../assets/Home/WhyChooseUs/arrow.png";
+import { Link } from 'react-router-dom';
 
 export default function Card({ image, title, description }) {
   return (

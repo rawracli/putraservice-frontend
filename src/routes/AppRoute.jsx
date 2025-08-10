@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import App from "../App"
-import About from "../pages/static/About"
-import Contact from "../pages/static/Contact"
-import Service from "../pages/static/Service"
-import Documentation from "../pages/dynamic/Documentation"
+import About from "../pages/about/About"
+import Contact from "../pages/contact/Contact"
+import Service from "../pages/service/Service"
+import Documentation from "../pages/documentation/Documentation"
 
 function AppRoute() {
     return(

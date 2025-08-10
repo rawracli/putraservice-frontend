@@ -1,5 +1,3 @@
-import "../../App.css";
-
 function DropDown({title, content, open = "false"}) {
   return (
     <details className="group details pb-5" name="faq" open={open}>

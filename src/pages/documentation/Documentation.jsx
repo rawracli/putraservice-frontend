@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Masonry from "../../components/reactBits/Masonry/Masonry";
-import bgImage from "../../assets/Pict-Documentation/background-1.jpg";
+import Masonry from "../../components/Documentation/Masonry";
+import bgImage from "../../assets/Documentation/background-1.jpg";
+import Hero from "../../components/Hero";
 
 function Documentation() {
   const [items, setItems] = useState([]);
@@ -30,15 +31,7 @@ function Documentation() {
 
   return (
     <div className="max-w-[1600px] mx-auto">
-      <div
-        className="relative aspect-[16/5] bg-black/60 bg-no-repeat bg-cover flex items-center"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        <h1 className="relative text-white text-[48px] mx-30 max-md:mx-4 max-md:text-[38.5px] font-semibold">
-          DOKUMENTASI
-        </h1>
-      </div>
+      <Hero title={"DOKUMENTASI"} backgroundImage={bgImage}/>
 
       <div className="relative bg-white flex justify-center items-center flex-col mx-40">
         <div className="my-10">
