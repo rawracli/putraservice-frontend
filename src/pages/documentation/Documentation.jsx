@@ -31,7 +31,9 @@ function Documentation() {
 
   return (
     <div className="max-w-[1600px] mx-auto">
-      <Hero title={"DOKUMENTASI"} backgroundImage={bgImage}/>
+      <Hero title={"DOKUMENTASI"} backgroundImage={bgImage} children={
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
+      }/>
 
       <div className="relative bg-white flex justify-center items-center flex-col mx-40">
         <div className="my-10">
