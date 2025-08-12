@@ -61,8 +61,11 @@ function FAQSection() {
               key={index} 
               name={"faq"}
               title={item.title} 
+              styleTitle={{backgroundColor: "#A4161A"}}
+              content={<div className="font-inter">{item.content}</div>
+              } 
+              styleContent={{backgroundColor: "#FFFFFF", color: "#3D3D3D"}}
               open={item.open} 
-              content={item.content} 
             />
           ))}
         </div>
