@@ -38,7 +38,7 @@ function Documentation() {
       <div className="relative bg-white flex justify-center items-center flex-col mx-40">
         <div className="my-10">
           <div className="flex gap-7 flex-wrap justify-center">
-            {["Service AC", "Pembersihan AC", "Pengganti suku cadang AC", "Instalasi AC"].map((btn, idx) => (
+            {["Service AC", "Pembersihan AC", "Bongkar & Pasang AC"].map((btn, idx) => (
               <button
                 key={idx}
                 className="px-6 py-2 outline-1 outline-[#A30F00] rounded-2xl hover:bg-[#A30F00] hover:text-white"
