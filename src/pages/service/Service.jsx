@@ -277,12 +277,12 @@
           }
         />
         <div className={`my-10 sticky transition-all duration-300 ${isVisible ? "top-20" : "top-0"}`}>
-          <div className="flex gap-7 flex-wrap justify-center">
+          <div className="flex gap-3 lg:gap-7 flex-wrap justify-center">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                className={`px-6 py-2 border-2 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
+                className={`cursor-pointer px-6 py-2 text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] border-2 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
                   currentCategory === category
                     ? "bg-[#730B00] border-[#730B00] text-white shadow-lg"
                     : ""
@@ -304,7 +304,7 @@
             layanan={value.layanan}
             bottomIcon={value.bottomInfo.image}
             bottomInfo={value.bottomInfo.information}
-            className={index % 2 == 1 ? "lg:flex-row-reverse" : ""}
+            className={index % 2 == 1 ? "md:flex-row-reverse" : ""}
           />
         ))}
         <PriceList listTable={priceList[displayIndex]} name={currentCategory}/>

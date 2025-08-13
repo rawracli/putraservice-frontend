@@ -1,30 +1,30 @@
 function Service() {
   return (
-    <div className="bg-[#660708] overflow-hidden relative h-112 flex items-center">
+    <div className="bg-[#660708] overflow-hidden relative h-100 md:h-112 flex items-center">
       <div className="flex-col flex justify-center z-10">
         <div className="container mx-auto px-4">
-          <div className="w-214">
-            <h2 className="text-white text-[1.6rem] ml-17 leading-8">
+          <div className="w-fit">
+            <h2 className="text-white text-[0.85rem] sm:text-base lg:text-[1.6rem] ml-3 sm:ml-6 lg:ml-17 leading-6 sm:leading-7 lg:leading-8 text-shadow-lg">
               Tunggu apa lagi? Percayakan kebutuhan perawatan dan perbaikan AC
-              Anda kepada tim yang berpengalaman dan terpercaya.
-              <br />
-              Hubungi kami sekarang dan rasakan sendiri layanan cepat, rapi, dan
-              bergaransi!
+              Anda kepada tim yang berpengalaman dan terpercaya. Hubungi kami
+              sekarang dan rasakan sendiri layanan cepat, rapi, dan bergaransi!
             </h2>
-            <button className="mt-6 ml-17 bg-white text-[1.2rem] text-red-900 font-semibold px-6 py-2 rounded-[0.4rem] shadow hover:bg-gray-100 transition border border-red-700">
+            <button className="mt-6 ml-3 sm:ml-6 lg:ml-17 bg-white text-[1.2rem] text-red-900 font-semibold px-6 py-2 rounded-[0.4rem] shadow hover:bg-gray-100 transition border border-red-700">
               Pesan sekarang
             </button>
           </div>
         </div>
       </div>
-      <div className=" relative flex items-center translate-x-10 -right-20 isolate justify-center w-full h-122">
+      <div className="relative isolate flex justify-end w-full h-full">
         {/* size = 7.45 + value sebelumnya */}
-        <div className="absolute size-[55rem] z-10 rounded-full bg-[#A4161A]"></div>
-        <div className="absolute size-[44.1rem] z-20 rounded-full bg-[#C51E21]"></div>
-        <div className="absolute size-[33.95rem] z-30 rounded-full bg-[#EB5353]"></div>
-        <div className="absolute size-[26.45rem] z-40 rounded-full bg-[#FF8080]"></div>
-        <div className="absolute size-[19rem] z-50 rounded-full bg-[#FFA9A9]"></div>
-        <div className="absolute size-[11.55rem] z-60 rounded-full bg-[#FED5D5]"></div>
+        <div className="flex items-center justify-center h-full">
+          <div className="absolute rounded-full z-10 bg-[#A4161A] size-[30rem] sm:size-[35rem] md:size-[40rem] lg:size-[50rem] xl:size-[55rem]"></div>
+          <div className="absolute rounded-full z-20 bg-[#C51E21] size-[24rem] sm:size-[28rem] md:size-[34rem] lg:size-[40rem] xl:size-[44.1rem]"></div>
+          <div className="absolute rounded-full z-30 bg-[#EB5353] size-[18rem] sm:size-[22rem] md:size-[28rem] lg:size-[32rem] xl:size-[33.95rem]"></div>
+          <div className="absolute rounded-full z-40 bg-[#FF8080] size-[14rem] sm:size-[18rem] md:size-[22rem] lg:size-[25rem] xl:size-[26.45rem]"></div>
+          <div className="absolute rounded-full z-50 bg-[#FFA9A9] size-[10rem] sm:size-[13rem] md:size-[16rem] lg:size-[18rem] xl:size-[19rem]"></div>
+          <div className="absolute rounded-full z-60 bg-[#FED5D5] size-[6rem] sm:size-[8rem] md:size-[10rem] lg:size-[11rem] xl:size-[11.55rem]"></div>
+        </div>
       </div>
     </div>
   );

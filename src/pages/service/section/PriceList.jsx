@@ -2,13 +2,13 @@ import React from "react";
 import asterisk from "../../../assets/Logo/asterisk.svg";
 import DropDown from "../../../components/DropDown";
 
-function PriceList({ listTable }) {
+function PriceList({ listTable, name }) {
   return (
-    <div className="mb-14 mx-40 bg-white">
-      <h2 className="text-center font-semibold text-[2.8rem] leading-[calc(2/2.8)] pt-3 pb-5">
+    <div className="mb-8 md:mb-14 mx-4 md:mx-8 lg:mx-16 xl:mx-40 bg-white">
+      <h2 className="text-center font-semibold text-[clamp(2rem,4vh+1rem,2.8rem)] leading-[calc(2/2.8)] pt-3 pb-5">
         Daftar Harga
       </h2>
-      <div className="w-1/2 ml-2 mb-5">
+      <div className="w-full sm:w-2/3 lg:w-1/2 ml-2 mb-5">
         <p className="font-bold text-sm">Catatan :</p>
         {Array.from([
           "Harga Sewaktu-Waktu Bisa Berubah Sesuai Kondisi Di Lapangan/Hasil Survei Dan Harga Spare Part Dari Pabrik",
@@ -23,42 +23,44 @@ function PriceList({ listTable }) {
           </p>
         ))}
       </div>
-      <div>
-        {listTable.map((value) => (
+      <div className="space-y-1">
+        {listTable.map((value, index) => (
           <DropDown
+            key={index}
+            name={name}
+            open={index === 0}
             styleTitle={{
               backgroundColor: "#660708",
-              fontSize: "1.2rem",
-              paddingLeft: "50px",
+              paddingLeft: window.innerWidth < 768 ? "20px" : "50px",
             }}
-            name={"price list"}
             styleContent={{ backgroundColor: "#000000", color: "#FFFFFF" }}
-            title={value.title}
-            open={"false"}
+            title={value.title} 
             content={
-              <div className="px-7 pb-2">
-                <table className="w-full">
-                  <thead className="text-[1.3rem] font-semibold [&_th]:p-2">
-                    <tr>
-                      <th></th>
-                      {value.table.thead.map((value) => (
-                        <th>{value}</th>
-                      ))}
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody className="font-inter [&_td]:p-2 [&_td]:text-lg">
-                    {value.table.tbody.map((row) => (
-                      <tr>
-                        <td></td>
-                        {row.map((item) => (
-                          <td>{item}</td>
+              <div className="w-full">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-full ">
+                    <thead className="font-semibold text-sm md:text-lg lg:text-[1.3rem]">
+                      <tr className="border-b border-gray-700">
+                        {value.table.thead.map((header, idx) => (
+                          <th key={idx} className="p-2 md:p-3 text-left whitespace-nowrap">
+                            {header}
+                          </th>
                         ))}
-                        <td></td>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="text-xs md:text-sm lg:text-lg">
+                      {value.table.tbody.map((row, rowIdx) => (
+                        <tr key={rowIdx} className="border-b border-gray-800">
+                          {row.map((item, itemIdx) => (
+                            <td key={itemIdx} className="p-2 md:p-3 whitespace-nowrap">
+                              {item}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             }
           />
