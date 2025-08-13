@@ -1,5 +1,6 @@
 import React from 'react'
-import EmblaCarousel from "../../../components/Home/Testimonial/EmblaCarousel.jsx";
+import EmblaCarousel from "../../../components/home/Testimonial/EmblaCarousel.jsx";
+
 function Testimonial() {
     return (
         <div className="h-fit">

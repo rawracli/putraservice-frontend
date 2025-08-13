@@ -1,5 +1,5 @@
 import React from "react";
-import Lanyard from "../../../components/Home/Guarantee/Lanyard";
+import Lanyard from "../../../components/home/Guarantee/Lanyard";
 
 function Guarantee() {
   return (

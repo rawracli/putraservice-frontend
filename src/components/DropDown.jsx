@@ -1,4 +1,4 @@
-function DropDown({title, styleTitle, content, styleContent, name, open = "false",}) {
+function DropDown({title, content, open = "false"}) {
   return (
     <details className="group details pb-5" name={name} open={open}>
       <summary className={`text-[0.9rem] lg:text-[1rem] xl:text-[1.5rem] list-none cursor-pointer text-white items-center shadow-[0px_8px_2px_rgba(0,_0,_0,_0.21)] font-semibold py-4 px-7 flex w-full justify-between`} style={styleTitle}>
@@ -19,7 +19,7 @@ function DropDown({title, styleTitle, content, styleContent, name, open = "false
           />
         </svg>
       </summary>
-      <div className={`shadow-[0px_8px_2px_rgba(0,_0,_0,_0.21)] text-sm pt-2 pb-4 px-6 rounded-bl-xl rounded-br-xl`} style={styleContent}>
+      <div className="bg-white text-[#3D3D3D] font-inter shadow-[0px_8px_2px_rgba(0,_0,_0,_0.21)] text-sm pt-2 pb-4 px-6 rounded-bl-xl rounded-br-xl">
         {content}
       </div>
     </details>

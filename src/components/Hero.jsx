@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function Hero({ title, backgroundImage, children, description }) {
   return (
@@ -14,9 +14,7 @@ function Hero({ title, backgroundImage, children, description }) {
         </h1>
         <p className="text-[#ADADAD] text-sm hidden sm:block">{description}</p>
       </div>
-      {children}
-    </div>
-  );
+    )
 }
 
-export default Hero;
+export default Hero

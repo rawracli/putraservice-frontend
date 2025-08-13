@@ -10,6 +10,7 @@ import Testimonial from "./pages/home/sections/Testimonial.jsx";
 import DocumentationSection from "./pages/home/sections/DocumentationSection.jsx";
 import FAQSection from "./pages/home/sections/FAQSection.jsx";
 import CTASection from "./pages/home/sections/CTASection.jsx";
+import Comments from "./pages/home/sections/Comments.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <DocumentationSection/>
       <FAQSection/>
       <CTASection/>
+      <Comments/>
     </>
   );
 }
