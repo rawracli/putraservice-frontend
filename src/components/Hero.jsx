@@ -1,17 +1,20 @@
-import React from 'react'
+import React from "react";
 
-function Hero({title, backgroundImage, children}) {
-    return (
-        <div
-        className="relative flex items-center w-full bg-no-repeat bg-cover min-h-104"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <h1 className="z-10 text-white text-[45px] tracking-[0] ml-20 pt-10 font-bold">
+function Hero({ title, backgroundImage, children, description }) {
+  return (
+    <div
+      className="relative flex flex-col justify-center w-full bg-no-repeat bg-cover min-h-104"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className="z-10 w-[44%] ml-20 pt-14">
+        <h1 className="text-white text-[45px] pb-5 tracking-[0] font-bold">
           {title}
         </h1>
-        {children}
+        <p className="text-[#ADADAD] text-sm">{description}</p>
       </div>
-    )
+      {children}
+    </div>
+  );
 }
 
-export default Hero
+export default Hero;
