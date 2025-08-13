@@ -1,36 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import DropDown from "../assets/Logo/dropdown.png";
 import Logo from "../assets/Logo/logo.svg";
-import { useEffect, useState } from "react";
+import useScrollBehaviour from "../hooks/useScrollBehaviour";
 
 function Navbar() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isOnTop, setIsOnTop] = useState(true);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const controlNavbar = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 0) {
-        setIsOnTop(false);
-      } else {
-        setIsOnTop(true);
-      }
-      if (currentScrollY > lastScrollY && currentScrollY > 150) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", controlNavbar);
-
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, []);
-
+  const { isVisible, isOnTop } = useScrollBehaviour();
   const handleDropdown = () => {
     const dropdown = document.getElementById("dropdown");
     dropdown.classList.toggle("hidden");
