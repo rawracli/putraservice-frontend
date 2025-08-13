@@ -1,5 +1,5 @@
 import React from "react";
-import Layanan from "../../../components/Home/ServiceSection/Card";
+import Layanan from "../../../components/home/ServiceSection/Card";
 import Ac from "../../../assets/Home/Layanan/ac.png";
 import Bg from "../../../assets/Home/Layanan/bg.png";
 import Bersih from "../../../assets/Home/Layanan/Logo/bersih.png";
