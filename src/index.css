@@ -27,8 +27,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    --cards: 4;
-  --cardHeight: 87vh;
+  --cards: 4;
+  --cardHeight: 100vh;
   --cardTopPadding: 1.5em;
   --cardMargin: 4vw;
 }
