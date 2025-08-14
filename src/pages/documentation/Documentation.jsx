@@ -36,6 +36,7 @@ function Documentation() {
       <Hero
         title={"DOKUMENTASI"}
         backgroundImage={bgImage}
+        backgroundPosition={"center"}
         children={
           <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
         }
