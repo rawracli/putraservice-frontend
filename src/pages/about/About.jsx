@@ -8,7 +8,7 @@ function About() {
 
   return (
     <div className="flex flex-col contact">
-      <Hero title={"TENTANG KAMI"} backgroundImage={bg}/>
+      <Hero title={"TENTANG KAMI"} backgroundImage={bg} backgroundPosition={"60% center"}/>
       <Content/>
       <Transition/>
       <StackedSection/>

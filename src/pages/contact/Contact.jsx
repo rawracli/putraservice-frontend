@@ -8,6 +8,7 @@ function Contact() {
       <Hero
         title={"KONTAK KAMI"}
         backgroundImage={bg}
+        backgroundPosition={"60% center"}
         children={
           <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
         }

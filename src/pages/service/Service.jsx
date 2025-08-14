@@ -272,6 +272,7 @@
         <Hero
           title={"LAYANAN & HARGA"}
           backgroundImage={Banner}
+          backgroundPosition={"64% center"}
           description={
             "Penyedia Layanan Jasa Service AC, Pembersihan AC, pengganti suku cadang AC, Instalasi AC baru di Sukabumi yang Profesional dengan harga terjangkau dan bergaransi dengan layanan terbaik. Mulai dari cuci AC, penambahan freon AC, pengisian freon AC, perbaikan AC, pemasangan AC, dan Pengadaan sparepart AC. KEJUJURAN KUNCI UTAMA KAMI"
           }
