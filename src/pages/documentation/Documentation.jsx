@@ -11,7 +11,9 @@ function Documentation() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/docs`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/docs`
+        );
         const data = response.data.map((doc) => ({
           id: doc.id.toString(),
           img: `${import.meta.env.VITE_API_URL_IMAGE}/storage/${doc.image}`,
@@ -31,19 +33,27 @@ function Documentation() {
 
   return (
     <div className="max-w-[1600px] mx-auto">
-      <Hero title={"DOKUMENTASI"} backgroundImage={bgImage}/>
+      <Hero
+        title={"DOKUMENTASI"}
+        backgroundImage={bgImage}
+        children={
+          <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
+        }
+      />
 
       <div className="relative bg-white flex justify-center items-center flex-col mx-40">
         <div className="my-10">
           <div className="flex gap-7 flex-wrap justify-center">
-            {["Service AC", "Pembersihan AC", "Pengganti suku cadang AC", "Instalasi AC"].map((btn, idx) => (
-              <button
-                key={idx}
-                className="px-6 py-2 outline-1 outline-[#A30F00] rounded-2xl hover:bg-[#A30F00] hover:text-white"
-              >
-                {btn}
-              </button>
-            ))}
+            {["Service AC", "Pembersihan AC", "Bongkar & Pasang AC"].map(
+              (btn, idx) => (
+                <button
+                  key={idx}
+                  className="px-6 py-2 outline-1 outline-[#A30F00] rounded-2xl hover:bg-[#A30F00] hover:text-white"
+                >
+                  {btn}
+                </button>
+              )
+            )}
           </div>
         </div>
 
@@ -66,7 +76,9 @@ function Documentation() {
               colorShiftOnHover={false}
             />
           ) : (
-            <p className="text-gray-800 text-center">Tidak ada data dokumentasi.</p>
+            <p className="text-gray-800 text-center">
+              Tidak ada data dokumentasi.
+            </p>
           )}
         </div>
       </div>
