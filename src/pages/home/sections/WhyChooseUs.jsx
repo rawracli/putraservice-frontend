@@ -4,7 +4,7 @@ import Tenaga from "../../../assets/Home/WhyChooseUs/tenagaProf.png";
 import Peralatan from "../../../assets/Home/WhyChooseUs/peralatan.png";
 import Harga from "../../../assets/Home/WhyChooseUs/hargaKom.png";
 
-import Card from "../../../components/home/WhyChooseUs/Card.jsx";
+import Card from "../../../components/Home/WhyChooseUs/Card.jsx";
 
 function WhyChooseUs() {
   return (
