@@ -103,5 +103,5 @@ export const logout = async () => {
 };
 
 export const loginWithGoogle = () => {
-  window.location.href = `${API_URL}/google`;
+  window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
 };

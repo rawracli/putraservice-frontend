@@ -10,35 +10,56 @@ import { loginWithGoogle, login, register, getProfile, logout } from "../../../c
 import ReviewController from "../../../controllers/ReviewController";
 
 function OrderNow() {
-  const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-    {/* Authentication */}
+    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
+    
+    /* Authentication */
     const [activeOverlay, setActiveOverlay] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
-
+    
     const [user, setUser] = useState(null);
-
-    useEffect(() => {
-      async function fetchUser() {
-        const data = await getProfile();
-        setUser(data);
-      }
-      fetchUser();
-    }, []);
-
     const [loading, setLoading] = useState(true);
+    
     useEffect(() => {
-      async function fetchUser() {
-        setLoading(true); // mulai loading
-        const data = await getProfile();
-        setUser(data);
-        setLoading(false); // selesai loading
-      }
+      const fetchUser = async () => {
+        setLoading(true);
+        const token = localStorage.getItem("token");
+      
+        if (!token) {
+          setUser(null);
+          setLoading(false);
+          return;
+        }
+      
+        try {
+          const data = await getProfile();
+          if (!data || data.success === false || data.message === "Unauthenticated.") {
+            setUser(null);
+          } else {
+            setUser(data);
+          }
+        } catch {
+          setUser(null);
+        } finally {
+          setLoading(false);
+        }
+      };
+    
       fetchUser();
     }, []);
 
+    useEffect(() => {
+      const params = new URLSearchParams(window.location.search);
+      const tokenFromURL = params.get("token");
+        
+      if (tokenFromURL) {
+        localStorage.setItem("token", tokenFromURL);
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }, []);
+        
     // Register state
     const [regName, setRegName] = useState("");
     const [regEmail, setRegEmail] = useState("");
