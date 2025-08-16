@@ -150,9 +150,12 @@ function Navbar() {
               </div>
             </div>
             <div className="w-full h-full hidden lg:flex items-center justify-end">
-              <Link className="bg-[#A30F00] text-white hover:bg-[#730B00] transition-all py-2 px-5 rounded-lg active:bg-[#600000]">
+              <a href="https://wa.me/6281333330073"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="bg-[#A30F00] text-white hover:bg-[#730B00] transition-all py-2 px-5 rounded-lg active:bg-[#600000]">
                 Pesan Sekarang
-              </Link>
+              </a>
             </div>
           </div>
         </div>
