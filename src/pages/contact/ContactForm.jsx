@@ -19,14 +19,14 @@ function ContactForm() {
   };
 
   return (
-    <div className="relative md:h-[500px] sm:h-[800px]">
-      <div className="absolute h-full lg:w-[942px] md:w-[500px] sm:w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
+    <div className="relative md:h-[500px] sm:h-[800px] h-[800px]">
+      <div className="absolute h-full md:w-[942px] sm:w-[600px] w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
         <div className="max-w-3x1 mx-auto -mt-20 z-20 relative">
           <div className="bg-white shadow-xl rounded flex ml-10">
             
             {/* 🔹 Bagian Form */}
             <div className="p-10">
-              <h2 className="sm:text-md md:text-3xl sm:text-2xl font-semibold">
+              <h2 className="sm:text-md text-md md:text-3xl sm:text-2xl text-2xl font-semibold">
                 Kirimkan pertanyaan mu
               </h2>
               <br />
@@ -37,7 +37,7 @@ function ContactForm() {
                     type="text"
                     value={nama}
                     onChange={(e) => setNama(e.target.value)} // update state
-                    className="shadow placeholder:text-[12px] appearance-none border rounded md:w-110 sm:w-120 py-3 px-3 text-gray-700 leading-tight focus:outline-none mt-1 focus:shadow-outline"
+                    className="shadow placeholder:text-[12px] appearance-none border rounded md:w-110 sm:w-120 w-120 py-3 px-3 text-gray-700 leading-tight focus:outline-none mt-1 focus:shadow-outline"
                     placeholder="Masukan nama mu"
                     required
                   />
@@ -49,7 +49,7 @@ function ContactForm() {
                     <textarea
                       value={pesan}
                       onChange={(e) => setPesan(e.target.value)} // update state
-                      className="w-full h-[75%] p-3 outline-none resize-none text-[12px]"
+                      className="w-full h-[75%] p-3 outline-none resize-none text-[15px]"
                       placeholder="Tulis pesan"
                       required
                     ></textarea>
@@ -58,9 +58,9 @@ function ContactForm() {
 
                 <button
                   type="submit"
-                  className="bg-white font-medium text-red-700 mt-5 border border-red-700 px-6 py-2 rounded-lg hover:bg-red-800 hover:text-white ml-85 transition"
+                  className="bg-white font-medium text-red-700 mt-5 border-2 border-red-700 px-6 py-2 rounded-lg hover:bg-red-800 hover:text-white ml-75 transition"
                 >
-                  Kirim via WhatsApp
+                  Kirim pesan
                 </button>
               </form>
             </div>
