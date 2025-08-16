@@ -1,32 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import baba from "../../assets/Contact/ant-design_global-outlined.png";
 import bobo from "../../assets/Contact/ic_round-email.png";
 import baibai from "../../assets/Contact/mdi_telephone.png";
 
+// Daftarkan plugin ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
 function ContactForm() {
-  // 🔹 Tambahan state untuk input form
+  // 🔹 State untuk input form
   const [nama, setNama] = useState("");
   const [pesan, setPesan] = useState("");
+
+  // 🔹 Ref untuk animasi
+  const formRef = useRef(null);
+
+  // 🔹 GSAP animasi fade up
+  useEffect(() => {
+    gsap.fromTo(
+      formRef.current,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: formRef.current,
+          start: "top 85%", // animasi mulai saat 85% elemen masuk viewport
+        },
+      }
+    );
+  }, []);
 
   // 🔹 Fungsi kirim ke WhatsApp
   const handleSubmit = (e) => {
     e.preventDefault();
-    const nomor = "6283177081078"; // nomor tujuan
+    const nomor = "6281333330073";
     const text = `Halo, nama saya ${nama}.%0A${pesan}`;
     const url = `https://wa.me/${nomor}?text=${text}`;
     window.open(url, "_blank");
   };
 
   return (
-    <div className="relative md:h-[500px] sm:h-[800px] h-[800px]">
-      <div className="absolute h-full md:w-[942px] sm:w-[600px] w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
+    <div className="relative lg:h-[500px] md:h-[800px] h-[800px]">
+      <div className="absolute h-full lg:w-[942px] md:w-[600px] sm:w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
         <div className="max-w-3x1 mx-auto -mt-20 z-20 relative">
-          <div className="bg-white shadow-xl rounded flex ml-10">
-            
+          <div
+            ref={formRef} // ✅ target animasi GSAP
+            className="bg-white shadow-xl rounded flex ml-10"
+          >
             {/* 🔹 Bagian Form */}
             <div className="p-10">
-              <h2 className="sm:text-md text-md md:text-3xl sm:text-2xl text-2xl font-semibold">
+              <h2 className="lg:text-3xl md:text-2xl sm:text-2xl md:text-md sm:text-md font-semibold">
                 Kirimkan pertanyaan mu
               </h2>
               <br />
@@ -36,8 +64,8 @@ function ContactForm() {
                   <input
                     type="text"
                     value={nama}
-                    onChange={(e) => setNama(e.target.value)} // update state
-                    className="shadow placeholder:text-[12px] appearance-none border rounded md:w-110 sm:w-120 w-120 py-3 px-3 text-gray-700 leading-tight focus:outline-none mt-1 focus:shadow-outline"
+                    onChange={(e) => setNama(e.target.value)}
+                    className="shadow placeholder:text-[12px] appearance-none border rounded md:w-110 md:w-120 sm:w-120 py-3 px-3 text-gray-700 leading-tight focus:outline-none mt-1 focus:shadow-outline"
                     placeholder="Masukan nama mu"
                     required
                   />
@@ -48,7 +76,13 @@ function ContactForm() {
                   <div className="w-full h-30 mt-1 border-1 border-black rounded-[10px] flex flex-wrap items-start">
                     <textarea
                       value={pesan}
-                      onChange={(e) => setPesan(e.target.value)} // update state
+                      onChange={(e) => {
+                        setPesan(e.target.value);
+                        e.target.setCustomValidity("");
+                      }}
+                      onInvalid={(e) =>
+                        e.target.setCustomValidity("Pesan tidak boleh kosong!")
+                      }
                       className="w-full h-[75%] p-3 outline-none resize-none text-[15px]"
                       placeholder="Tulis pesan"
                       required
@@ -65,8 +99,8 @@ function ContactForm() {
               </form>
             </div>
 
-            {/* 🔹 Bagian Informasi Kontak */}
-            <div className="hidden md:block bg-[#A20000] min-h-full w-120 ">
+            {/* 🔹 Bagian Informasi Kontak (Desktop) */}
+            <div className="hidden lg:block bg-[#A20000] min-h-full w-120 ">
               <div className="mx-10 my-10 ">
                 <h2 className="text-2xl font-semibold text-white">
                   Informasi Kontak
@@ -104,11 +138,10 @@ function ContactForm() {
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* 🔹 Versi Mobile Informasi Kontak */}
-          <div className="md:hidden block bg-[#A20000] h-80 w-140 mx-10 rounded-b-lg shadow-xl">
+          <div className="lg:hidden block bg-[#A20000] h-80 w-140 mx-10 rounded-b-lg shadow-xl">
             <div className="mx-10 py-10">
               <h2 className="text-3xl font-semibold text-white text-center mb-2">
                 Informasi Kontak
@@ -148,7 +181,6 @@ function ContactForm() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
