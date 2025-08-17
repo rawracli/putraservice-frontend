@@ -105,3 +105,44 @@ export const logout = async () => {
 export const loginWithGoogle = () => {
   window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
 };
+
+export const resendVerification = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) throw new Error("Token tidak ditemukan, silakan login dulu.");
+
+    const res = await axios.post(`${API_URL}/email/resend`, {}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    });
+
+    return res.data;
+  } catch (err) {
+    console.error("Gagal kirim ulang verifikasi:", err.response?.data || err.message);
+    throw err.response?.data || { message: err.message };
+  }
+};
+
+// Kirim email reset password
+export const forgotPassword = async (email) => {
+  try {
+    const res = await axios.post(`${API_URL}/forgot-password`, { email });
+    return res.data;
+  } catch (error) {
+    if (error.response) return error.response.data;
+    throw error;
+  }
+};
+
+// Reset password baru
+export const resetPassword = async (payload) => {
+  try {
+    const res = await axios.post(`${API_URL}/reset-password`, payload);
+    return res.data;
+  } catch (error) {
+    if (error.response) return error.response.data;
+    throw error;
+  }
+};
