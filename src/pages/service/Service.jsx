@@ -277,16 +277,16 @@
             "Penyedia Layanan Jasa Service AC, Pembersihan AC, pengganti suku cadang AC, Instalasi AC baru di Sukabumi yang Profesional dengan harga terjangkau dan bergaransi dengan layanan terbaik. Mulai dari cuci AC, penambahan freon AC, pengisian freon AC, perbaikan AC, pemasangan AC, dan Pengadaan sparepart AC. KEJUJURAN KUNCI UTAMA KAMI"
           }
         />
-        <div className={`my-10 sticky transition-all duration-300 ${isVisible ? "top-20" : "top-0"}`}>
-          <div className="flex gap-3 lg:gap-7 flex-wrap justify-center">
+        <div className={`py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 ${isVisible ? "top-13" : "-top-6"}`}>
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                className={`cursor-pointer px-6 py-2 text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] border-2 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
+                className={`cursor-pointer px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
                   currentCategory === category
-                    ? "bg-[#730B00] border-[#730B00] text-white shadow-lg"
-                    : ""
+                    ? "bg-[#730B00] text-white shadow-lg"
+                    : "bg-white"
                 }`}
               >
                 {category
