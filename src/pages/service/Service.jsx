@@ -260,7 +260,6 @@
     const [searchParams, setSearchParams] = useSearchParams();
     // default (index 0)
     const currentCategory = searchParams.get("category") || "serviceAC";
-    console.log(currentCategory);
     const currentIndex = categories.indexOf(currentCategory);
     const displayIndex = currentIndex !== -1 ? currentIndex : 0;
 

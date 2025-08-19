@@ -6,7 +6,7 @@ const Testimoni = (props) => {
   const {rating, description, name, date} = props;
 
   return (
-      <div className="mx-7 my-3 flex h-full flex-col pb-5">
+      <div className="mx-7 my-3 flex h-full min-w-40 flex-col pb-5">
         <div className="flex-1 flex flex-col justify-evenly">
           <VscQuote className="text-[#A4161A] size-7" />
           <Stars
@@ -14,7 +14,7 @@ const Testimoni = (props) => {
             readonly={true}
             initialRating={rating}
           />
-          <p className="leading-snug">
+          <p className="leading-snug line-clamp-4 text-pretty">
             {description}
           </p>
         </div>

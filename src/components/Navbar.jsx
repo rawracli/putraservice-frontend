@@ -29,10 +29,10 @@ function Navbar() {
             isOnTop
               ? ` ${
                   isOpen
-                    ? "bg-white h-19 shadow-sm shadow-white"
-                    : "text-white from-black/18 to-[#9C9C9C]/18 bg-gradient-to-r h-23"
+                    ? "bg-white h-17 md:h-19 shadow-sm shadow-white"
+                    : "text-white from-black/18 to-[#9C9C9C]/18 bg-gradient-to-r h-19 md:h-23"
                 }`
-              : "bg-white h-19 shadow-sm shadow-white"
+              : "bg-white h-17 md:h-19 shadow-sm shadow-white"
           }`}
         >
           <div className="flex items-center justify-center w-full mx-4 sm:mx-7 md:mx-11 lg:mx-16">
@@ -161,7 +161,7 @@ function Navbar() {
         {isOpen && (
           <div className="fixed z-20">
             <div
-              className="fixed top-[72px] left-0 w-full bg-white shadow-lg z-20 px-6 py-4 animate-slide-down md:hidden"
+              className="fixed top-[68px] left-0 w-full bg-white shadow-lg z-20 px-6 py-4 animate-slide-down md:hidden"
             >
               {["", "about", "service", "contact", "documentation"].map(
                 (value, index) => (

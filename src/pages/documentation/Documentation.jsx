@@ -4,6 +4,7 @@ import Masonry from "../../components/Documentation/Masonry";
 import bgImage from "../../assets/Documentation/background-1.jpg";
 import Hero from "../../components/Hero";
 
+const categories = ["serviceAC", "pembersihanAC", "bongkarPasangAC"];
 function Documentation() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,23 +43,26 @@ function Documentation() {
         }
       />
 
-      <div className="relative bg-white flex justify-center items-center flex-col mx-40">
-        <div className="my-10">
-          <div className="flex gap-7 flex-wrap justify-center">
-            {["Service AC", "Pembersihan AC", "Bongkar & Pasang AC"].map(
-              (btn, idx) => (
-                <button
-                  key={idx}
-                  className="px-6 py-2 outline-1 outline-[#A30F00] rounded-2xl hover:bg-[#A30F00] hover:text-white"
-                >
-                  {btn}
-                </button>
-              )
-            )}
+      <div className="relative bg-white flex justify-center items-center flex-col w-full">
+        <div className={`py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 w-full`}>
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
+            {categories.map((category) => (
+              <button
+                key={category}
+                // onClick={() => handleCategoryChange(category)}
+                className={`cursor-pointer px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white 
+                  
+                `}
+              >
+                {category
+                  .replace(/(?!^)(?<!A)([A-Z])/g, " $1")
+                  .replace(/^./, (str) => str.toUpperCase())}
+              </button>
+            ))}
           </div>
         </div>
 
-        <div className="w-full mt-10 mb-10 flex justify-center items-center">
+        <div className="w-full mt-10 mb-10 flex justify-center items-center px-3 sm:px-9 md:px-12 lg:px-19">
           {isLoading ? (
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 border-4 border-gray-300 border-t-[#A30F00] rounded-full animate-spin"></div>
