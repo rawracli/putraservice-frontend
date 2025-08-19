@@ -28,7 +28,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --cards: 4;
-  --cardHeight: 100vh;
+  --cardHeight: 100svh;
   --cardTopPadding: 1.5em;
   --cardMargin: 4vw;
 }
@@ -45,4 +45,14 @@
 }
 .animate-slide-down {
   animation: slideDown 0.2s ease-in-out forwards;
+}
+
+.no-scrollbar {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }

@@ -12,7 +12,19 @@ const EmblaCarousel = () => {
     const fetchReviews = async () => {
       try {
         const res = await ReviewController.show(); // Kita perlu tambahkan fungsi show di controller frontend
-        setTestimonials(res);
+
+        let filledTestimonials = [...res];
+        const len = filledTestimonials.length;
+
+        if (len > 0 && len < 12) {
+          while (filledTestimonials.length < 12) {
+            filledTestimonials.push(
+              res[filledTestimonials.length % len]
+            );
+          }
+        }
+        
+        setTestimonials(filledTestimonials);
       } catch (error) {
         console.error("Failed to fetch reviews:", error);
       }
@@ -42,11 +54,17 @@ const EmblaCarousel = () => {
   const testimonialLength = testimonials.length;
   const testimonialMid = Math.round(testimonialLength / 2);
   const testimonialsForward = testimonials.slice(0, testimonialMid);
-  const testimonialsBackward = testimonials.slice(testimonialMid, testimonialLength);
+  const testimonialsBackward = testimonials.slice(
+    testimonialMid,
+    testimonialLength
+  );
 
   return (
-    <div className="bg-[#A20000] grid grid-rows-2 gap-5 overflow-hidden min-h-screen py-9">
-      <div className="overflow-hidden mx-auto flex items-center justify-center" ref={emblaRefTop}>
+    <div className="bg-[#A20000] grid grid-rows-2 gap-6 overflow-hidden py-9">
+      <div
+        className="overflow-hidden mx-auto flex items-center justify-center"
+        ref={emblaRefTop}
+      >
         <div className="flex">
           {testimonialsForward.map((testimonial, index) => (
             <div
@@ -64,7 +82,10 @@ const EmblaCarousel = () => {
         </div>
       </div>
 
-      <div className="overflow-hidden mx-auto flex items-center justify-center" ref={emblaRefBottom}>
+      <div
+        className="overflow-hidden mx-auto flex items-center justify-center"
+        ref={emblaRefBottom}
+      >
         <div className="flex">
           {testimonialsBackward.map((testimonial, index) => (
             <div

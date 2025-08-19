@@ -15,7 +15,7 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
   return (
-    <div className="absolute z-0 w-[180%] h-[140%] flex justify-center items-center transform scale-100 origin-center -top-70 translate-x-130">
+    <div className="absolute z-0 flex justify-center items-center transform scale-100 origin-center w-[150%] h-[110%] sm:w-[160%] sm:h-[120%] md:w-[170%] md:h-[130%] lg:w-[170%] lg:h-[130%] xl:w-[180%] xl:h-[140%] -top-[35%] sm:-top-[45%] md:-top-[50%] lg:-top-[50%] md:translate-x-[24%] lg:translate-x-[24%]">
       <Canvas
         camera={{ position: position, fov: fov }}
         gl={{ alpha: transparent }}
@@ -37,6 +37,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
 }
 function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef();
+  const rotatingGroup = useRef(); // Ref baru untuk sub-group card + clamp
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
@@ -47,29 +48,46 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const [isSmall, setIsSmall] = useState(() =>
     typeof window !== 'undefined' && window.innerWidth < 1024
   );
-
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.50, 0]]);
-
   useEffect(() => {
     if (hovered) {
       document.body.style.cursor = dragged ? 'grabbing' : 'grab';
       return () => void (document.body.style.cursor = 'auto');
     }
   }, [hovered, dragged]);
-
   useEffect(() => {
     const handleResize = () => {
       setIsSmall(window.innerWidth < 1024);
     };
-
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
+  // Center seluruh model (card + clip + clamp) untuk prevent orbiting
+  const [groupPosition, setGroupPosition] = useState([0, 0.1, 0]); // Position awal, akan di-adjust
+  useEffect(() => {
+    if (nodes.card.geometry && nodes.clip.geometry && nodes.clamp.geometry) {
+      // Buat temporary group untuk hitung bounding box seluruh
+      const tempGroup = new THREE.Group();
+      const cardTemp = new THREE.Mesh(nodes.card.geometry.clone());
+      const clipTemp = new THREE.Mesh(nodes.clip.geometry.clone());
+      const clampTemp = new THREE.Mesh(nodes.clamp.geometry.clone());
+      tempGroup.add(cardTemp, clipTemp, clampTemp);
+      const boundingBox = new THREE.Box3().setFromObject(tempGroup);
+      const center = new THREE.Vector3();
+      boundingBox.getCenter(center);
+      // Translate semua geometries sebesar -center (center ke origin)
+      nodes.card.geometry.translate(-center.x, -center.y, -center.z);
+      nodes.clip.geometry.translate(-center.x, -center.y, -center.z);
+      nodes.clamp.geometry.translate(-center.x, -center.y, -center.z);
+      // Compensate shift dengan +center ke group position (visual tetap sama)
+      setGroupPosition([0 + center.x, 0.1  + center.y, 0  + center.z]);
+      // Cleanup
+      tempGroup.remove(cardTemp, clipTemp, clampTemp);
+    }
+  }, [nodes]);
   useFrame((state, delta) => {
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
@@ -93,11 +111,13 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
       rot.copy(card.current.rotation());
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
     }
+    // Rotasi kontinu pada sub-group card + clamp (clip tidak ikut kontinu extra)
+    if (rotatingGroup.current) {
+      rotatingGroup.current.rotation.y += delta * 0.8; // Kecepatan 1 radian/detik; ubah jika perlu
+    }
   });
-
   curve.curveType = 'chordal';
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
   return (
     <>
       <group position={[0, 4, 0]}>
@@ -112,19 +132,21 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
-          <CuboidCollider args={[0.8, 1.125, 0.01]} />
+          <CuboidCollider args={[0.8, 1.125, 0.01]} position={[0, 0, 0]}/> {/* Jika collider tidak pas setelah center, tambah position={[offsetX, offsetY, offsetZ]} */}
           <group
             scale={2.25}
-            position={[-3, -1.1, -1]}
+            position={groupPosition} // Position di-adjust secara dinamis
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
             onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
-            <mesh geometry={nodes.card.geometry}>
-              <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.9} metalness={0.8} />
-            </mesh>
+            <group ref={rotatingGroup} position={[-0.0095,0,0]}>
+              <mesh geometry={nodes.card.geometry}>
+                <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.9} metalness={0.8} />
+              </mesh>
+              <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+            </group>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
-            <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
           </group>
         </RigidBody>
       </group>

@@ -1,5 +1,6 @@
 import React from "react";
 import Person from "../../../assets/Home/FAQSection/person.webp";
+import PersonOnly from "../../../assets/Home/FAQSection/personOnly.png";
 import DropDown from "../../../components/DropDown";
 
 function FAQSection() {
@@ -53,12 +54,15 @@ function FAQSection() {
     },
   ];
   return (
-    <div className="flex min-h-screen bg-[#FFEAEA] pl-35">
-      <div className="flex flex-col pt-16 pr-3 flex-1">
-        <h2 className="font-semibold text-[2.7rem] tracking-[0.02em] pb-6 overflow-visible">
-          Paling Sering Ditanyakan
-        </h2>
-        <div className="">
+    <div className="flex relative min-h-svh bg-[rgb(255,234,234)] md:pl-10 lg:pl-35">
+      <div className="z-10 flex flex-col px-4 md:pl-0 md:pr-3 w-full md:w-[60%] lg:w-[50%] xl:w-1/2">
+        <div className="relative pt-16 pb-6 w-full flex justify-center md:block md:justify-normal">
+          <img src={PersonOnly} alt="faq" srcSet="" className="hidden sm:block md:hidden w-60 -bottom-12 -left-19 absolute" />
+          <h2 className="relative w-fit font-semibold text-center md:text-start text-[2.7rem] tracking-[0.02em] leading-12 overflow-visible">
+            Paling Sering <br className="md:hidden"/>Ditanyakan
+          </h2>
+        </div>
+        <div className="z-10">
           {faqData.map((item, index) => (
             <DropDown
               key={index}
@@ -72,7 +76,7 @@ function FAQSection() {
           ))}
         </div>
       </div>
-      <img src={Person} alt="faq" srcSet="" className="h-screen pl-14 pr-27" />
+      <img src={Person} alt="faq" srcSet="" className="hidden md:block h-full absolute md:-right-20 lg:right-12" />
     </div>
   );
 }

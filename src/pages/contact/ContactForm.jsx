@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import baba from "../../assets/Contact/ant-design_global-outlined.png";
-import bobo from "../../assets/Contact/ic_round-email.png";
-import baibai from "../../assets/Contact/mdi_telephone.png";
+import web from "../../assets/Contact/web.png";
+import email from "../../assets/Contact/email.png";
+import telephone from "../../assets/Contact/telephone.png";
 
 function ContactForm() {
   // 🔹 Tambahan state untuk input form
@@ -23,7 +23,6 @@ function ContactForm() {
       <div className="absolute h-full md:w-[942px] sm:w-[600px] w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
         <div className="max-w-3x1 mx-auto -mt-20 z-20 relative">
           <div className="bg-white shadow-xl rounded flex ml-10">
-            
             {/* 🔹 Bagian Form */}
             <div className="p-10">
               <h2 className="sm:text-md text-md md:text-3xl sm:text-2xl text-2xl font-semibold">
@@ -37,8 +36,18 @@ function ContactForm() {
                     type="text"
                     value={nama}
                     onChange={(e) => setNama(e.target.value)} // update state
+                    onMouseOver={(e) =>
+                      e.target.setCustomValidity(
+                        "Harap isi data ini sebelum submit!"
+                      )
+                    }
+                    onMouseOut={(e) => e.target.setCustomValidity("")}
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("Harap isi data ini!")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                     className="shadow placeholder:text-[12px] appearance-none border rounded md:w-110 sm:w-120 w-120 py-3 px-3 text-gray-700 leading-tight focus:outline-none mt-1 focus:shadow-outline"
-                    placeholder="Masukan nama mu"
+                    placeholder="Masukan Nama Mu"
                     required
                   />
                 </div>
@@ -49,7 +58,17 @@ function ContactForm() {
                     <textarea
                       value={pesan}
                       onChange={(e) => setPesan(e.target.value)} // update state
-                      className="w-full h-[75%] p-3 outline-none resize-none text-[15px]"
+                      onMouseOver={(e) =>
+                        e.target.setCustomValidity(
+                          "Harap isi data ini sebelum submit!"
+                        )
+                      }
+                      onMouseOut={(e) => e.target.setCustomValidity("")}
+                      onInvalid={(e) =>
+                        e.target.setCustomValidity("Harap isi data ini!")
+                      }
+                      onInput={(e) => e.target.setCustomValidity("")}
+                      className="w-full h-[75%] p-3 outline-none resize-none text-[15px] placeholder:text-[12px]"
                       placeholder="Tulis pesan"
                       required
                     ></textarea>
@@ -58,7 +77,7 @@ function ContactForm() {
 
                 <button
                   type="submit"
-                  className="bg-white font-medium text-red-700 mt-5 border-2 border-red-700 px-6 py-2 rounded-lg hover:bg-red-800 hover:text-white ml-75 transition"
+                  className="bg-white cursor-pointer font-medium text-red-700 mt-5 border-2 border-red-700 px-6 py-2 rounded-lg hover:bg-red-800 hover:text-white ml-75 transition"
                 >
                   Kirim pesan
                 </button>
@@ -76,12 +95,12 @@ function ContactForm() {
                 </p>
                 <hr className="border-white mb-4 " />
                 <br />
-                <div className="flex my-2">
-                  <img src={baibai} alt="" className="w-8 h-8 mr-2" />
+                <div className="flex my-2 items-center">
+                  <img src={telephone} alt="" className="w-8 h-8 mr-2" />
                   <p className="mb-2 text-white "> 0813 - 3333 - 0073</p>
                 </div>
-                <div className="flex my-2">
-                  <img src={bobo} alt="" className="w-8 h-8 mr-2" />
+                <div className="flex my-2 items-center">
+                  <img src={email} alt="" className="w-7 pl-1 mr-3" />
                   <p className="mb-2 text-white">
                     <a
                       href="mailto:admin@putraservice.com"
@@ -91,8 +110,8 @@ function ContactForm() {
                     </a>
                   </p>
                 </div>
-                <div className="flex my-2">
-                  <img src={baba} alt="" className="w-8 h-8 mr-2" />
+                <div className="flex my-2 items-center">
+                  <img src={web} alt="" className="w-8 h-8 mr-2" />
                   <p>
                     <a
                       href="https://putraservice.com"
@@ -104,7 +123,6 @@ function ContactForm() {
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* 🔹 Versi Mobile Informasi Kontak */}
@@ -119,13 +137,13 @@ function ContactForm() {
               <hr className="border-white mb-2 " />
               <br />
               <div className="flex ">
-                <img src={baibai} alt="" className="w-8 h-8 mr-5" />
+                <img src={telephone} alt="" className="w-8 h-8 mr-5" />
                 <p className="mb-2 text-white font-semibold ">
                   0813 - 3333 - 0073
                 </p>
               </div>
               <div className="flex my-2">
-                <img src={bobo} alt="" className="w-8 h-8 mr-5" />
+                <img src={email} alt="" className="w-7 pl-1 mr-3" />
                 <p className="mb-2 text-white">
                   <a
                     href="mailto:admin@putraservice.com"
@@ -136,7 +154,7 @@ function ContactForm() {
                 </p>
               </div>
               <div className="flex my-2">
-                <img src={baba} alt="" className="w-8 h-8 mr-5" />
+                <img src={web} alt="" className="w-8 h-8 mr-5" />
                 <p className="font-inter">
                   <a
                     href="https://putraservice.com"
@@ -148,7 +166,6 @@ function ContactForm() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
