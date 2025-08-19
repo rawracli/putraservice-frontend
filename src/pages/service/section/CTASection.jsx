@@ -4,14 +4,16 @@ function Service() {
       <div className="flex-col flex justify-center z-10">
         <div className="container mx-auto px-4">
           <div className="w-fit">
-            <h2 className="text-white text-[0.85rem] sm:text-base lg:text-[1.6rem] ml-3 sm:ml-6 lg:ml-17 leading-6 sm:leading-7 lg:leading-8 text-shadow-lg">
+            <h2 className="my-5 text-white text-[0.85rem] sm:text-base lg:text-[1.6rem] ml-3 sm:ml-6 lg:ml-17 leading-6 sm:leading-7 lg:leading-8 text-shadow-lg">
               Tunggu apa lagi? Percayakan kebutuhan perawatan dan perbaikan AC
               Anda kepada tim yang berpengalaman dan terpercaya. Hubungi kami
               sekarang dan rasakan sendiri layanan cepat, rapi, dan bergaransi!
             </h2>
-            <button className="mt-6 ml-3 sm:ml-6 lg:ml-17 bg-white text-[1.2rem] text-red-900 font-semibold px-6 py-2 rounded-[0.4rem] shadow hover:bg-gray-100 transition border border-red-700">
+            <a href="https://wa.me/6281333330073"
+                 target="_blank"
+                 rel="noopener noreferrer" className="mt-6 ml-3 sm:ml-6 lg:ml-17 bg-white text-[1.2rem] text-red-900 font-semibold px-6 py-2 rounded-[0.4rem] shadow hover:bg-[#A30F00] active:bg-[#730B00] hover:text-white  transition border border-red-700">
               Pesan sekarang
-            </button>
+            </a>
           </div>
         </div>
       </div>
