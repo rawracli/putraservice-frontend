@@ -1,4 +1,4 @@
-import Arrow from "../../../assets/Home/WhyChooseUs/arrow.png";
+import Arrow from "../../../assets/Home/WhyChooseUs/arrow.webp";
 import { Link } from 'react-router-dom';
 import ArrowRight from "../../ArrowRight";
 export default function Card({ image, title, description, className }) {

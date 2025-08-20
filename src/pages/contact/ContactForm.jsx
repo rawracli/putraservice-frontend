@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import web from "../../assets/Contact/web.png";
-import email from "../../assets/Contact/email.png";
-import telephone from "../../assets/Contact/telephone.png";
+import web from "../../assets/Contact/web.webp";
+import email from "../../assets/Contact/email.webp";
+import telephone from "../../assets/Contact/telephone.webp";
 
 // Daftarkan plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);

@@ -1,11 +1,11 @@
 import React from "react";
 
-import Photo1 from "../../../assets/Home/DocumentationSection/1.jpg";
-import Photo2 from "../../../assets/Home/DocumentationSection/2.jpg";
-import Photo3 from "../../../assets/Home/DocumentationSection/3.jpg";
-import Photo4 from "../../../assets/Home/DocumentationSection/4.jpg";
-import Photo5 from "../../../assets/Home/DocumentationSection/5.jpg";
-import Photo6 from "../../../assets/Home/DocumentationSection/6.jpg";
+import Photo1 from "../../../assets/Home/DocumentationSection/1.webp";
+import Photo2 from "../../../assets/Home/DocumentationSection/2.webp";
+import Photo3 from "../../../assets/Home/DocumentationSection/3.webp";
+import Photo4 from "../../../assets/Home/DocumentationSection/4.webp";
+import Photo5 from "../../../assets/Home/DocumentationSection/5.webp";
+import Photo6 from "../../../assets/Home/DocumentationSection/6.webp";
 
 function DocumentationSection() {
   const photos = [Photo1, Photo2, Photo3, Photo4, Photo5, Photo6, Photo6, Photo6, Photo6,];

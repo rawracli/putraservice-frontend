@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-import AmorCake from "../../../assets/Home/TrustedClients/Logo/amorcakes.png";
-import BPJS from "../../../assets/Home/TrustedClients/Logo/BPJS Kesehatan.png";
-import GlassHouse from "../../../assets/Home/TrustedClients/Logo/glass house.png";
-import Gourmet from "../../../assets/Home/TrustedClients/Logo/gourmet.png";
-import Gramedia from "../../../assets/Home/TrustedClients/Logo/gramedia.png";
-import JanjiJiwa from "../../../assets/Home/TrustedClients/Logo/janji jiwa.png";
-import KimiaFarma from "../../../assets/Home/TrustedClients/Logo/kimia farma.png";
-import Pegadaian from "../../../assets/Home/TrustedClients/Logo/pegadaian.png";
-import SCG from "../../../assets/Home/TrustedClients/Logo/scg.png";
-import Smartfren from "../../../assets/Home/TrustedClients/Logo/smartfren.png";
-import Line from "../../../assets/Home/TrustedClients/line.png";
+import AmorCake from "../../../assets/Home/TrustedClients/Logo/amorcakes.webp";
+import BPJS from "../../../assets/Home/TrustedClients/Logo/BPJS Kesehatan.webp";
+import GlassHouse from "../../../assets/Home/TrustedClients/Logo/glass house.webp";
+import Gourmet from "../../../assets/Home/TrustedClients/Logo/gourmet.webp";
+import Gramedia from "../../../assets/Home/TrustedClients/Logo/gramedia.webp";
+import JanjiJiwa from "../../../assets/Home/TrustedClients/Logo/janji jiwa.webp";
+import KimiaFarma from "../../../assets/Home/TrustedClients/Logo/kimia farma.webp";
+import Pegadaian from "../../../assets/Home/TrustedClients/Logo/pegadaian.webp";
+import SCG from "../../../assets/Home/TrustedClients/Logo/scg.webp";
+import Smartfren from "../../../assets/Home/TrustedClients/Logo/smartfren.webp";
+import Line from "../../../assets/Home/TrustedClients/line.webp";
 
 function TrustedClients() {
     const [deg, setDeg] = useState(0);

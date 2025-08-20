@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AcWall from "../../../assets/Home/AboutSection/ac wall.jpg";
+import AcWall from "../../../assets/Home/AboutSection/ac wall.webp";
 
 function AboutSection() {
   return (

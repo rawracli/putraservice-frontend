@@ -2,7 +2,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Stars from "../Stars";
-import Profile from "../../../assets/Home/profile.png";
+import Profile from "../../../assets/Home/profile.webp";
 
 const EmblaCarousel = ({data}) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [

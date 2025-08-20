@@ -1,8 +1,8 @@
 import React from "react";
-import pp from "../../../assets/About/pp.png";
-import Photo1 from "../../../assets/About/Photo1.jpg";
-import Photo2 from "../../../assets/About/Photo2.jpg";
-import Photo3 from "../../../assets/About/Photo3.png";
+import pp from "../../../assets/About/pp.webp";
+import Photo1 from "../../../assets/About/Photo1.webp";
+import Photo2 from "../../../assets/About/Photo2.webp";
+import Photo3 from "../../../assets/About/Photo3.webp";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";

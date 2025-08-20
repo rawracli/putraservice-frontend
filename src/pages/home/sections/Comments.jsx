@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import vectorImg from "../../../assets/Home/comments/Vector.png";
-import ArrowImg from "../../../assets/Home/comments/Arrow.png";
-import Google from "../../../assets/Home/Comments/Google.png";
-import Email from "../../../assets/Home/Comments/Email.png";
+import vectorImg from "../../../assets/Home/comments/Vector.webp";
+import ArrowImg from "../../../assets/Home/comments/Arrow.webp";
+import Google from "../../../assets/Home/Comments/Google.webp";
+import Email from "../../../assets/Home/Comments/Email.webp";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import {

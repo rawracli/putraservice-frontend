@@ -1,8 +1,8 @@
   import "./Service.css";
   import Hero from "../../components/Hero";
   import CTASection from "./section/CTASection";
-  import Banner from "../../assets/Service/bg.png";
-  import Photo from "../../assets/Service/photo.png";
+  import Banner from "../../assets/Service/bg.webp";
+  import Photo from "../../assets/Service/photo.webp";
   import clockRed from "../../assets/Service/Logo/clockRed.svg";
   import checkRed from "../../assets/Service/Logo/checkRed.svg";
   import { useSearchParams } from "react-router-dom";

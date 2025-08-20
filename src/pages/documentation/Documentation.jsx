@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Masonry from "../../components/Documentation/Masonry";
-import bgImage from "../../assets/Documentation/background-1.jpg";
+import bgImage from "../../assets/Documentation/background-1.webp";
 import Hero from "../../components/Hero";
 
 const categories = ["serviceAC", "pembersihanAC", "bongkarPasangAC"];
