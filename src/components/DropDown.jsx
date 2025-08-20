@@ -4,7 +4,7 @@ function DropDown({
   content,
   styleContent,
   name,
-  open = "false",
+  open = false,
 }) {
   return (
     <details className="group details pb-5" name={name} open={open}>
@@ -22,8 +22,8 @@ function DropDown({
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M14.7249 18.7336L0.046344 4.21378L3.67565 0.544783L16.5197 13.2499L29.2249 0.405832L32.8939 4.03514L18.3741 18.7137C17.8928 19.2002 17.2379 19.4755 16.5536 19.4792C15.8693 19.483 15.2115 19.2147 14.7249 18.7336Z"
             fill="#EBEAEA"
           />
