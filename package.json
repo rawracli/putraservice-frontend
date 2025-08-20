@@ -17,6 +17,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.11.0",
     "embla-carousel-auto-scroll": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "gsap": "^3.13.0",
     "meshline": "^3.3.1",

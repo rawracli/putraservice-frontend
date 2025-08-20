@@ -1,7 +1,7 @@
 import React from 'react'
 import EmblaCarousel from "../../../components/Home/Testimonial/EmblaCarousel.jsx";
 
-function Testimonial() {
+function Testimonial({data}) {
     return (
         <div className="h-fit">
         <div className="h-62 flex flex-col items-center justify-center font-semibold text-center">
@@ -10,7 +10,7 @@ function Testimonial() {
             Apa Kata Mereka Tentang <br /> Layanan Kami
           </h2>
         </div>
-        <EmblaCarousel />
+        <EmblaCarousel data={data}/>
       </div>
     )
 }

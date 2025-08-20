@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Stars from "../../../components/Home/Stars.jsx"
 import StarBorder from "../../../components/Home/Hero/StarBorder.jsx"
-
+import EmblaCarousel from "../../../components/Home/Hero/EmblaCarousel.jsx";
 import Discount from "../../../assets/Home/Hero/discount.png";
 import Paku from "../../../assets/Home/Hero/paku.png";
 import Banner from "../../../assets/Home/Hero/banner.jpg";
 import Profile from "../../../assets/Home/profile.png";
 
 
-function Hero() {
+function Hero({data}) {
   return (
     <div
       className="relative min-h-screen"
@@ -41,7 +41,7 @@ function Hero() {
             </Link>
           </StarBorder>
         </div>
-        <div className="z-10  md:w-fit md:flex-1 justify-end gap-6 lg:justify-between flex flex-col items-end mb-8">
+        <div className="z-10 md:w-fit md:flex-1 justify-end gap-6 lg:justify-between flex flex-col items-end mb-8">
           <div className="relative shadow-[13px_10px_2px_rgba(0,_0,_0,_0.21)] bg-[#A42619] w-60 md:w-70 h-fit lg:w-83 lg:h-54 md:mt-25 sm:mr-7 mr-11 p-3 md:p-4 lg:p-6 pr-3">
             <img
               src={Paku}
@@ -72,29 +72,7 @@ function Hero() {
               </div>
             </div>
           </div>
-          <div className="flex items-center rounded-lg bg-white/80 w-60 md:w-70 lg:w-83 h-27 sm:mr-7 mr-11">
-            <img src={Profile} alt="" className="mt-1 ml-4 mr-3 md:mt-2 md:mr-4 md:ml-7 w-14 md:w-18" />
-            <div className="flex flex-col h-full py-1">
-              {Stars({
-                style: { height: "25px", width: "23px", marginRight: "3px" },
-                readonly: true,
-                initialRating: 4,
-              })}
-              <div className="pl-1">
-                <div className="py-0.5">
-                  <h3 className="pt-1 pb-1 text-[0.8rem] md:text-sm font-semibold leading-2">
-                    Budiyono Siregar
-                  </h3>
-                  <h5 className="text-[9px] font-light text-[#494949]">
-                    Maret 2025
-                  </h5>
-                </div>
-                <p className="text-[10px] leading-3 md:leading-4 text-balance">
-                  pelayanan nya rapih, cepat, dan memuaskan hasilnya
-                </p>
-              </div>
-            </div>
-          </div>
+          <EmblaCarousel data={data}/>
         </div>
       </div>
     </div>
