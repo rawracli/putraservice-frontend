@@ -76,7 +76,7 @@ function Documentation() {
               stagger={0.05}
               animateFrom="bottom"
               scaleOnHover={true}
-              hoverScale={0.95}
+              hoverScale={1.05}
               blurToFocus={true}
               colorShiftOnHover={false}
             />

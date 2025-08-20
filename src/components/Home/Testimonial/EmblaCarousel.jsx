@@ -1,36 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Testimoni from "./Testimoni";
-import ReviewController from "../../../controllers/ReviewController";
 
-const EmblaCarousel = () => {
-  const [testimonials, setTestimonials] = useState([]);
-
-  // Ambil data review dari API
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const res = await ReviewController.show(); // Kita perlu tambahkan fungsi show di controller frontend
-
-        let filledTestimonials = [...res];
-        const len = filledTestimonials.length;
-
-        if (len > 0 && len < 12) {
-          while (filledTestimonials.length < 12) {
-            filledTestimonials.push(
-              res[filledTestimonials.length % len]
-            );
-          }
-        }
-        
-        setTestimonials(filledTestimonials);
-      } catch (error) {
-        console.error("Failed to fetch reviews:", error);
-      }
-    };
-    fetchReviews();
-  }, []);
+const EmblaCarousel = ({data : testimonials}) => {
 
   const [emblaRefTop] = useEmblaCarousel({ loop: true }, [
     AutoScroll({

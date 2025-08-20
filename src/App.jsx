@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Hero from "./pages/home/sections/Hero.jsx";
 import PricingBanner from "./pages/home/sections/PricingBanner.jsx";
@@ -11,22 +12,48 @@ import DocumentationSection from "./pages/home/sections/DocumentationSection.jsx
 import FAQSection from "./pages/home/sections/FAQSection.jsx";
 import CTASection from "./pages/home/sections/CTASection.jsx";
 import Comments from "./pages/home/sections/Comments.jsx";
+import ReviewController from "./controllers/ReviewController.js";
 
 function App() {
+  const [testimonials, setTestimonials] = useState([]);
+
+  // Ambil data review dari API
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const res = await ReviewController.show(); // Kita perlu tambahkan fungsi show di controller frontend
+
+        let filledTestimonials = [...res];
+        const len = filledTestimonials.length;
+
+        if (len > 0 && len < 12) {
+          while (filledTestimonials.length < 12) {
+            filledTestimonials.push(res[filledTestimonials.length % len]);
+          }
+        }
+
+        setTestimonials(filledTestimonials);
+      } catch (error) {
+        console.error("Failed to fetch reviews:", error);
+      }
+    };
+    fetchReviews();
+  }, []);
+
   return (
     <>
-      <Hero/>
-      <PricingBanner/>
-      <AboutSection/>
-      <WhyChooseUs/>
-      <Guarantee/>
-      <TrustedClients/>
-      <ServiceSection/>
-      <Testimonial/>
-      <DocumentationSection/>
-      <FAQSection/>
-      <CTASection/>
-      <Comments/>
+      <Hero data={testimonials} />
+      <PricingBanner />
+      <AboutSection />
+      <WhyChooseUs />
+      <Guarantee />
+      <TrustedClients />
+      <ServiceSection />
+      <Testimonial data={testimonials} />
+      <DocumentationSection />
+      <FAQSection />
+      <CTASection />
+      <Comments />
     </>
   );
 }
