@@ -1,6 +1,6 @@
 import React from "react";
-import bg from "../../../assets/About/bg2.png";
-import arrowUp from "../../../assets/About/arrowUp.png";
+import bg from "../../../assets/About/bg2.webp";
+import arrowUp from "../../../assets/About/arrowUp.webp";
 import Stack from "../../../components/About/StackedSection/Stack";
 
 const stackedData = [

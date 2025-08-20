@@ -1,11 +1,11 @@
 import React from "react";
 import Layanan from "../../../components/Home/ServiceSection/Card";
-import Ac from "../../../assets/Home/Layanan/ac.png";
-import Bg from "../../../assets/Home/Layanan/bg.png";
-import Bersih from "../../../assets/Home/Layanan/Logo/bersih.png";
-import Ganti from "../../../assets/Home/Layanan/Logo/ganti.png";
-import Instalasi from "../../../assets/Home/Layanan/Logo/instalasi.png";
-import Service from "../../../assets/Home/Layanan/Logo/service.png";
+import Ac from "../../../assets/Home/Layanan/ac.webp";
+import Bg from "../../../assets/Home/Layanan/bg.webp";
+import Bersih from "../../../assets/Home/Layanan/Logo/bersih.webp";
+import Ganti from "../../../assets/Home/Layanan/Logo/ganti.webp";
+import Instalasi from "../../../assets/Home/Layanan/Logo/instalasi.webp";
+import Service from "../../../assets/Home/Layanan/Logo/service.webp";
 
 function ServiceSection() {
   return (
@@ -40,7 +40,7 @@ function ServiceSection() {
           <div className="z-10 w-full lg:w-160 xl:w-full flex px-4 lg:px-0 flex-col gap-4 justify-end *:rounded-lg">
             <Layanan
               image={Service}
-              title={"Service AC"}
+              title={"serviceAC"}
               description={
                 "Utamakan kenyamanan Anda dengan service AC cepat dan tepat. Dikerjakan oleh tim profesional, AC Anda kembali optimal dengan harga bersahabat"
               }
@@ -48,7 +48,7 @@ function ServiceSection() {
             />
             <Layanan
               image={Bersih}
-              title={"Pembersihan AC"}
+              title={"pembersihanAC"}
               description={
                 "Bersihkan AC secara rutin untuk kinerja optimal. Tim kami siap membersihkan hingga ke sela-sela terdalam dengan cepat dan aman."
               }
@@ -56,7 +56,7 @@ function ServiceSection() {
             />
             <Layanan
               image={Instalasi}
-              title={"Bongkar & Pasang AC"}
+              title={"bongkarPasangAC"}
               description={
                 "Kami melayani pembongkaran unit AC yang sudah terpasang serta pemasangan unit AC baru maupun lama. Kedua layanan ini dapat digunakan secara terpisah atau sekaligus."
               }

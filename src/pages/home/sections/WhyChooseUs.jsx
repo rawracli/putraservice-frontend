@@ -1,7 +1,7 @@
 import React from "react";
-import Tenaga from "../../../assets/Home/WhyChooseUs/tenagaProf.png";
-import Peralatan from "../../../assets/Home/WhyChooseUs/peralatan.png";
-import Harga from "../../../assets/Home/WhyChooseUs/hargaKom.png";
+import Tenaga from "../../../assets/Home/WhyChooseUs/tenagaProf.webp";
+import Peralatan from "../../../assets/Home/WhyChooseUs/peralatan.webp";
+import Harga from "../../../assets/Home/WhyChooseUs/hargaKom.webp";
 import Card from "../../../components/Home/WhyChooseUs/Card.jsx";
 function WhyChooseUs() {
   return (

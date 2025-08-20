@@ -1,7 +1,7 @@
 import React from "react";
-import Photo1 from "../../../assets/About/stack1.jpg";
-import Photo2 from "../../../assets/About/stack2.jpg";
-import Photo3 from "../../../assets/About/stack3.jpg";
+import Photo1 from "../../../assets/About/stack1.webp";
+import Photo2 from "../../../assets/About/stack2.webp";
+import Photo3 from "../../../assets/About/stack3.webp";
 import ArrowRight from "../../ArrowRight";
 import { Link } from "react-router-dom";
 

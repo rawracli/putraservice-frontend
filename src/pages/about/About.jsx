@@ -1,4 +1,4 @@
-import bg from "../../assets/About/bg.jpg";
+import bg from "../../assets/About/bg.webp";
 import Hero from "../../components/Hero";
 import Content from "./section/Content";
 import StackedSection from "./section/StackedSection";

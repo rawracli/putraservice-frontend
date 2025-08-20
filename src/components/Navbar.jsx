@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import DropDown from "../assets/Logo/dropdown.png";
+import DropDown from "../assets/Logo/dropdown.webp";
 import Logo from "../assets/Logo/logo.svg";
 import useScrollBehaviour from "../hooks/useScrollBehaviour";
 

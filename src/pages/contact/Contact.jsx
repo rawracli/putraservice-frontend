@@ -1,4 +1,4 @@
-import bg from "../../assets/Contact/bg.png";
+import bg from "../../assets/Contact/bg.webp";
 import Hero from "../../components/Hero";
 import ContactForm from "./ContactForm";
 

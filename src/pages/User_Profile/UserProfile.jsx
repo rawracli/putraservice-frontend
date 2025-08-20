@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import VectorImg from "../../assets/Home/Comments/Vector.png"
+import VectorImg from "../../assets/Home/Comments/Vector.webp"
 import { getProfile, updateProfile, updatePassword } from "../../controllers/AuthController.js";
-import show from '../../assets/UserProfile/Show.png';
-import hide from '../../assets/UserProfile/Hide.png';
+import show from '../../assets/UserProfile/Show.webp';
+import hide from '../../assets/UserProfile/Hide.webp';
 
 function UserProfile() {
     const [nama, setNama] = useState("");

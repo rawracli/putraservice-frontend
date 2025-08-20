@@ -1,6 +1,6 @@
 import React from "react";
 import Person from "../../../assets/Home/FAQSection/person.webp";
-import PersonOnly from "../../../assets/Home/FAQSection/personOnly.png";
+import PersonOnly from "../../../assets/Home/FAQSection/personOnly.webp";
 import DropDown from "../../../components/DropDown";
 
 function FAQSection() {

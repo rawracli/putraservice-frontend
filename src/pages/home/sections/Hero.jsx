@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Stars from "../../../components/Home/Stars.jsx"
 import StarBorder from "../../../components/Home/Hero/StarBorder.jsx"
 import EmblaCarousel from "../../../components/Home/Hero/EmblaCarousel.jsx";
-import Discount from "../../../assets/Home/Hero/discount.png";
-import Paku from "../../../assets/Home/Hero/paku.png";
-import Banner from "../../../assets/Home/Hero/banner.jpg";
-import Profile from "../../../assets/Home/profile.png";
+import Discount from "../../../assets/Home/Hero/discount.webp";
+import Paku from "../../../assets/Home/Hero/paku.webp";
+import Banner from "../../../assets/Home/Hero/banner.webp";
+import Profile from "../../../assets/Home/profile.webp";
 
 
 function Hero({data}) {
