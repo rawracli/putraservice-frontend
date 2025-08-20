@@ -127,16 +127,16 @@ function Footer() {
             </address>
             <div className="flex w-39 mt-4 ml-2">
               <a href="" rel="nofollow" className="mr-4">
-                <img src={Facebook} alt="Facebook" srcset="" />
+                <img src={Facebook} alt="Facebook" srcSet="" />
               </a>
               <a href="" rel="nofollow" className="mr-4">
-                <img src={Instagram} alt="Instagram" srcset="" />
+                <img src={Instagram} alt="Instagram" srcSet="" />
               </a>
               <a href="" rel="nofollow" className="mr-3.5">
-                <img src={X} alt="X" srcset="" />
+                <img src={X} alt="X" srcSet="" />
               </a>
               <a href="" rel="nofollow" className="mr-4">
-                <img src={Whatsapp} alt="Whatsapp" srcset="" />
+                <img src={Whatsapp} alt="Whatsapp" srcSet="" />
               </a>
             </div>
           </div>
@@ -153,16 +153,16 @@ function Footer() {
             </address>
             <div className="flex w-33.5 mt-4 ml-2">
               <a href="" rel="nofollow" className="mr-4">
-                <img src={Facebook} alt="Facebook" srcset="" />
+                <img src={Facebook} alt="Facebook" srcSet="" />
               </a>
               <a href="" rel="nofollow" className="mr-4">
-                <img src={Instagram} alt="Instagram" srcset="" />
+                <img src={Instagram} alt="Instagram" srcSet="" />
               </a>
               <a href="" rel="nofollow" className="mr-3.5">
-                <img src={X} alt="X" srcset="" />
+                <img src={X} alt="X" srcSet="" />
               </a>
               <a href="" rel="nofollow" className="mr-4">
-                <img src={Whatsapp} alt="Whatsapp" srcset="" />
+                <img src={Whatsapp} alt="Whatsapp" srcSet="" />
               </a>
             </div>
           </div>
