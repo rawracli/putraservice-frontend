@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Masonry from "../../components/Documentation/Masonry";
 import bgImage from "../../assets/Documentation/background-1.jpg";
@@ -8,6 +9,15 @@ const categories = ["serviceAC", "pembersihanAC", "bongkarPasangAC"];
 function Documentation() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  // default (index 0)
+  const currentCategory = searchParams.get("category") || "serviceAC";
+  const currentIndex = categories.indexOf(currentCategory);
+  const displayIndex = currentIndex !== -1 ? currentIndex : 0;
+
+  const handleCategoryChange = (category) => {
+    setSearchParams({ category });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +28,7 @@ function Documentation() {
         const data = response.data.map((doc) => ({
           id: doc.id.toString(),
           img: `${import.meta.env.VITE_API_URL_IMAGE}/storage/${doc.image}`,
+          category: (doc.category_id - 1).toString(),
           url: "#",
           height: Math.floor(Math.random() * (600 - 300 + 1)) + 300,
         }));
@@ -49,10 +60,12 @@ function Documentation() {
             {categories.map((category) => (
               <button
                 key={category}
-                // onClick={() => handleCategoryChange(category)}
-                className={`cursor-pointer px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white 
-                  
-                `}
+                onClick={() => handleCategoryChange(category)}
+                className={`cursor-pointer px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
+                 currentCategory == category
+                    ? "bg-[#730B00] text-white shadow-lg"
+                    : "bg-white" 
+                }`}
               >
                 {category
                   .replace(/(?!^)(?<!A)([A-Z])/g, " $1")
@@ -70,7 +83,7 @@ function Documentation() {
             </div>
           ) : items.length > 0 ? (
             <Masonry
-              items={items}
+              items={items.filter((item) => item.category == displayIndex)}
               ease="power3.out"
               duration={0.6}
               stagger={0.05}
