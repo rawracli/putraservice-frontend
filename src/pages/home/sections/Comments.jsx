@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import vectorImg from "../../../assets/Home/comments/Vector.webp";
+import vectorImg from "../../../assets/Home/profile.webp";
 import ArrowImg from "../../../assets/Home/comments/Arrow.webp";
 import Google from "../../../assets/Home/Comments/Google.webp";
 import Email from "../../../assets/Home/Comments/Email.webp";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import {
@@ -21,14 +22,12 @@ import ReviewController from "../../../controllers/ReviewController";
 function Comments() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  // scroll ke bagian komentar jika route /comments atau query verified=true
   const commentsRef = useRef(null);
 
   useEffect(() => {
     const url = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
 
-    // Cek jika route /comments dan query verified=true
     if (
       (url === "/comments" || params.get("verified") === "true") &&
       commentsRef.current
@@ -36,7 +35,100 @@ function Comments() {
       commentsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, []);
-  // akhir dari scroll ke bagian komentar
+
+  // Function to generate random colors and determine text color
+  const generateProfileColors = () => {
+    const colors = [
+      '#EF4444', '#F97316', '#F59E0B', '#EAB308', '#84CC16',
+      '#22C55E', '#10B981', '#14B8A6', '#06B6D4', '#0EA5E9',
+      '#3B82F6', '#6366F1', '#8B5CF6', '#A855F7', '#D946EF',
+      '#EC4899', '#F43F5E', '#DC2626', '#EA580C', '#D97706',
+      '#CA8A04', '#65A30D', '#16A34A', '#059669', '#0D9488',
+      '#0891B2', '#0284C7', '#2563EB', '#4F46E5', '#7C3AED',
+      '#9333EA', '#C026D3', '#DB2777', '#E11D48'
+    ];
+    
+    const bgColor = colors[Math.floor(Math.random() * colors.length)];
+    
+    // Convert hex to RGB to calculate luminance
+    const hexToRgb = (hex) => {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    };
+    
+    const rgb = hexToRgb(bgColor);
+    // Calculate relative luminance
+    const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+    
+    // Use white text for dark backgrounds, black text for light backgrounds
+    const textColor = luminance > 0.5 ? '#000000' : '#FFFFFF';
+    
+    return { bgColor, textColor };
+  };
+
+  // Function to generate initials
+  const generateInitials = (name) => {
+    if (!name) return '';
+    const trimmedName = name.trim();
+    if (!trimmedName) return '';
+    
+    const words = trimmedName.split(' ');
+    if (words.length === 1) {
+      return words[0].charAt(0).toUpperCase();
+    }
+    
+    return (words[0].charAt(0) + words[words.length - 1].charAt(0)).toUpperCase();
+  };
+
+  // Function to generate profile picture
+  const generateProfilePicture = async (name) => {
+    return new Promise((resolve, reject) => {
+      if (!name || !name.trim()) {
+        reject(new Error('Name is required'));
+        return;
+      }
+
+      try {
+        const { bgColor, textColor } = generateProfileColors();
+        const initials = generateInitials(name);
+
+        console.log('Generating profile picture:', { name, initials, bgColor, textColor });
+
+        // Create canvas element
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 200;
+        canvas.height = 200;
+
+        // Draw circular background
+        ctx.fillStyle = bgColor;
+        ctx.beginPath();
+        ctx.arc(100, 100, 100, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Draw text (initials)
+        ctx.fillStyle = textColor;
+        ctx.font = 'bold 80px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(initials, 100, 100);
+
+        // Convert to data URL
+        const dataUrl = canvas.toDataURL('image/png', 0.9); // 0.9 quality for smaller file size
+        
+        console.log('Profile picture generated successfully');
+        resolve(dataUrl);
+
+      } catch (error) {
+        console.error('Canvas profile picture generation error:', error);
+        reject(error);
+      }
+    });
+  };
 
   /* Authentication */
   const [activeOverlay, setActiveOverlay] = useState(null);
@@ -94,10 +186,22 @@ function Comments() {
   const [regEmail, setRegEmail] = useState("");
   const [regPassword, setRegPassword] = useState("");
   const [regErrorMsg, setRegErrorMsg] = useState("");
+  const [isGeneratingProfilePic, setIsGeneratingProfilePic] = useState(false);
 
   const openOverlay = (name) => setActiveOverlay(name);
+  
+  useEffect(() => {
+    if (activeOverlay) {
+      if (document.activeElement && 
+          (document.activeElement.tagName === 'INPUT' || 
+           document.activeElement.tagName === 'TEXTAREA')) {
+        document.activeElement.blur();
+      }
+    }
+  }, [activeOverlay]);
+  
   const closeOverlay = (e) => {
-    if (e.target.id === "overlay-background") {
+    if (e.target.id === "overlay-background" || e.target.id === "close-button") {
       setActiveOverlay(null);
     }
   };
@@ -124,6 +228,7 @@ function Comments() {
   const handleRegister = async (e) => {
     e.preventDefault();
     setRegErrorMsg("");
+    setIsGeneratingProfilePic(true);
 
     try {
       const formData = new FormData();
@@ -131,8 +236,23 @@ function Comments() {
       formData.append("email", regEmail);
       formData.append("password", regPassword);
 
-      if (fileInputRef.current && fileInputRef.current.files[0]) {
-        formData.append("avatar", fileInputRef.current.files[0]);
+      // Generate profile picture
+      try {
+        const profilePicDataUrl = await generateProfilePicture(regName);
+        
+        // Convert data URL to blob
+        const response = await fetch(profilePicDataUrl);
+        const blob = await response.blob();
+        
+        // Create file from blob
+        const file = new File([blob], `${regName.replace(/\s+/g, '_')}_profile.png`, {
+          type: 'image/png'
+        });
+        
+        formData.append("avatar", file);
+      } catch (profileError) {
+        console.warn("Failed to generate profile picture:", profileError);
+        // Continue with registration even if profile picture generation fails
       }
 
       const res = await register(formData);
@@ -141,53 +261,30 @@ function Comments() {
         alert("Registrasi berhasil! Silakan cek email Anda untuk verifikasi.");
         if (res.token) {
           localStorage.setItem("token", res.token);
-          setActiveOverlay("overlay4"); // overlay verifikasi
+          setActiveOverlay("overlay4");
         }
         setRegName("");
         setRegEmail("");
         setRegPassword("");
-        setPhoto(vectorImg);
-        if (fileInputRef.current) fileInputRef.current.value = null;
       } else {
         setRegErrorMsg("Terjadi kesalahan. Coba lagi.");
       }
     } catch (err) {
       console.error(err);
       setRegErrorMsg("Terjadi kesalahan saat registrasi");
+    } finally {
+      setIsGeneratingProfilePic(false);
     }
   };
 
-  const [photo, setPhoto] = useState(vectorImg);
-  const fileInputRef = useRef(null);
-
-  const handleDivClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setPhoto(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-  {
-    /* Akhir dari Authentication */
-  }
-
-  {
-    /* Fungsi Review */
-  }
+  /* Review Functions */
   const [rating, setRating] = useState(0);
   const [komentar, setKomentar] = useState("");
-  // fungsi submit review
+  
   const handleSubmitReview = async () => {
     if (!user) {
       alert("Silakan login terlebih dahulu untuk memberi penilaian");
-      setActiveOverlay("overlay1"); // buka popup login
+      setActiveOverlay("overlay1");
       return;
     }
     if (rating === 0) {
@@ -210,13 +307,8 @@ function Comments() {
       );
     }
   };
-  {
-    /* Akhir dari Fungsi Review */
-  }
 
-  {
-    /* Fungsi Logout */
-  }
+  /* Logout Function */
   const handleLogout = async () => {
     try {
       await logout();
@@ -226,9 +318,6 @@ function Comments() {
       alert("Gagal logout. Coba lagi.");
     }
   };
-  {
-    /* Akhir dari Fungsi Logout */
-  }
 
   const [resendMsg, setResendMsg] = useState("");
   const [resendLoading, setResendLoading] = useState(false);
@@ -237,7 +326,7 @@ function Comments() {
       setResendLoading(true);
       setResendMsg("");
 
-      const res = await resendVerification(); // langsung pakai controller
+      const res = await resendVerification();
 
       if (res?.message) {
         setResendMsg(res.message);
@@ -252,24 +341,23 @@ function Comments() {
     }
   };
 
-  {
-    /* LUPA PASSWORD */
-  }
+  /* FORGOT PASSWORD */
   const [forgotEmail, setForgotEmail] = useState("");
   const [forgotMsg, setForgotMsg] = useState("");
   const [resetToken, setResetToken] = useState("");
   const [forgotLoading, setForgotLoading] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordConfirm, setNewPasswordConfirm] = useState("");
+  
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const resetToken = params.get("reset_token");
-    const emailFromURL = params.get("email"); // ambil email dari query param
+    const emailFromURL = params.get("email");
 
     if (resetToken) {
       setActiveOverlay("overlayReset");
       setResetToken(resetToken);
-      if (emailFromURL) setForgotEmail(emailFromURL); // set email otomatis
+      if (emailFromURL) setForgotEmail(emailFromURL);
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
@@ -277,23 +365,24 @@ function Comments() {
   return (
     <div
       ref={commentsRef}
-      className="w-full h-[750px] bg-[#A4161A] flex items-center justify-center"
+      className="w-full min-h-[88svh] bg-[#A4161A] flex items-center justify-center"
     >
-      <div className="w-[80%] h-[600px] bg-white rounded-[19px] flex items-center justify-center">
-        <section className="w-full h-[85%] flex flex-col items-center">
-          <h1 className="font-semibold text-[36px]">Rating & Komentar</h1>
-          <div className="w-[80%]">
-            <div className="w-full flex flex-row gap-5 mt-10">
-              <div className="bg-[#C2C1C1] w-25 h-21 rounded-full flex items-center justify-center overflow-hidden">
+      <div className="w-[83%] h-fit pb-20 bg-white rounded-[19px] flex justify-center pt-11">
+        <section className="w-full h-fit flex flex-col items-center">
+          <h1 className="font-semibold text-[1.7rem] uppercase px-3 text-center">Rating & Komentar</h1>
+          <div className="w-[90%]">
+            <div className="mt-10">
+              <div className="w-full flex gap-1 md:gap-3 lg:gap-5">
+              <div className="w-19 h-15 md:w-25 md:h-21 rounded-full flex items-center justify-center overflow-hidden">
                 {loading ? (
                   <img
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     src={vectorImg}
                     alt={user?.name || "Avatar"}
                   />
                 ) : (
                   <img
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     src={user?.avatar || vectorImg}
                     alt={user?.name || "Avatar"}
                   />
@@ -301,17 +390,13 @@ function Comments() {
               </div>
               <div className="flex flex-col gap-2 w-full">
                 <div className="w-full">
-                  {loading ? (
-                    <p>Login untuk membuat sebuah penilaian</p>
-                  ) : (
                     <div className="flex justify-between">
-                      <p>
+                      <p className="md:pt-2 pl-1.5">
                         {user?.name || "Login untuk membuat sebuah penilaian"}
                       </p>
                     </div>
-                  )}
                 </div>
-                <div>
+                <div className="hidden md:block">
                   <div className="flex gap-1 cursor-pointer my-auto">
                     {[...Array(5)].map((_, i) => {
                       const value = i + 1;
@@ -359,16 +444,34 @@ function Comments() {
                 </div>
               )}
             </div>
-            <div className="w-full h-60 mt-5 border-2 border-black rounded-[10px] flex flex-wrap items-start">
+            <div className="md:hidden">
+                  <div className="flex gap-1 cursor-pointer my-auto justify-center">
+                    {[...Array(5)].map((_, i) => {
+                      const value = i + 1;
+                      return (
+                        <span key={i} onClick={() => setRating(value)}>
+                          {value <= rating ? (
+                            <StarSolid className="w-10 h-10 text-yellow-500" />
+                          ) : (
+                            <StarOutline className="w-10 h-10 text-gray-700" />
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+            </div>
+            <div className="relative w-full h-46 mt-5 border-1 border-black rounded-[10px] flex flex-wrap items-start">
               <textarea
                 type="text"
-                className="w-full h-[75%] p-3 outline-none resize-none"
+                className="w-full h-full p-3 outline-none resize-none"
                 placeholder="Tuliskan pengalaman anda mengenai layanan kami..."
                 value={komentar}
                 onChange={(e) => setKomentar(e.target.value)}
+                onClick={() => !loading && (openOverlay("overlay1"))}
               ></textarea>
               <div
-                className="w-11 h-11 mr-3 flex items-center justify-center bg-[#A42619] rounded-full ml-auto"
+                className="absolute cursor-pointer bottom-0 right-0 w-11 h-11 mr-3 mb-3 flex items-center justify-center bg-[#A42619] rounded-full ml-auto"
                 onClick={() => {
                   if (!user) {
                     openOverlay("overlay1");
@@ -390,15 +493,16 @@ function Comments() {
                 style={{ backdropFilter: "none" }}
               >
                 {/* Konten overlay di tengah */}
-                <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-                  <h2 className="text-2xl font-semibold mb-4">
-                    Login terlebih dahulu agar dapat <br /> memberikan rating
+                <div className="relative bg-white px-8 rounded-lg shadow-lg max-w-md w-full pt-10 pb-5">
+                  <div className="absolute right-5 top-3 cursor-pointer w-5 h-5 font-black" id="close-button" onClick={closeOverlay}>✕</div>
+                  <h2 className="text-xl font-semibold mb-9 text-center">
+                    Login terlebih dahulu agar dapat memberikan rating
                     dan komentar
                   </h2>
                   <div className="flex flex-wrap justify-center gap-5">
                     <div
                       onClick={loginWithGoogle}
-                      className="outline-2 outline-gray-900 flex flex-row px-4 p-2 rounded-[10px] gap-4 cursor-pointer"
+                      className="border-[1.5px] transition-all hover:-translate-y-0.5 hover:shadow-[0px_3px_0px_rgba(0,_0,_0,_1)] flex flex-row px-4 p-2 rounded-[10px] gap-4 cursor-pointer"
                     >
                       <img
                         className="w-10 h-10 object-contain"
@@ -407,7 +511,7 @@ function Comments() {
                       />
                       <p className="my-auto text-[19px]">Login Dengan Google</p>
                     </div>
-                    <div className="w-69.5 outline-2 outline-gray-900 flex flex-row px-4 p-2 rounded-[10px] gap-4">
+                    <div className="w-69.5 border-[1.5px] transition-all hover:-translate-y-0.5 hover:shadow-[0px_3px_0px_rgba(0,_0,_0,_1)] flex flex-row px-4 p-2 rounded-[10px] gap-4 cursor-pointer">
                       <img
                         className="w-10 h-10 object-contain"
                         src={Email}
@@ -421,6 +525,7 @@ function Comments() {
                       </p>
                     </div>
                   </div>
+                  <div className="w-full text-center pt-9 text-[#9B9B9B]"><p>Tidak punya akun ? <span className="text-[#A20000] cursor-pointer"  onClick={() => openOverlay("overlay3")}>Register</span></p></div>
                 </div>
               </div>
             )}
@@ -434,8 +539,9 @@ function Comments() {
                 className="fixed inset-0 flex items-center justify-center bg-black/45 z-50"
                 style={{ backdropFilter: "none" }}
               >
-                <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-                  <h2 className="text-2xl font-semibold mb-4 text-center">
+                <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+                  <IoIosArrowRoundBack className="absolute size-9 top-4 left-5 cursor-pointer" onClick={() => openOverlay("overlay1")}/>
+                  <h2 className="text-2xl font-semibold text-center">
                     Login
                   </h2>
                   <form onSubmit={handleLogin} className="flex flex-col gap-4">
@@ -464,7 +570,7 @@ function Comments() {
                     <div className="flex flex-row gap-1">
                       <p className="mt-1">Tidak punya akun?</p>
                       <p
-                        className="mt-1 text-[#A20000]"
+                        className="mt-1 text-[#A20000] cursor-pointer"
                         onClick={() => openOverlay("overlay3")}
                       >
                         Registrasi
@@ -501,29 +607,23 @@ function Comments() {
                 className="fixed inset-0 flex items-center justify-center bg-black/45 z-50"
                 style={{ backdropFilter: "none" }}
               >
-                <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+                <div className="absolute bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+                  <IoIosArrowRoundBack className="absolute size-9 top-4 left-5 cursor-pointer" onClick={() => openOverlay("overlay1")}/>
                   <h2 className="text-2xl font-semibold mb-4 text-center">
                     Registrasi
                   </h2>
-                  <form onSubmit={handleRegister}>
-                    <div
-                      className="gap-1 flex flex-col cursor-pointer"
-                      onClick={handleDivClick}
-                    >
-                      <p>Foto Profil</p>
-                      <img
-                        className="w-23 h-23 rounded-full outline-3 outline-red-900 object-cover"
-                        src={photo}
-                        alt="Foto Profil"
-                      />
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        ref={fileInputRef}
-                        onChange={handleFileChange}
-                      />
+
+                  {regName.trim() && (
+                    <div className="flex justify-center mb-4">
+                      <div className="rounded-full bg-gray-200 size-16 flex justify-center items-center border-2 border-gray-300">
+                        <p className="text-center text-gray-600 text-xl font-semibold">
+                          {generateInitials(regName)}
+                        </p>
+                      </div>
                     </div>
+                  )}
+
+                  <form onSubmit={handleRegister}>
                     <div className="gap-5 mt-3">
                       <p>Nama</p>
                       <input
@@ -533,6 +633,7 @@ function Comments() {
                         value={regName}
                         onChange={(e) => setRegName(e.target.value)}
                         required
+                        disabled={isGeneratingProfilePic}
                       />
                     </div>
                     <div className="gap-5 mt-3">
@@ -544,24 +645,27 @@ function Comments() {
                         value={regEmail}
                         onChange={(e) => setRegEmail(e.target.value)}
                         required
+                        disabled={isGeneratingProfilePic}
                       />
                     </div>
                     <div className="gap-5 mt-3">
                       <p>Password</p>
                       <input
                         type="password"
+                        minLength={8}
                         className="w-full h-8 border-1 rounded-[7px] px-3 border-black"
                         placeholder="Masukkan password anda..."
                         value={regPassword}
                         onChange={(e) => setRegPassword(e.target.value)}
                         required
+                        disabled={isGeneratingProfilePic}
                       />
                     </div>
                     <div className="flex flex-row gap-1">
                       <p className="mt-1">Sudah punya akun?</p>
                       <p
-                        className="mt-1 text-[#A20000]"
-                        onClick={() => openOverlay("overlay2")}
+                        className="mt-1 text-[#A20000] cursor-pointer"
+                        onClick={() => !isGeneratingProfilePic && openOverlay("overlay2")}
                       >
                         Login
                       </p>
@@ -571,8 +675,22 @@ function Comments() {
                         {regErrorMsg}
                       </p>
                     )}
-                    <button className="w-full h-9 mt-7 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white">
-                      Registrasi
+                    <button 
+                      type="submit"
+                      className="w-full h-9 mt-7 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
+                      disabled={isGeneratingProfilePic}
+                    >
+                      {isGeneratingProfilePic ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Membuat Profil...
+                        </>
+                      ) : (
+                        "Registrasi"
+                      )}
                     </button>
                   </form>
                 </div>
