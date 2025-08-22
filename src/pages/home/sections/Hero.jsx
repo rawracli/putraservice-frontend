@@ -41,7 +41,7 @@ function Hero({data}) {
             </Link>
           </StarBorder>
         </div>
-        <div className="z-10 md:w-fit md:flex-1 justify-end gap-6 lg:justify-between flex flex-col items-end mb-8">
+        <div className="z-10 md:w-fit overflow-x-hidden md:flex-1 justify-end gap-6 lg:justify-between flex flex-col items-end mb-8">
           <div className="relative shadow-[13px_10px_2px_rgba(0,_0,_0,_0.21)] bg-[#A42619] w-60 md:w-70 h-fit lg:w-83 lg:h-54 md:mt-25 sm:mr-7 mr-11 p-3 md:p-4 lg:p-6 pr-3">
             <img
               src={Paku}
