@@ -252,12 +252,14 @@ function Comments() {
         formData.append("avatar", file);
       } catch (profileError) {
         console.warn("Failed to generate profile picture:", profileError);
-        // Continue with registration even if profile picture generation fails
       }
 
       const res = await register(formData);
 
-      if (res.message?.includes("verify your email")) {
+        if (res.errors) {
+          const allErrors = Object.values(res.errors).flat();
+          setRegErrorMsg(allErrors[0] || "Terjadi kesalahan validasi.");
+        } else if (res.message?.includes("verify your email")) {
         alert("Registrasi berhasil! Silakan cek email Anda untuk verifikasi.");
         if (res.token) {
           localStorage.setItem("token", res.token);
@@ -531,7 +533,7 @@ function Comments() {
             )}
             {/* Akhir dari memilih opsi login */}
 
-            {/* Overlay Registrasi Via Email */}
+            {/* Overlay Login Via Email */}
             {activeOverlay === "overlay2" && (
               <div
                 id="overlay-background"
@@ -613,16 +615,6 @@ function Comments() {
                     Registrasi
                   </h2>
 
-                  {regName.trim() && (
-                    <div className="flex justify-center mb-4">
-                      <div className="rounded-full bg-gray-200 size-16 flex justify-center items-center border-2 border-gray-300">
-                        <p className="text-center text-gray-600 text-xl font-semibold">
-                          {generateInitials(regName)}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
                   <form onSubmit={handleRegister}>
                     <div className="gap-5 mt-3">
                       <p>Nama</p>
@@ -686,7 +678,7 @@ function Comments() {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                           </svg>
-                          Membuat Profil...
+                          Loading...
                         </>
                       ) : (
                         "Registrasi"
