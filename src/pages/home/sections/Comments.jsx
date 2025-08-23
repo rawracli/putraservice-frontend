@@ -256,11 +256,12 @@ function Comments() {
 
       const res = await register(formData);
 
-        if (res.errors) {
-          const allErrors = Object.values(res.errors).flat();
-          setRegErrorMsg(allErrors[0] || "Terjadi kesalahan validasi.");
-        } else if (res.message?.includes("verify your email")) {
-        alert("Registrasi berhasil! Silakan cek email Anda untuk verifikasi.");
+      if (res.success) {
+        // cek property success dari server
+        alert(
+          res.message ||
+            "Registrasi berhasil! Silakan cek email Anda untuk verifikasi."
+        );
         if (res.token) {
           localStorage.setItem("token", res.token);
           setActiveOverlay("overlay4");
@@ -269,7 +270,7 @@ function Comments() {
         setRegEmail("");
         setRegPassword("");
       } else {
-        setRegErrorMsg("Terjadi kesalahan. Coba lagi.");
+        setRegErrorMsg(res.message || "Terjadi kesalahan. Coba lagi.");
       }
     } catch (err) {
       console.error(err);
