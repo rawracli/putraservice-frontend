@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import VectorImg from "../../assets/Home/Comments/Vector.webp"
+import VectorImg from "../../assets/Home/profile.webp"
 import { getProfile, updateProfile, updatePassword } from "../../controllers/AuthController.js";
 import show from '../../assets/UserProfile/Show.webp';
 import hide from '../../assets/UserProfile/Hide.webp';
@@ -148,16 +148,16 @@ function UserProfile() {
                 <div className="w-full h-full gap-8 flex flex-row max-md:flex-wrap">
                     <div className="w-1/2 max-md:w-full px-6 py-7 flex flex-col bg-white rounded-[8px]">
                         <h1 className="font-semibold text-[23px]">Akun</h1>
-                        <div className="flex flex-col mt-2">
+                        <div className="flex flex-col mt-4">
                             <label for="nama">Nama</label>
-                            <input id="nama" type="text" className="px-2 border-1 h-6.5 border-black rounded-[5px]" value={nama} onChange={(e) => setNama(e.target.value)}/>
+                            <input id="nama" type="text" className="px-2 border-1 py-2 border-black rounded-[5px]" value={nama} onChange={(e) => setNama(e.target.value)}/>
                         </div>
-                        <div className="flex flex-col mt-1">
+                        <div className="flex flex-col mt-3">
                             <label for="email">Email</label>
-                            <input id="email" type="email" className="px-2 border-1 h-6.5 border-black rounded-[5px]" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input id="email" type="email" className="px-2 border-1 py-2 border-black rounded-[5px]" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         {message && (<p className="mt-2 text-sm text-[#A4161A]">{message}</p>)}
-                        <button className="w-30 h-8 text-white flex ml-auto mt-auto max-md:mt-13 items-center justify-center bg-[#A30F00] rounded-[5px]" onClick={handleSave} disabled={loading}>{loading ? "Menyimpan..." : "Simpan"}</button>
+                        <button className="w-35 h-10 text-white flex ml-auto mt-8 md:mt-10 items-center justify-center bg-[#A30F00] rounded-[5px] cursor-pointer" onClick={handleSave} disabled={loading}>{loading ? "Menyimpan..." : "Simpan"}</button>
                     </div>
                     <div className="w-1/2 max-md:w-full px-6 py-7 bg-white rounded-[8px] flex items-center justify-center flex-col">
                         <h1 className="font-semibold text-[23px]">Foto Profile</h1>
@@ -165,28 +165,34 @@ function UserProfile() {
                           <img className="w-full h-full object-cover" src={avatarPreview} alt=""/>
                         </div>
                         <input type="file" accept="image/*" id="avatarInput" style={{ display: "none" }} onChange={handleImageChange}/>
-                        <button className="w-30 h-8 text-white mt-5 bg-[#A30F00] rounded-[5px]" onClick={handleSave} disabled={loading}>{loading ? "Menyimpan..." : "Ubah Profile"}</button>
+                        <button className="w-35 h-10 text-white mt-5 bg-[#A30F00] rounded-[5px] cursor-pointer" onClick={handleSave} disabled={loading}>{loading ? "Menyimpan..." : "Ubah Profile"}</button>
                     </div>
                 </div>
                 <div className="w-full px-6 py-7 flex flex-col bg-white rounded-[8px]">
                     <h1 className="font-semibold text-[23px]">Ubah Password</h1>
-                        <div className="flex flex-col mt-2 relative">
-                          <label htmlFor="old_password">Old Password</label>
-                          <input id="old_password" type={showOldPassword ? "text" : "password"} value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} className="px-2 pr-10 border-1 h-6.5 border-black rounded-[5px]" placeholder="Masukan Password Lama"/>
-                          <img src={showOldPassword ? hide : show} alt="Toggle visibility" onClick={() => setShowOldPassword(!showOldPassword)} className="w-5 h-5 absolute right-2 top-[27px] cursor-pointer object-contain"/>
+                        <div className="mt-4">
+                          <label htmlFor="old_password">Password Lama</label>
+                          <div className="relative flex flex-col w-full justify-center">
+                            <input id="old_password" type={showOldPassword ? "text" : "password"} value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} className="px-2 pr-10 border-1 py-2.5 border-black rounded-[5px] text-sm" placeholder="Masukan Password Lama"/>
+                            <img src={showOldPassword ? hide : show} alt="Toggle visibility" onClick={() => setShowOldPassword(!showOldPassword)} className="w-5 h-5 absolute right-2 cursor-pointer object-contain"/>
+                          </div>
                         </div>
-                        <div className="flex flex-col mt-1 relative">
+                        <div className="mt-3">
                           <label for="new_password">Password Baru</label>
-                          <input id="new_password" type={showNewPassword ? "text" : "password"} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} className="px-2 border-1 h-6.5 border-black rounded-[5px]" placeholder="Masukan Password Baru"/>
-                          <img src={showNewPassword ? hide : show} alt="Toggle visibility" onClick={() => setShowNewPassword(!showNewPassword)} className="w-5 h-5 absolute right-2 top-[27px] cursor-pointer object-contain"/>
+                          <div className="relative flex flex-col w-full justify-center">
+                            <input id="new_password" type={showNewPassword ? "text" : "password"} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} className="px-2 border-1 py-2.5 border-black rounded-[5px] text-sm" placeholder="Masukan Password Baru"/>
+                            <img src={showNewPassword ? hide : show} alt="Toggle visibility" onClick={() => setShowNewPassword(!showNewPassword)} className="w-5 h-5 absolute right-2 cursor-pointer object-contain"/>
+                          </div>
                         </div>
-                        <div className="flex flex-col mt-1 relative">
+                        <div className="mt-3">
                           <label for="confirm_password">Konfirmasi Password Baru</label>
-                          <input id="confirm_password" type={showConfirmPassword ? "text" : "password"} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="px-2 border-1 h-6.5 border-black rounded-[5px]" placeholder="Konfirmasi Password Baru"/>
-                          <img src={showConfirmPassword ? hide : show} alt="Toggle visibility" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="w-5 h-5 absolute right-2 top-[27px] cursor-pointer object-contain"/>
+                          <div className="relative flex flex-col w-full justify-center">
+                            <input id="confirm_password" type={showConfirmPassword ? "text" : "password"} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="px-2 border-1 py-2.5 border-black rounded-[5px] text-sm" placeholder="Konfirmasi Password Baru"/>
+                            <img src={showConfirmPassword ? hide : show} alt="Toggle visibility" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="w-5 h-5 absolute right-2 cursor-pointer object-contain"/>
+                          </div>
                         </div>
                         {passwordMessage && (<p className="mt-2 text-sm text-[##A4161A]">{passwordMessage}</p>)}
-                    <button className="w-30 h-8 text-white flex ml-auto mt-13 items-center justify-center bg-[#A30F00] rounded-[5px]" onClick={handlePasswordUpdate} disabled={loading}>{loading ? "Menyimpan..." : "Simpan"}</button>
+                    <button className="w-35 h-10 text-white flex ml-auto mt-13 items-center justify-center bg-[#A30F00] rounded-[5px] cursor-pointer" onClick={handlePasswordUpdate} disabled={loading}>{loading ? "Menyimpan..." : "Simpan"}</button>
                 </div>
             </div>
         </div>
