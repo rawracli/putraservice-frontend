@@ -8,7 +8,7 @@ function Loading() {
   }, []);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full mt-10">
       <div className="absolute z-10 w-full h-full bg-gradient-to-b from-transparent to-white"></div>
       <div className="flex gap-2.5">
        {Array.from({ length: 4 }).map((_, colIndex) => (

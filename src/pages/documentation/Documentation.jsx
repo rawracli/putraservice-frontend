@@ -9,12 +9,11 @@ import Loading from "../../components/Documentation/Loading";
 function Documentation() {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-    // eslint-disable-next-line no-unused-vars
-  const [imagesReady, setImagesReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [offset, setOffset] = useState(0);
   const [docsLimit, setDocsLimit] = useState(30); // di-set setelah response dari API
+  const [message, setMessage] = useState("");
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentCategory = searchParams.get("category") || "";
@@ -80,11 +79,9 @@ function Documentation() {
         setDocsLimit(limitFromServer);
 
         if (opts.reset) {
-          await preloadImages(newDocs.map((i) => i.img));
           setItems(newDocs);
           setOffset(limitFromServer);
         } else {
-          await preloadImages(newDocs.map((i) => i.img));
           setItems((prev) => [...prev, ...newDocs]);
           setOffset((prev) => prev + limitFromServer);
         }
@@ -96,10 +93,10 @@ function Documentation() {
           !(newDocs.length < limitFromServer || loadedCount >= totalFromServer)
         );
 
-        setImagesReady(true);
       } catch (err) {
         console.error("Error loading docs:", err);
       } finally {
+        setMessage("");
         setIsLoading(false);
       }
     },
@@ -111,7 +108,8 @@ function Documentation() {
     setItems([]);
     setOffset(0);
     setHasMore(true);
-    loadDocs({ reset: true });
+    loadDocs({ reset: true, force: true });
+    console.log("loadDocs triggered")
   }, [currentCategoryId]);
 
   // infinite scroll listener
@@ -133,41 +131,32 @@ function Documentation() {
     setSearchParams(categoryName ? { category: categoryName } : {});
   };
 
-    const preloadImages = async (urls) => {
-    await Promise.all(
-      urls.map(
-        (src) =>
-          new Promise((resolve) => {
-            const img = new Image();
-            img.src = src;
-            img.onload = img.onerror = () => resolve();
-          }),
-      ),
-    );
-  };
+  const clickOnLoad = () => {
+    setMessage("Tunggu, content sedang Loading...")
+  }
 
   return (
-    <div className="max-w-[1600px] mx-auto">
+    <div className="mx-auto">
       <Hero
         title={"DOKUMENTASI"}
         backgroundImage={bgImage}
-        backgroundPosition={"center"}
+        backgroundPosition={"60% center"}
         children={
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
         }
       />
 
       <div className="relative bg-white flex justify-center items-center flex-col w-full">
-        <div className="py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 w-full">
+        <div className="flex justify-center py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 w-full">
           <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
             <button
               key="all"
-              onClick={() => handleCategoryChange("")}
-              className={`cursor-pointer px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
+              onClick={!isLoading ? (() => handleCategoryChange("")) : (clickOnLoad)}
+              className={`px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold ${
                 currentCategory === ""
                   ? "bg-[#730B00] text-white shadow-lg"
                   : "bg-white"
-              }`}
+              } ${isLoading ? "cursor-not-allowed" : "cursor-pointer hover:bg-[#A30F00] hover:text-white"}`}
             >
               Semua
             </button>
@@ -175,49 +164,50 @@ function Documentation() {
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => handleCategoryChange(category.name)}
-                className={`cursor-pointer px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold hover:bg-[#A30F00] hover:text-white ${
+                onClick={!isLoading ? (() => handleCategoryChange(category.name)) : (clickOnLoad)}
+                className={`px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold ${
                   currentCategory === category.name
                     ? "bg-[#730B00] text-white shadow-lg"
                     : "bg-white"
-                }`}
+                } ${isLoading ? "cursor-not-allowed" : "cursor-pointer hover:bg-[#A30F00] hover:text-white"}`}
               >
-                {category.name
-                  .replace(/(?!^)(?<!A)([A-Z])/g, " $1")
-                  .replace(/^./, (str) => str.toUpperCase())}
+                {category.name.split("-").map(word => word.toLowerCase() === "ac" ? "AC" : word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
               </button>
             ))}
           </div>
+          <p className="absolute bottom-0 max-sm:text-sm">{message}</p>
         </div>
-
-        <div className="w-full mt-10 mb-10 flex justify-center items-center px-3 sm:px-9 md:px-12 lg:px-19">
-          {items.length > 0 ? (
-            <Masonry
-              items={items}
-              ease="power3.out"
-              duration={0.6}
-              stagger={0.05}
-              animateFrom="bottom"
-              scaleOnHover={true}
-              hoverScale={1.05}
-              blurToFocus={true}
-              colorShiftOnHover={false}
-            />
-          ) : isLoading ? (
-            <Loading/>
-          ) : null}
-        </div>
-
-        {/* indikator loading batch berikutnya */}
-        {isLoading && items.length > 0 && (
-          <Loading/>
-        )}
-        {/* jika habis */}
-        {!hasMore && items.length > 0 && (
-          <div className="pb-10 text-center text-gray-500">
-            Semua dokumen telah dimuat.
+        
+        <div className="w-full max-w-[1600px] mt-10 mb-10 px-3 sm:px-9 md:px-12 lg:px-19">
+          <div className="w-full flex justify-center items-center">
+            {items.length > 0 ? (
+              <Masonry
+                items={items}
+                ease="power3.out"
+                duration={0.6}
+                stagger={0.05}
+                animateFrom="bottom"
+                scaleOnHover={true}
+                hoverScale={1.05}
+                blurToFocus={true}
+                colorShiftOnHover={false}
+              />
+            ) : isLoading ? (
+              <Loading/>
+            ) : null}
           </div>
-        )}
+
+          {/* indikator loading batch berikutnya */}
+          {isLoading && items.length > 0 && (
+            <Loading/>
+          )}
+          {/* jika habis */}
+          {!hasMore && items.length > 0 && (
+            <div className="py-10 text-center text-gray-500">
+              Semua dokumen telah dimuat.
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

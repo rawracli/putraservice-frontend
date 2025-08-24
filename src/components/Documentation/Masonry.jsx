@@ -1,6 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
-import Loading from "./Loading";
 
 const useMedia = (queries, values, defaultValue) => {
   const get = () =>
@@ -38,6 +37,19 @@ const useMeasure = () => {
   return [ref, size];
 };
 
+const preloadImages = async (urls) => {
+  await Promise.all(
+    urls.map(
+      (src) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = img.onerror = () => resolve();
+        }),
+    ),
+  );
+};
+
 const Masonry = ({
   items,
   ease = "power3.out",
@@ -61,6 +73,7 @@ const Masonry = ({
   );
 
   const [containerRef, { width }] = useMeasure();
+  const [imagesReady, setImagesReady] = useState(false);
 
   const getInitialPosition = (item) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -91,6 +104,10 @@ const Masonry = ({
     }
   };
 
+  useEffect(() => {
+    preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));
+  }, [items]);
+
   const grid = useMemo(() => {
     if (!width) return [];
     const colHeights = new Array(columns).fill(0);
@@ -117,6 +134,8 @@ const Masonry = ({
   const hasMounted = useRef(false);
 
   useLayoutEffect(() => {
+    if (!imagesReady) return;
+
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
       const animProps = { x: item.x, y: item.y, width: item.w, height: item.h };
@@ -154,7 +173,7 @@ const Masonry = ({
 
     hasMounted.current = true;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [grid, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
   const handleMouseEnter = (id, element) => {
     if (scaleOnHover) {
@@ -192,6 +211,7 @@ const Masonry = ({
           data-key={item.id}
           className="absolute box-content"
           style={{ willChange: "transform, width, height, opacity" }}
+          // onClick={() => window.open(item.url, "_blank", "noopener")}
           onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
         >
