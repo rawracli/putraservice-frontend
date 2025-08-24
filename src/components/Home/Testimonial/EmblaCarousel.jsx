@@ -49,6 +49,7 @@ const EmblaCarousel = ({data : testimonials}) => {
                 date={testimonial.updated_at}
                 description={testimonial.komentar}
                 rating={testimonial.rating}
+                avatar={testimonial.avatar}
               />
             </div>
           ))}
@@ -70,6 +71,7 @@ const EmblaCarousel = ({data : testimonials}) => {
                 date={testimonial.updated_at}
                 description={testimonial.komentar}
                 rating={testimonial.rating}
+                avatar={testimonial.avatar}
               />
             </div>
           ))}
