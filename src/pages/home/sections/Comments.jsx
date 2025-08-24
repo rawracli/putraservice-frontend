@@ -482,7 +482,7 @@ function Comments() {
                 placeholder="Tuliskan pengalaman anda mengenai layanan kami..."
                 value={komentar}
                 onChange={(e) => setKomentar(e.target.value)}
-                onClick={() => !loading && (openOverlay("overlay1"))}
+                onClick={() => !user && (openOverlay("overlay1"))}
               ></textarea>
               <div
                 className="absolute cursor-pointer bottom-0 right-0 w-11 h-11 mr-3 mb-3 flex items-center justify-center bg-[#A42619] rounded-full ml-auto"

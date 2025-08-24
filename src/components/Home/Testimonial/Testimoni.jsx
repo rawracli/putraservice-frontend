@@ -3,7 +3,7 @@ import Stars from "../Stars";
 import Profile from "../../../assets/Home/profile.webp";
 
 const Testimoni = (props) => {
-  const {rating, description, name, date} = props;
+  const {rating, description, name, date, avatar} = props;
 
   return (
       <div className="mx-7 my-3 flex h-full min-w-40 flex-col pb-5">
@@ -21,7 +21,7 @@ const Testimoni = (props) => {
         <div className="flex py-3">
           <div
             className="size-11 rounded-full bg-cover mr-2"
-            style={{ backgroundImage: `url(${Profile})` }}
+            style={{ backgroundImage: `url('${avatar ? avatar : Profile}')` }}
           ></div>
           <div className="flex flex-col justify-center">
             <h4 className="font-semibold text-xs">{name}</h4>

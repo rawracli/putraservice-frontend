@@ -18,11 +18,13 @@ const EmblaCarousel = ({data}) => {
               className="flex-[0_0_100%] flex items-center rounded-lg bg-white/80 w-60 md:w-70 lg:w-83 h-27 sm:mr-7 mr-11"
               key={testimonial.id || index}
             >
-              <img
-                src={Profile}
+              <div className="mt-1 ml-4 mr-3 md:mt-2 md:mr-4 md:ml-7 size-14 md:size-18">
+                <img
+                src={testimonial.avatar ? testimonial.avatar : Profile}
                 alt="profile"
-                className="mt-1 ml-4 mr-3 md:mt-2 md:mr-4 md:ml-7 w-14 md:w-18"
-              />
+                className="size-full object-cover rounded-full"
+                />
+              </div>
               <div className="flex flex-col h-full py-1">
                 {Stars({
                   style: { height: "25px", width: "23px", marginRight: "3px" },
