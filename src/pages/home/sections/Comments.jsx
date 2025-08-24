@@ -379,13 +379,13 @@ function Comments() {
               <div className="w-19 h-15 md:w-25 md:h-21 rounded-full flex items-center justify-center overflow-hidden">
                 {loading ? (
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                     src={vectorImg}
                     alt={user?.name || "Avatar"}
                   />
                 ) : (
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                     src={user?.avatar || vectorImg}
                     alt={user?.name || "Avatar"}
                   />
@@ -419,26 +419,37 @@ function Comments() {
               {!loading && user?.name && (
                 <div className="relative inline-block text-left">
                   {/* Icon Menu */}
-                  <p
-                    className="mt-1 text-[30px] cursor-pointer select-none"
-                    onClick={() => setOpen(!open)}
-                  >
-                    {open ? "✕" : "☰"}
-                  </p>
+                  <div className="w-6 h-6 flex flex-col justify-center items-center cursor-pointer" onClick={()=>{setOpen(!open)}}>
+                    <span
+                      className={`block h-1 w-6 bg-current rounded-full transform transition-all duration-200 ease-in-out ${
+                        open ? "rotate-45 translate-y-2" : ""
+                      }`}
+                    ></span>
+                    <span
+                      className={`block h-1 w-6 bg-current rounded-full transform transition-all duration-200 ease-in-out my-1 ${
+                        open ? "opacity-0" : ""
+                      }`}
+                    ></span>
+                    <span
+                      className={`block h-1 w-6 bg-current rounded-full transform transition-all duration-200 ease-in-out ${
+                        open ? "-rotate-45 -translate-y-2" : ""
+                      }`}
+                    ></span>
+                  </div>
 
                   {/* Dropdown Menu */}
                   {open && (
                     <div className="absolute right-8 top-0 mt-2 w-40 bg-gray-100 border border-black rounded shadow-lg">
                       <button
                         onClick={() => navigate("/user-profile")}
-                        className="w-full text-left px-4 py-2 font-semibold hover:bg-gray-200"
+                        className="w-full text-left px-4 py-2 font-semibold hover:bg-gray-200 cursor-pointer"
                       >
                         Settings
                       </button>
                       <hr />
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 font-semibold hover:bg-gray-200"
+                        className="w-full text-left px-4 py-2 font-semibold hover:bg-gray-200 cursor-pointer"
                       >
                         Logout
                       </button>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import VectorImg from "../../assets/Home/profile.webp"
 import { getProfile, updateProfile, updatePassword } from "../../controllers/AuthController.js";
 import show from '../../assets/UserProfile/Show.webp';
@@ -143,7 +144,8 @@ function UserProfile() {
       }
     }, [passwordMessage]);
     return [
-        <div className="bg-[#A4161A] h-auto max-w-[1536px] mx-auto flex justify-center">
+        <div className="relative bg-[#A4161A] h-auto max-w-[1536px] mx-auto flex justify-center">
+          <Link className="absolute right-7 top-2 text-white text-3xl cursor-pointer" to="/"><p>✕</p></Link>
             <div className="w-[80%] h-full flex justify-around gap-8 mt-13 mb-16 flex-wrap">
                 <div className="w-full h-full gap-8 flex flex-row max-md:flex-wrap">
                     <div className="w-1/2 max-md:w-full px-6 py-7 flex flex-col bg-white rounded-[8px]">
@@ -161,7 +163,7 @@ function UserProfile() {
                     </div>
                     <div className="w-1/2 max-md:w-full px-6 py-7 bg-white rounded-[8px] flex items-center justify-center flex-col">
                         <h1 className="font-semibold text-[23px]">Foto Profile</h1>
-                        <div className="w-20 sm:w-28 md:w-36 aspect-square bg-black rounded-full overflow-hidden" onClick={() => document.getElementById("avatarInput").click()}>
+                        <div className="cursor-pointer w-20 sm:w-28 md:w-36 aspect-square bg-black rounded-full overflow-hidden" onClick={() => document.getElementById("avatarInput").click()}>
                           <img className="w-full h-full object-cover" src={avatarPreview} alt=""/>
                         </div>
                         <input type="file" accept="image/*" id="avatarInput" style={{ display: "none" }} onChange={handleImageChange}/>
