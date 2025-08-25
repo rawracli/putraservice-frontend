@@ -1,3 +1,4 @@
+  import React from "react";
   import "./Service.css";
   import Hero from "../../components/Hero";
   import CTASection from "./section/CTASection";
@@ -307,7 +308,10 @@
             className={index % 2 == 1 ? "md:flex-row-reverse" : ""}
           />
         ))}
-        <PriceList listTable={priceList[displayIndex]} name={currentCategory}/>
+        <PriceList 
+          listTable={priceList[displayIndex]} 
+          name={currentCategory}
+        />
         <CTASection />
       </div>
     );

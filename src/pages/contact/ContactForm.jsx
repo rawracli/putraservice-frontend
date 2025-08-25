@@ -45,7 +45,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="relative lg:h-[500px] md:h-[800px] h-[800px]">
+    <section className="relative lg:h-[500px] md:h-[800px] h-[800px]">
       <div className="absolute h-full lg:w-[942px] md:w-[600px] sm:w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
         <div className="max-w-3x1 mx-auto -mt-20 z-20 relative">
           <div
@@ -197,7 +197,7 @@ function ContactForm() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

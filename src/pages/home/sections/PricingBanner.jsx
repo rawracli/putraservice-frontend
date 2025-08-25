@@ -2,7 +2,7 @@ import React from 'react'
 
 function PricingBanner() {
   return (
-    <div className="
+    <section className="
       h-[5rem]
       sm:h-[6rem]
       md:h-[8rem]
@@ -21,7 +21,7 @@ function PricingBanner() {
       ">
         HARGA MULAI DARI 75.000 !!
       </h2>
-    </div>
+    </section>
   )
 }
 

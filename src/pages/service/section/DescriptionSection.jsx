@@ -11,7 +11,7 @@ function DescriptionSection({
   className,
 }) {
   return (
-    <div className={`flex flex-col md:flex-row py-2.5 px-5 md:px-6 lg:px-8 mb-14 ${className}`}>
+    <section className={`flex flex-col md:flex-row py-2.5 px-5 md:px-6 lg:px-8 mb-14 ${className}`}>
         <h2 className="text-center font-semibold text-[2.3rem] sm:text-[2.4rem] md:text-[2.5rem] lg:text-[2.8rem] xl:text-[3.4rem] lg:leading-[calc(2/2.8)] pt-3 pb-5 block md:hidden">
           {title}
         </h2>
@@ -39,7 +39,7 @@ function DescriptionSection({
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

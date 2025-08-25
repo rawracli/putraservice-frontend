@@ -45,7 +45,7 @@ function TrustedClients() {
   }));
 
   return (
-    <div className="relative text-white min-h-svh md:min-h-[300px] items-center justify-center flex flex-col py-8"
+    <section className="relative text-white min-h-svh md:min-h-[300px] items-center justify-center flex flex-col py-8"
     style={{
         backgroundColor: "#003366",
         backgroundImage: `linear-gradient(${deg}deg, rgba(0,0,0,1), rgba(102,7,8,1))`,
@@ -63,7 +63,7 @@ function TrustedClients() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

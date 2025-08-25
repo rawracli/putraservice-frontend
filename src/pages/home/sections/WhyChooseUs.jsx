@@ -5,7 +5,7 @@ import Harga from "../../../assets/Home/WhyChooseUs/hargaKom.webp";
 import Card from "../../../components/Home/WhyChooseUs/Card.jsx";
 function WhyChooseUs() {
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#9A0E00]">
+    <section className="min-h-screen flex flex-col items-center bg-[#9A0E00]">
       <div className="flex w-full h-fit pt-8 md:h-29 text-white items-end">
         <div className="flex items-center w-full justify-between">
           <div className="hidden sm:block w-full bg-white h-3 md:h-5"></div>
@@ -51,7 +51,7 @@ function WhyChooseUs() {
           className={"hidden md:flex lg:hidden md:w-130 min-h-[20rem]"}
         />
       </div>
-    </div>
+    </section>
   );
 }
 export default WhyChooseUs;

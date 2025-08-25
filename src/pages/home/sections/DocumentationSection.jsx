@@ -10,7 +10,7 @@ import Photo6 from "../../../assets/Home/DocumentationSection/6.webp";
 function DocumentationSection() {
   const photos = [Photo1, Photo2, Photo3, Photo4, Photo5, Photo6, Photo6, Photo6, Photo6,];
   return (
-    <div className="min-h-svh flex flex-col md:flex-row items-center py-10 lg:py-3">
+    <section className="min-h-svh flex flex-col md:flex-row items-center py-10 lg:py-3">
       <div className="flex flex-col justify-center md:justify-start h-45 sm:h-60 md:h-fit w-full items-center md:w-fit md:items-start pr-0 md:pl-11 md:pr-2 lg:pl-33 lg:pr-17">
         <h4 className="text-[#A4161A] font-semibold text-xl pl-2">Work</h4>
         <h2 className="font-semibold text-[2.6rem] text-center md:text-start pb-10 md:pb-0 sm:text-[4rem] md:text-[5rem] lg:text-[5.4rem] md:w-70 wrap-anywhere text-balance sm:leading-24 lg:leading-26 tracking-wide">
@@ -29,7 +29,7 @@ function DocumentationSection() {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

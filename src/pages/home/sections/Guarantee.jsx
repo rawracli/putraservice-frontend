@@ -4,7 +4,7 @@ import Lanyard from "../../../components/Home/Guarantee/Lanyard";
 function Guarantee() {
 
   return (
-    <div className="relative flex flex-col md:flex-row min-h-[95svh] items-center justify-end md:justify-center font-semibold overflow-hidden font-inter">
+    <section className="relative flex flex-col md:flex-row min-h-[95svh] items-center justify-end md:justify-center font-semibold overflow-hidden font-inter">
       <div className="h-30"></div>
       <h2 className="text-[3rem] sm:text-[4.7rem] md:text-[5rem] lg:text-[6.5rem] xl:text-[7.5rem] tracking-[0.016em] pt-30 md:pt-0 pr-1 sm:pr-1.5 md:pr-1.5 lg:pr-3">BERGARANSI</h2>
       <div className="relative flex flex-col md:flex-row items-center">
@@ -23,7 +23,7 @@ function Guarantee() {
         gravity={[0, -40, 0]} 
         fov={34} 
       />
-    </div>
+    </section>
   );
 }
 

@@ -37,7 +37,7 @@ function StackedSection() {
             paddingTop: `calc(var(--index) * var(--cardTopPadding))`,
           }}
         >
-          <div
+          <section
             className="relative card-body box-border lg:p-[30px] bg-white flex justify-center items-start ot-2 md:items-center transition-all duration-500"
             style={{
               height: `var(--cardHeight)`,
@@ -61,7 +61,7 @@ function StackedSection() {
               </div>
             </div>
               <img src={arrowUp} alt="" className="absolute right-0 w-32 lg:w-48 bottom-13 lg:bottom-25" />
-          </div>
+          </section>
         </li>
 
         {stackedData.map((value, index) => (
