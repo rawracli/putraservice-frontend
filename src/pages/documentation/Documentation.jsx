@@ -146,7 +146,7 @@ function Documentation() {
         }
       />
 
-      <div className="relative bg-white flex justify-center items-center flex-col w-full">
+      <section className="relative bg-white flex justify-center items-center flex-col w-full">
         <div className="flex justify-center py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 w-full">
           <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
             <button
@@ -208,7 +208,7 @@ function Documentation() {
             </div>
           )}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

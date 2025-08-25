@@ -18,7 +18,7 @@ function Stack({ title, description, number, link = false }) {
         paddingTop: `calc(var(--index) * var(--cardTopPadding))`,
       }}
     >
-      <div
+      <section
         className="card-body box-border shadow-[0_0_30px_rgba(0,0,0,0.3)] flex transition-all duration-500"
         style={{
           height: `var(--cardHeight)`,
@@ -47,7 +47,7 @@ function Stack({ title, description, number, link = false }) {
         <div className="basis-[33.2%] hidden md:block">
           <img src={stackedDesign.photos[number]} className="h-full object-cover" alt="" />
         </div>
-      </div>
+      </section>
     </li>
   );
 }

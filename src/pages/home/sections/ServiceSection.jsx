@@ -9,7 +9,7 @@ import Service from "../../../assets/Home/Layanan/Logo/service.webp";
 
 function ServiceSection() {
   return (
-    <div className="relative flex flex-col items-center min-h-svh overflow-hidden">
+    <section className="relative flex flex-col items-center min-h-svh overflow-hidden">
       <div className="font-semibold text-center pt-13 md:pt-20 mb-8">
         <h3 className="text-xl text-[#A4161A]">Jasa</h3>
         <h2 className="text-4xl tracking-wide">Layanan Kami</h2>
@@ -65,7 +65,7 @@ function ServiceSection() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

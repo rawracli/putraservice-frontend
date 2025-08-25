@@ -2,7 +2,7 @@ import React from "react";
 
 function Hero({ title, backgroundImage, backgroundPosition, children, description }) {
   return (
-    <div
+    <section
       className="relative flex flex-col justify-center w-full bg-no-repeat bg-cover min-h-108 md:min-h-106 lg:min-h-104 isolate"
       style={{ backgroundImage: `url(${backgroundImage})`, backgroundPosition: `${backgroundPosition}` }}
     >
@@ -15,7 +15,7 @@ function Hero({ title, backgroundImage, backgroundPosition, children, descriptio
         <p className="text-[#ADADAD] sm:w-[54%] md:w-[60%] lg:w-[50%] xl:w-[45%] text-sm hidden sm:block">{description}</p>
       </div>
       {children}
-    </div>
+    </section>
   );
 }
 

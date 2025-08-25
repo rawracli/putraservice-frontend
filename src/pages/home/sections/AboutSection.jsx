@@ -4,7 +4,7 @@ import AcWall from "../../../assets/Home/AboutSection/ac wall.webp";
 
 function AboutSection() {
   return (
-    <div className="relative min-h-svh md:min-h-fit">
+    <section className="relative min-h-svh md:min-h-fit">
       {/* Background */}
       <div className="absolute inset-0 h-full w-full">
         <div className="overflow-hidden justify-between min-h-full flex flex-col relative">
@@ -52,7 +52,7 @@ function AboutSection() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,6 +1,6 @@
 function Service() {
   return (
-    <div className="bg-[#660708] overflow-hidden relative h-100 md:h-112 flex items-center">
+    <section className="bg-[#660708] overflow-hidden relative h-100 md:h-112 flex items-center">
       <div className="flex-col flex justify-center z-10">
         <div className="container mx-auto px-4">
           <div className="w-fit">
@@ -28,7 +28,7 @@ function Service() {
           <div className="absolute rounded-full z-60 bg-[#FED5D5] size-[6rem] sm:size-[8rem] md:size-[10rem] lg:size-[11rem] xl:size-[11.55rem]"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

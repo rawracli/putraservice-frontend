@@ -2,7 +2,7 @@ import React from "react";
 
 function CTASection() {
   return (
-    <div className="overflow-hidden relative min-h-screen">
+    <section className="overflow-hidden relative min-h-screen">
       {/* Background */}
       <div className="min-h-screen absolute top-0 bottom-0 left-0 right-0">
         <div className="absolute rounded-full border-[#A30F00] border-32 size-[281px] -top-30 -left-28 md:top-15 md:-left-32"></div>
@@ -32,7 +32,7 @@ function CTASection() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -9,7 +9,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 function Content() {
   return (
-    <div className="py-9 px-5 sm:px-9 xl:p-25 bg-gradient-to-b from-[#660708] to-[#A20000]">
+    <section className="py-9 px-5 sm:px-9 xl:p-25 bg-gradient-to-b from-[#660708] to-[#A20000]">
       <div className="flex flex-col md:flex-row items-center min-h-screen lg:gap-13 lg:pl-21 pt-10 overflow-hidden">
         <div className="flex relative gap-4 w-80 lg:w-129 h-109">
           <div className="flex-1 h-fit self-center">
@@ -101,7 +101,7 @@ function Content() {
             </h2>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

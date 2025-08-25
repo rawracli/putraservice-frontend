@@ -54,7 +54,7 @@ function FAQSection() {
     },
   ];
   return (
-    <div className="flex relative min-h-svh bg-[rgb(255,234,234)] md:pl-10 lg:pl-35 overflow-hidden">
+    <section className="flex relative min-h-svh bg-[rgb(255,234,234)] md:pl-10 lg:pl-35 overflow-hidden">
       <div className="z-10 flex flex-col px-4 md:pl-0 md:pr-3 w-full md:w-[60%] lg:w-[50%] xl:w-1/2">
         <div className="relative pt-16 pb-6 w-full flex justify-center md:block md:justify-normal">
           <img src={PersonOnly} alt="faq" srcSet="" className="hidden sm:block md:hidden w-60 -bottom-12 -left-19 absolute" />
@@ -77,7 +77,7 @@ function FAQSection() {
         </div>
       </div>
       <img src={Person} alt="faq" srcSet="" className="hidden md:block h-full absolute md:-right-20 lg:right-12" />
-    </div>
+    </section>
   );
 }
 

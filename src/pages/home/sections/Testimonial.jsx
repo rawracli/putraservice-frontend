@@ -3,7 +3,7 @@ import EmblaCarousel from "../../../components/Home/Testimonial/EmblaCarousel.js
 
 function Testimonial({data}) {
     return (
-        <div className="h-fit">
+      <section className="h-fit">
         <div className="h-62 flex flex-col items-center justify-center font-semibold text-center">
           <h3 className="text-[#A4161A] text-xl sm:text-[1.3rem] pb-1">Testimoni</h3>
           <h2 className="text-4xl sm:text-[2.65rem] leading-12">
@@ -11,7 +11,7 @@ function Testimonial({data}) {
           </h2>
         </div>
         <EmblaCarousel data={data}/>
-      </div>
+      </section>
     )
 }
 

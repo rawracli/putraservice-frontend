@@ -11,7 +11,7 @@ import Profile from "../../../assets/Home/profile.webp";
 
 function Hero({data}) {
   return (
-    <div
+    <section
       className="relative min-h-screen"
     >
       <img src={Banner} className="absolute size-full object-cover" alt="" />
@@ -75,7 +75,7 @@ function Hero({data}) {
           <EmblaCarousel data={data}/>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
