@@ -57,7 +57,6 @@ function UserProfile() {
     
       const formData = new FormData();
       formData.append("name", nama);
-      formData.append("email", email);
       formData.append("_method", "PUT"); // spoof PUT method via POST
     
       if (avatar) {
