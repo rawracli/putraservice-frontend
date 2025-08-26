@@ -257,11 +257,6 @@ function Comments() {
       const res = await register(formData);
 
       if (res.success) {
-        // cek property success dari server
-        alert(
-          res.message ||
-            "Registrasi berhasil! Silakan cek email Anda untuk verifikasi."
-        );
         if (res.token) {
           localStorage.setItem("token", res.token);
           setActiveOverlay("overlay4");
@@ -313,12 +308,15 @@ function Comments() {
 
   /* Logout Function */
   const handleLogout = async () => {
+    setLoading(true);
     try {
       await logout();
       setUser(null);
       navigate("/");
     } catch {
       alert("Gagal logout. Coba lagi.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -370,9 +368,12 @@ function Comments() {
       ref={commentsRef}
       className="w-full min-h-[88svh] bg-[#A4161A] flex items-center justify-center"
     >
-      <div className="w-[83%] h-fit pb-20 bg-white rounded-[19px] flex justify-center pt-11">
+      <div className="relative w-[83%] h-fit pb-20 bg-white rounded-[19px] flex justify-center pt-11">
+        <div className={`absolute z-20 size-full bg-gray-600/60 rounded-[19px] inset-0 flex items-center justify-center ${loading ? "visible" : "invisible"}`}>
+          <div className="size-20 border-12 border-gray-300 border-t-[#730B00] rounded-full animate-spin"></div>
+        </div>
         <section className="w-full h-fit flex flex-col items-center">
-          <h1 className="font-semibold text-[1.7rem] uppercase px-3 text-center">Rating & Komentar</h1>
+          <h2 className="font-semibold text-[1.7rem] uppercase px-3 text-center">Rating & Komentar</h2>
           <div className="w-[90%]">
             <div className="mt-10">
               <div className="w-full flex gap-1 md:gap-3 lg:gap-5">
@@ -555,7 +556,7 @@ function Comments() {
               >
                 <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
                   <IoIosArrowRoundBack className="absolute size-9 top-4 left-5 cursor-pointer" onClick={() => openOverlay("overlay1")}/>
-                  <h2 className="text-2xl font-semibold text-center">
+                  <h2 className="text-2xl font-semibold text-center mb-5">
                     Login
                   </h2>
                   <form onSubmit={handleLogin} className="flex flex-col gap-4">
@@ -570,7 +571,7 @@ function Comments() {
                         required
                       />
                     </div>
-                    <div className="gap-5 mt-3">
+                    <div className="gap-5">
                       <p>Password</p>
                       <input
                         type="password"
@@ -597,7 +598,7 @@ function Comments() {
                     )}
                     <button
                       type="submit"
-                      className="w-full h-9 mt-7 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white"
+                      className="w-full h-9 mt-7 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white cursor-pointer"
                     >
                       Login
                     </button>
@@ -720,7 +721,7 @@ function Comments() {
                   <button
                     onClick={handleResendVerification}
                     disabled={resendLoading}
-                    className="w-full h-9 mt-3 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white"
+                    className="w-full h-9 mt-3 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white cursor-pointer"
                   >
                     {resendLoading
                       ? "Mengirim..."
@@ -764,7 +765,7 @@ function Comments() {
                       setForgotLoading(false);
                     }}
                     disabled={forgotLoading}
-                    className="w-full h-9 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white"
+                    className="w-full h-9 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white cursor-pointer"
                   >
                     {forgotLoading ? "Mengirim..." : "Kirim Email Reset"}
                   </button>
@@ -821,7 +822,7 @@ function Comments() {
                       alert(res.message);
                       if (res.success !== false) setActiveOverlay(null);
                     }}
-                    className="w-full h-9 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white"
+                    className="w-full h-9 rounded-[7px] font-semibold text-center bg-[#A30F00] text-white cursor-pointer"
                   >
                     Reset Password
                   </button>

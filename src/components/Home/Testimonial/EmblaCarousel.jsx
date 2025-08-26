@@ -33,7 +33,10 @@ const EmblaCarousel = ({data}) => {
   );
 
   return (
-    <div className="bg-[#A20000] grid grid-rows-2 gap-6 overflow-hidden py-9">
+    <div className={`bg-[#A20000] relative grid grid-rows-2 gap-6 overflow-hidden py-9 ${data[0] === undefined && "h-132"}`}>
+      <div className={`absolute z-10 h-132 size-full bg-gray-600/60 rounded-[19px] inset-0 flex items-center justify-center ${data[0] === undefined ? "visible" : "invisible"}`}>
+        <div className="size-20 border-12 border-gray-300 border-t-[#730B00] rounded-full animate-spin"></div>
+      </div>
       <div
         className="overflow-hidden mx-auto flex items-center justify-center"
         ref={emblaRefTop}
