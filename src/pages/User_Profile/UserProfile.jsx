@@ -7,7 +7,6 @@ import hide from '../../assets/UserProfile/Hide.webp';
 
 function UserProfile() {
     const [nama, setNama] = useState("");
-    const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const [avatar, setAvatar] = useState(null);
@@ -30,7 +29,6 @@ function UserProfile() {
         const data = await getProfile();
         if (data && data.name) {
           setNama(data.name);
-          setEmail(data.email);
           if (data.avatar) {
             if (data.avatar.startsWith("http")) {
               setAvatarPreview(data.avatar);
@@ -57,7 +55,6 @@ function UserProfile() {
     
       const formData = new FormData();
       formData.append("name", nama);
-      formData.append("email", email);
       formData.append("_method", "PUT"); // spoof PUT method via POST
     
       if (avatar) {
@@ -153,10 +150,6 @@ function UserProfile() {
                         <div className="flex flex-col mt-4">
                             <label for="nama">Nama</label>
                             <input id="nama" type="text" className="px-2 border-1 py-2 border-black rounded-[5px]" value={nama} onChange={(e) => setNama(e.target.value)}/>
-                        </div>
-                        <div className="flex flex-col mt-3">
-                            <label for="email">Email</label>
-                            <input id="email" type="email" className="px-2 border-1 py-2 border-black rounded-[5px]" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         {message && (<p className="mt-2 text-sm text-[#A4161A]">{message}</p>)}
                         <button className="w-35 h-10 text-white flex ml-auto mt-8 md:mt-10 items-center justify-center bg-[#A30F00] rounded-[5px] cursor-pointer" onClick={handleSave} disabled={loading}>{loading ? "Menyimpan..." : "Simpan"}</button>
