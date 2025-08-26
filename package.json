@@ -15,6 +15,7 @@
     "@react-three/fiber": "^9.3.0",
     "@react-three/rapier": "^2.1.0",
     "@tailwindcss/vite": "^4.1.11",
+    "aos": "^2.3.4",
     "axios": "^1.11.0",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
