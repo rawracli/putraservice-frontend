@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Testimoni from "./Testimoni";
 
-const EmblaCarousel = ({data : testimonials}) => {
+const EmblaCarousel = ({data}) => {
 
   const [emblaRefTop] = useEmblaCarousel({ loop: true }, [
     AutoScroll({
@@ -24,10 +24,10 @@ const EmblaCarousel = ({data : testimonials}) => {
     }),
   ]);
 
-  const testimonialLength = testimonials.length;
+  const testimonialLength = data.length;
   const testimonialMid = Math.round(testimonialLength / 2);
-  const testimonialsForward = testimonials.slice(0, testimonialMid);
-  const testimonialsBackward = testimonials.slice(
+  const testimonialsForward = data.slice(0, testimonialMid);
+  const testimonialsBackward = data.slice(
     testimonialMid,
     testimonialLength
   );
