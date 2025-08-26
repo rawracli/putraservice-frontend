@@ -5,23 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppRoute from "./routes/AppRoute.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import PageTitle from "./routes/PageTitle.jsx";
 import UserProfile from "./pages/User_Profile/UserProfile.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/user-profile" element={<UserProfile />} />
-
-        <Route path="/*" element={
-            <>
-              <Navbar />
-              <AppRoute />
-              <Footer />
-            </>
-          }
-        />
-      </Routes>
+      <PageTitle/>
+      <AppRoute/>
     </BrowserRouter>
   </StrictMode>
 );
