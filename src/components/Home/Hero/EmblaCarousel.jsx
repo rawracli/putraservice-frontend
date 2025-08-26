@@ -10,12 +10,12 @@ const EmblaCarousel = ({data}) => {
   ]);
 
   return (
-    <div className="m-auto max-w-60 md:max-w-70 lg:max-w-83">
+    <div className="mr-9 max-w-70 md:max-w-70 lg:max-w-83">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex ml-1">
           {data.map((testimonial, index) => (
             <div
-              className="flex-[0_0_100%] flex items-center rounded-lg bg-white/80 w-60 md:w-70 lg:w-83 h-27 sm:mr-7 mr-11"
+              className="flex-[0_0_100%] flex items-center rounded-lg bg-white/80 w-70 md:w-70 lg:w-83 h-27 sm:mr-7 mr-11"
               key={testimonial.id || index}
             >
               <div className="mt-1 ml-4 mr-3 md:mt-2 md:mr-4 md:ml-7 size-14 md:size-18">
