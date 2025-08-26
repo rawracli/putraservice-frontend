@@ -39,15 +39,15 @@ function Content() {
         <div className="flex-1 flex flex-col md:self-start lg:self-center md:pr-2 lg:pt-0 xl:pr-5 text-white">
           <h2 className="font-semibold text-[30px] pt-0 sm:pt-12 pb-6 md:pt-18 lg:pt-0 md:pb-0 md:text-[45px] md:pl-14 lg:pl-0 text-center md:text-start">Sejarah Kami</h2>
           <p className="md:text-balance text-[#D6D6D6] lg:pt-2 leading-loose md:leading-normal px-0">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            Putra Service berdiri sejak tahun 2014 dengan komitmen memberikan
+            layanan terbaik di bidang jasa service AC. Berawal dari usaha kecil
+            dengan tim yang sederhana, kami terus berkembang berkat kepercayaan
+            pelanggan yang selalu puas dengan hasil kerja kami. Selama lebih
+            dari 10 tahun perjalanan, kami telah menangani berbagai jenis
+            perbaikan dan perawatan AC, baik untuk rumah tangga, perkantoran,
+            hingga industri. Pengalaman ini membuat kami semakin profesional dan
+            terpercaya dalam menjaga kenyamanan udara sejuk di setiap ruangan
+            Anda.
           </p>
           <div className="w-full self-center max-w-100 h-60 py-9 px-10 md:hidden">
               <img
@@ -66,16 +66,16 @@ function Content() {
               Pendiri Putra Service
             </h2>
             <p className="md:text-balance text-[#D6D6D6] pt-9 lg:pt-2 leading-loose md:leading-normal">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              Putra Service didirikan oleh Asep Pian Septiana, yang lahir pada
+              tahun 1973. Dengan pengalaman, dedikasi, serta semangat tinggi
+              dalam dunia teknik pendingin udara, beliau memulai usaha ini pada
+              tahun 2014. Berbekal ketekunan dan keinginan untuk memberikan
+              pelayanan terbaik, Asep Pian Septiana berhasil membangun Putra
+              Service dari skala kecil hingga berkembang menjadi jasa service AC
+              yang dikenal profesional dan dipercaya banyak pelanggan. Komitmen
+              beliau sederhana: memberikan layanan jujur, berkualitas, dan
+              memuaskan. Prinsip inilah yang hingga kini menjadi pondasi utama
+              dalam setiap layanan Putra Service.
             </p>
           </div>
           <div className="flex-1 flex justify-center md:justify-start mr-2 lg:mr-10 xl:mr-20">
@@ -88,9 +88,15 @@ function Content() {
                 Owner
               </h3>
               <div className="flex justify-center gap-2 p-3 text-white">
-                <FaInstagram />
-                <FaFacebookF />
-                <FaXTwitter />
+                <a href="https://www.instagram.com/putraservice_/" rel="nofollow">
+                  <FaInstagram />
+                </a>
+                <a href="https://www.facebook.com/pisnseptiana/" rel="nofollow">
+                  <FaFacebookF />
+                </a>
+                <a href="https://x.com/putra_service73" rel="nofollow">
+                  <FaXTwitter />
+                </a>
               </div>
             </div>
           </div>
