@@ -149,20 +149,20 @@ function UserProfile() {
             <div className="w-[80%] h-full flex justify-around gap-8 mt-13 mb-16 flex-wrap">
                 <div className="w-full h-full gap-8 flex flex-row max-md:flex-wrap">
                     <div className="w-1/2 max-md:w-full px-6 py-7 flex flex-col bg-white rounded-[8px]">
-                        <h1 className="font-semibold text-[23px]">Akun</h1>
+                        <h2 className="font-semibold text-[23px]">Akun</h2>
                         <div className="flex flex-col mt-4">
                             <label for="nama">Nama</label>
                             <input id="nama" type="text" className="px-2 border-1 py-2 border-black rounded-[5px]" value={nama} onChange={(e) => setNama(e.target.value)}/>
                         </div>
                         <div className="flex flex-col mt-3">
                             <label for="email">Email</label>
-                            <input id="email" type="email" className="px-2 border-1 py-2 border-black rounded-[5px]" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input id="email" type="email" className="px-2 border-1 py-2 border-black rounded-[5px] cursor-default bg-gray-200 focus:outline-none caret-transparent" value={email} readOnly/>
                         </div>
                         {message && (<p className="mt-2 text-sm text-[#A4161A]">{message}</p>)}
                         <button className="w-35 h-10 text-white flex ml-auto mt-8 md:mt-10 items-center justify-center bg-[#A30F00] rounded-[5px] cursor-pointer" onClick={handleSave} disabled={loading}>{loading ? "Menyimpan..." : "Simpan"}</button>
                     </div>
                     <div className="w-1/2 max-md:w-full px-6 py-7 bg-white rounded-[8px] flex items-center justify-center flex-col">
-                        <h1 className="font-semibold text-[23px]">Foto Profile</h1>
+                        <h2 className="font-semibold text-[23px]">Foto Profile</h2>
                         <div className="cursor-pointer w-20 sm:w-28 md:w-36 aspect-square bg-black rounded-full overflow-hidden" onClick={() => document.getElementById("avatarInput").click()}>
                           <img className="w-full h-full object-cover" src={avatarPreview} alt=""/>
                         </div>
@@ -171,7 +171,7 @@ function UserProfile() {
                     </div>
                 </div>
                 <div className="w-full px-6 py-7 flex flex-col bg-white rounded-[8px]">
-                    <h1 className="font-semibold text-[23px]">Ubah Password</h1>
+                    <h2 className="font-semibold text-[23px]">Ubah Password</h2>
                         <div className="mt-4">
                           <label htmlFor="old_password">Password Lama</label>
                           <div className="relative flex flex-col w-full justify-center">
