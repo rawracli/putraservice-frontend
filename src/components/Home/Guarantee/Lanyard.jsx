@@ -4,13 +4,13 @@ import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
-import {useMediaQuery} from '@react-hook/media-query'
 
 // replace with your own imports, see the usage snippet for details
 import cardGLB from "../../../assets/Home/Guarantee/Lanyard/card.glb";
 import lanyard from "../../../assets/Home/Guarantee/Lanyard/lanyard.webp";
 
 import * as THREE from 'three';
+import { useMediaQuery } from 'react-responsive';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -126,7 +126,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   });
   curve.curveType = 'chordal';
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-  const matches = useMediaQuery('only screen and (min-width: 600px)')
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   return (
     <>
       <group position={[0, 4, 0]}>
@@ -145,10 +145,10 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           <group
             scale={2.25}
             position={groupPosition}
-            onPointerOver={() => matches ? hover(true) : ""}
-            onPointerOut={() => matches ? hover(false) : ""}
-            onPointerUp={(e) => matches ? (e.target.releasePointerCapture(e.pointerId), drag(false)) : ""}
-            onPointerDown={(e) => matches ? (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))) : ""}>
+            onPointerOver={() => isMobile ? "" : hover(true)}
+            onPointerOut={() => isMobile ? "" : hover(false)}
+            onPointerUp={(e) => isMobile ? "" : (e.target.releasePointerCapture(e.pointerId), drag(false))}
+            onPointerDown={(e) => isMobile ? "" : (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
             <group position={modelOffset}>
               <group ref={rotatingGroup} position={[-0.0095,0,0]}>
                 <mesh 
