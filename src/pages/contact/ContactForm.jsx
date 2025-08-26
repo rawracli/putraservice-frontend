@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import web from "../../assets/Contact/web.webp";
 import email from "../../assets/Contact/email.webp";
 import telephone from "../../assets/Contact/telephone.webp";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 // Daftarkan plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -124,31 +126,49 @@ function ContactForm() {
                 </p>
                 <hr className="border-white mb-4 " />
                 <br />
-                <div className="flex my-2 items-center">
-                  <img src={telephone} alt="" className="w-8 h-8 mr-2" />
-                  <p className="mb-2 text-white "> 0813 - 3333 - 0073</p>
-                </div>
-                <div className="flex my-2 items-center">
-                  <img src={email} alt="" className="w-7 pl-1 mr-3" />
-                  <p className="mb-2 text-white">
-                    <a
-                      href="mailto:admin@putraservice.com"
-                      className="underline"
-                    >
-                      admin@putraservice.com
-                    </a>
-                  </p>
-                </div>
-                <div className="flex my-2 items-center">
-                  <img src={web} alt="" className="w-8 h-8 mr-2" />
-                  <p>
-                    <a
-                      href="https://putraservice.com"
-                      className="underline text-white"
-                    >
-                      https://putraservice.com
-                    </a>
-                  </p>
+                <div className="">
+                  <div className="flex my-2 items-center">
+                    <img src={telephone} alt="" className="w-8 h-8 mr-2" />
+                    <p className="mb-1 text-white ">
+                      <a href="https://wa.me/6281333330073">
+                        0813 - 3333 - 0073
+                      </a>
+                    </p>
+                  </div>
+                  <div className="flex my-2 items-center">
+                    <img src={email} alt="" className="w-7 pl-1 mr-3" />
+                    <p className="mb-1 text-white">
+                      <a
+                        href="mailto:pianseptiana@yahoo.com"
+                      >
+                        pianseptiana@yahoo.com
+                      </a>
+                    </p>
+                  </div>
+                  <div className="flex my-2 items-center gap-2">
+                    <FaInstagram className="text-white size-8"/>
+                    <p>
+                      <a href="https://www.instagram.com/putraservice_/" rel="nofollow" className="  text-white">
+                        @putraservice_
+                      </a>
+                    </p>
+                  </div>
+                  <div className="flex my-2 items-center gap-2">
+                    <FaFacebookF className="text-white size-7"/>
+                    <p>
+                      <a href="https://www.facebook.com/pisnseptiana/" rel="nofollow" className="  text-white">
+                        @pisnseptiana
+                      </a>
+                    </p>
+                  </div>
+                  <div className="flex my-2 items-center gap-2">
+                    <FaXTwitter className="text-white size-7"/>
+                    <p>
+                      <a href="https://x.com/putra_service73" rel="nofollow" className="  text-white">
+                        @putra_service73
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -183,15 +203,12 @@ function ContactForm() {
                 </p>
               </div>
               <div className="flex my-2">
-                <img src={web} alt="" className="w-8 h-8 mr-5" />
-                <p className="font-inter">
-                  <a
-                    href="https://putraservice.com"
-                    className="text-white font-semibold"
-                  >
-                    https://putraservice.com
-                  </a>
-                </p>
+                 <FaInstagram className="text-white size-20"/>
+                  <p>
+                    <a href="https://www.instagram.com/putraservice_/" rel="nofollow" className="underline underline-offset-4 text-white">
+                      @putraservice_
+                    </a>
+                  </p>
               </div>
             </div>
           </div>

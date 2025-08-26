@@ -5,6 +5,25 @@ import Whatsapp from "../assets/Logo/whatsapp.svg";
 import X from "../assets/Logo/x.svg";
 import { Link } from "react-router-dom";
 
+function SocialMedia(){
+  return(
+    <>
+      <a href="https://www.facebook.com/pisnseptiana/" rel="nofollow" className="mr-4">
+        <img src={Facebook} alt="Facebook" srcSet="" />
+      </a>
+      <a href="https://www.instagram.com/putraservice_/" rel="nofollow" className="mr-4">
+        <img src={Instagram} alt="Instagram" srcSet="" />
+      </a>
+      <a href="https://x.com/putra_service73" rel="nofollow" className="mr-3.5">
+        <img src={X} alt="twitter" srcSet="" />
+      </a>
+      <a href="https://wa.me/6281333330073" rel="nofollow" className="mr-4">
+        <img src={Whatsapp} alt="Whatsapp" srcSet="" />
+      </a>
+    </>
+  );
+}
+
 function Footer() {
   return (
     <footer className="relative flex flex-col overflow-hidden min-h-[100svh] sm:min-h-140 lg:min-h-113 text-white bg-[#0A0A0A]">
@@ -43,27 +62,27 @@ function Footer() {
                 </h2>
                 <ul className="gap-1 flex flex-col text-[#DBDBDB]">
                   <li>
-                    <Link to="/home" className="">
+                    <Link to="/" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="">
+                    <Link to="/about" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Tentang
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service" className="">
+                    <Link to="/service" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Layanan
                     </Link>
                   </li>
                   <li>
-                    <Link to="/documentation" className="">
+                    <Link to="/documentation" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Dokumentasi
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="">
+                    <Link to="/contact" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Kontak
                     </Link>
                   </li>
@@ -75,17 +94,17 @@ function Footer() {
                 </h2>
                 <ul className="gap-1 flex flex-col text-[#DBDBDB]">
                   <li>
-                    <Link to="/" className="">
+                    <Link to="/service?category=serviceAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Service AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="">
+                    <Link to="/service?category=pembersihanAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Pembersihan AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="text-nowrap">
+                    <Link to="/service?category=bongkarPasangAC" className="text-nowrap" onClick={() => {window.scrollTo(0, 0)}}>
                       Bongkar & Pasang AC
                     </Link>
                   </li>
@@ -99,17 +118,17 @@ function Footer() {
                 </h2>
                 <ul className="gap-1 flex flex-col text-[#DBDBDB]">
                   <li>
-                    <Link to="/" className="">
+                    <Link to="/service?category=serviceAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Service AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="">
+                    <Link to="/service?category=pembersihanAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Pembersihan AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="text-nowrap">
+                    <Link to="/service?category=bongkarPasangAC" className="text-nowrap" onClick={() => {window.scrollTo(0, 0)}}>
                       Bongkar & Pasang AC
                     </Link>
                   </li>
@@ -126,18 +145,7 @@ function Footer() {
               </p>
             </address>
             <div className="flex w-39 mt-4 ml-2">
-              <a href="" rel="nofollow" className="mr-4">
-                <img src={Facebook} alt="Facebook" srcSet="" />
-              </a>
-              <a href="" rel="nofollow" className="mr-4">
-                <img src={Instagram} alt="Instagram" srcSet="" />
-              </a>
-              <a href="" rel="nofollow" className="mr-3.5">
-                <img src={X} alt="X" srcSet="" />
-              </a>
-              <a href="" rel="nofollow" className="mr-4">
-                <img src={Whatsapp} alt="Whatsapp" srcSet="" />
-              </a>
+              <SocialMedia/>
             </div>
           </div>
           </div>
@@ -152,18 +160,7 @@ function Footer() {
               </p>
             </address>
             <div className="flex w-33.5 mt-4 ml-2">
-              <a href="" rel="nofollow" className="mr-4">
-                <img src={Facebook} alt="Facebook" srcSet="" />
-              </a>
-              <a href="" rel="nofollow" className="mr-4">
-                <img src={Instagram} alt="Instagram" srcSet="" />
-              </a>
-              <a href="" rel="nofollow" className="mr-3.5">
-                <img src={X} alt="X" srcSet="" />
-              </a>
-              <a href="" rel="nofollow" className="mr-4">
-                <img src={Whatsapp} alt="Whatsapp" srcSet="" />
-              </a>
+              <SocialMedia/>
             </div>
           </div>
         </div>
