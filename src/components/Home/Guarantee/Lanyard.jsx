@@ -66,25 +66,32 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  // Center seluruh model (card + clip + clamp) untuk prevent orbiting
-  const [groupPosition, setGroupPosition] = useState([0, 0.1, 0]); // Position awal, akan di-adjust
+  // Position awal, tidak di-adjust untuk compensate (agar selalu shifted seperti behavior "correct" post-navigation)
+  const [groupPosition] = useState([0, 0.1, 0]);
+  const [modelOffset, setModelOffset] = useState([0, 0, 0]); // Offset untuk center tanpa mutate
   useEffect(() => {
-    if (nodes.card.geometry && nodes.clip.geometry && nodes.clamp.geometry) {
-      // Buat temporary group untuk hitung bounding box seluruh
+    if (nodes.card && nodes.card.geometry && nodes.clip && nodes.clip.geometry && nodes.clamp && nodes.clamp.geometry) {
+      // Buat temporary group dengan respect original transforms dari nodes
       const tempGroup = new THREE.Group();
-      const cardTemp = new THREE.Mesh(nodes.card.geometry.clone());
-      const clipTemp = new THREE.Mesh(nodes.clip.geometry.clone());
-      const clampTemp = new THREE.Mesh(nodes.clamp.geometry.clone());
+      const cardTemp = new THREE.Mesh(nodes.card.geometry, undefined);
+      cardTemp.position.copy(nodes.card.position || new THREE.Vector3(0, 0, 0));
+      cardTemp.rotation.copy(nodes.card.rotation || new THREE.Euler(0, 0, 0));
+      cardTemp.scale.copy(nodes.card.scale || new THREE.Vector3(1, 1, 1));
+      const clipTemp = new THREE.Mesh(nodes.clip.geometry, undefined);
+      clipTemp.position.copy(nodes.clip.position || new THREE.Vector3(0, 0, 0));
+      clipTemp.rotation.copy(nodes.clip.rotation || new THREE.Euler(0, 0, 0));
+      clipTemp.scale.copy(nodes.clip.scale || new THREE.Vector3(1, 1, 1));
+      const clampTemp = new THREE.Mesh(nodes.clamp.geometry, undefined);
+      clampTemp.position.copy(nodes.clamp.position || new THREE.Vector3(0, 0, 0));
+      clampTemp.rotation.copy(nodes.clamp.rotation || new THREE.Euler(0, 0, 0));
+      clampTemp.scale.copy(nodes.clamp.scale || new THREE.Vector3(1, 1, 1));
       tempGroup.add(cardTemp, clipTemp, clampTemp);
-      const boundingBox = new THREE.Box3().setFromObject(tempGroup);
+      tempGroup.updateMatrixWorld();
+      const boundingBox = new THREE.Box3().setFromObject(tempGroup, true);
       const center = new THREE.Vector3();
       boundingBox.getCenter(center);
-      // Translate semua geometries sebesar -center (center ke origin)
-      nodes.card.geometry.translate(-center.x, -center.y, -center.z);
-      nodes.clip.geometry.translate(-center.x, -center.y, -center.z);
-      nodes.clamp.geometry.translate(-center.x, -center.y, -center.z);
-      // Compensate shift dengan +center ke group position (visual tetap sama)
-      setGroupPosition([0 + center.x, 0.1  + center.y, 0  + center.z]);
+      // Set offset untuk shift model ke center (tanpa mutate geometry atau +center ke groupPosition)
+      setModelOffset([-center.x, -center.y, -center.z]);
       // Cleanup
       tempGroup.remove(cardTemp, clipTemp, clampTemp);
     }
@@ -137,18 +144,35 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           <CuboidCollider args={[0.8, 1.125, 0.01]} position={[0, 0, 0]}/> {/* Jika collider tidak pas setelah center, tambah position={[offsetX, offsetY, offsetZ]} */}
           <group
             scale={2.25}
-            position={groupPosition} // Position di-adjust secara dinamis
+            position={groupPosition}
             onPointerOver={() => matches ? hover(true) : ""}
             onPointerOut={() => matches ? hover(false) : ""}
             onPointerUp={(e) => matches ? (e.target.releasePointerCapture(e.pointerId), drag(false)) : ""}
             onPointerDown={(e) => matches ? (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))) : ""}>
-            <group ref={rotatingGroup} position={[-0.0095,0,0]}>
-              <mesh geometry={nodes.card.geometry}>
-                <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.9} metalness={0.8} />
-              </mesh>
-              <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+            <group position={modelOffset}>
+              <group ref={rotatingGroup} position={[-0.0095,0,0]}>
+                <mesh 
+                  geometry={nodes.card.geometry}
+                  position={nodes.card.position ? [nodes.card.position.x, nodes.card.position.y, nodes.card.position.z] : [0, 0, 0]}
+                  rotation={nodes.card.rotation ? [nodes.card.rotation.x, nodes.card.rotation.y, nodes.card.rotation.z] : [0, 0, 0]}
+                  scale={nodes.card.scale ? [nodes.card.scale.x, nodes.card.scale.y, nodes.card.scale.z] : [1, 1, 1]}>
+                  <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.9} metalness={0.8} />
+                </mesh>
+                <mesh 
+                  geometry={nodes.clamp.geometry} 
+                  material={materials.metal}
+                  position={nodes.clamp.position ? [nodes.clamp.position.x, nodes.clamp.position.y, nodes.clamp.position.z] : [0, 0, 0]}
+                  rotation={nodes.clamp.rotation ? [nodes.clamp.rotation.x, nodes.clamp.rotation.y, nodes.clamp.rotation.z] : [0, 0, 0]}
+                  scale={nodes.clamp.scale ? [nodes.clamp.scale.x, nodes.clamp.scale.y, nodes.clamp.scale.z] : [1, 1, 1]} />
+              </group>
+              <mesh 
+                geometry={nodes.clip.geometry} 
+                material={materials.metal} 
+                material-roughness={0.3}
+                position={nodes.clip.position ? [nodes.clip.position.x, nodes.clip.position.y, nodes.clip.position.z] : [0, 0, 0]}
+                rotation={nodes.clip.rotation ? [nodes.clip.rotation.x, nodes.clip.rotation.y, nodes.clip.rotation.z] : [0, 0, 0]}
+                scale={nodes.clip.scale ? [nodes.clip.scale.x, nodes.clip.scale.y, nodes.clip.scale.z] : [1, 1, 1]} />
             </group>
-            <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
           </group>
         </RigidBody>
       </group>
