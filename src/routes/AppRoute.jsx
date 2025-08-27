@@ -5,19 +5,14 @@ const Contact = lazy(() => import("../pages/contact/Contact"));
 const Service = lazy(() => import("../pages/service/Service"));
 const Documentation = lazy(() => import("../pages/documentation/Documentation"));
 const UserProfile = lazy(() => import("../pages/User_Profile/UserProfile"));
-const App = lazy(() => import("../App"));
+import App from "../App";
 import ProtectedRoute from "./ProtectedRoute";
 import MainLayout from "../layout/MainLayout";
+import LoadingPage from "../components/LoadingPage";
 
 function AppRoute() {
   return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center min-h-screen bg-white">
-          <div className="w-12 h-12 border-4 border-gray-300 border-t-[#730B00] rounded-full animate-spin"></div>
-        </div>
-      }
-    >
+    <Suspense fallback={<LoadingPage />}>
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<App />} />
