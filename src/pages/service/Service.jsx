@@ -283,7 +283,7 @@
             "Penyedia Layanan Jasa Service AC, Cuci AC, pengganti suku cadang AC, Instalasi AC baru di Sukabumi yang Profesional dengan harga terjangkau dan bergaransi dengan layanan terbaik. Mulai dari cuci AC, penambahan freon AC, pengisian freon AC, perbaikan AC, pemasangan AC, dan Pengadaan sparepart AC. KEJUJURAN KUNCI UTAMA KAMI"
           }
         />
-        <div className={`pt-7 md:pt-11 lg:pt-8 pb-3 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 ${isVisible ? "top-13" : "top-0"}`}>
+        <div className={`pt-7 md:pt-11 lg:pt-8 pb-3 bg-gradient-to-b z-10 from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 ${isVisible ? "top-13" : "top-0"}`}>
           <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
             {categories.map((category) => (
               <button
