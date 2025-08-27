@@ -99,8 +99,8 @@ function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service?category=pembersihanAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
-                      Pembersihan AC
+                    <Link to="/service?category=cuciAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                      Cuci AC
                     </Link>
                   </li>
                   <li>
@@ -123,8 +123,8 @@ function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service?category=pembersihanAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
-                      Pembersihan AC
+                    <Link to="/service?category=cuciAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                      Cuci AC
                     </Link>
                   </li>
                   <li>
