@@ -109,7 +109,6 @@ function Documentation() {
     setOffset(0);
     setHasMore(true);
     loadDocs({ reset: true, force: true });
-    console.log("loadDocs triggered")
   }, [currentCategoryId]);
 
   // infinite scroll listener
