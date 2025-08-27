@@ -268,7 +268,10 @@
       setSearchParams({ category });
     };
     return (
-      <div className="service">
+      <>
+        <title>Layanan Jasa Service AC - Putra Service</title>
+        <meta name="description" content="Putra Service menyediakan jasa service AC, cuci AC, pasang AC dengan harga terjangkau dan bergaransi." />
+        <div className="service">
         <Hero
           title={"LAYANAN & HARGA"}
           backgroundImage={Banner}
@@ -313,7 +316,8 @@
           name={currentCategory}
         />
         <CTASection />
-      </div>
+        </div>
+      </>
     );
   }
 
