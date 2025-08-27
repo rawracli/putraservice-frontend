@@ -12,5 +12,6 @@ export default defineConfig({
       open: true,
     }),
   ],
+  esbuild: { legalComments: 'none', minifyWhitespace: true, minifyIdentifiers: true, minifySyntax: true },
   assetsInclude: ["**/*.glb"],
 });
