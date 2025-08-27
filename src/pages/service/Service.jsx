@@ -3,7 +3,10 @@
   import Hero from "../../components/Hero";
   import CTASection from "./section/CTASection";
   import Banner from "../../assets/Service/bg.webp";
-  import Photo from "../../assets/Service/photo.webp";
+  import ServicePhoto from "../../assets/Service/service.webp";
+  import CuciPhoto from "../../assets/Service/cuci.webp";
+  import PasangPhoto from "../../assets/Service/pasang.webp";
+  import BongkarPhoto from "../../assets/Service/bongkar.webp";
   import clockRed from "../../assets/Service/Logo/clockRed.svg";
   import checkRed from "../../assets/Service/Logo/checkRed.svg";
   import { useSearchParams } from "react-router-dom";
@@ -16,7 +19,7 @@
     [
       {
         title: "Service AC",
-        image: Photo,
+        image: ServicePhoto,
         description:
           "Perawatan dan pengecekan menyeluruh untuk memastikan AC Anda tetap bekerja optimal. Kami menangani berbagai kendala seperti AC tidak dingin, bocor air, suara berisik, hingga mati total.",
         layanan: [
@@ -36,7 +39,7 @@
     [
       {
         title: "Cuci AC",
-        image: Photo,
+        image: CuciPhoto,
         description:
           "Cuci AC secara menyeluruh dari filter, evaporator, blower, hingga outdoor unit. Ideal dilakukan secara berkala untuk menjaga performa dan kebersihan udara ruangan.",
         layanan: [
@@ -55,7 +58,7 @@
     [
       {
         title: "Pasang AC",
-        image: Photo,
+        image: PasangPhoto,
         description:
           "Kami siap membantu pemasangan unit AC baru di rumah, kantor, atau toko Anda. Dikerjakan oleh teknisi berpengalaman dengan alat lengkap dan pemasangan rapi.",
         layanan: [
@@ -71,7 +74,7 @@
       },
       {
         title: "Bongkar AC",
-        image: Photo,
+        image: BongkarPhoto,
         description:
           "Kami melayani pembongkaran AC dengan hasil rapi, cepat, dan aman. Cocok untuk kebutuhan pemindahan, renovasi, atau pelepasan unit AC di rumah, kantor, maupun tempat usaha. Proses dikerjakan oleh teknisi berpengalaman menggunakan peralatan lengkap, dengan prosedur pembongkaran yang terjamin aman bagi unit dan instalasi.",
         layanan: [
