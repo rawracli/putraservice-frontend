@@ -38,7 +38,7 @@ function Stack({ title, description, number, link = false }) {
             <p className=" pb-2 font-poppins leading-[1.3rem] text-[0.8rem] md:leading-normal md:text-base text-[#A20000]">{description}</p>
           </div>
           {link && (
-          <Link to="/service" onClick={() => window.scrollTo(0, 0)} className="flex w-fit text-white active:text-[#A30F00] transition hover:text-[#A30F00] group items-center gap-2 text-lg font-semibold">
+          <Link to="/layanan" onClick={() => window.scrollTo(0, 0)} className="flex w-fit text-white active:text-[#A30F00] transition hover:text-[#A30F00] group items-center gap-2 text-lg font-semibold">
             <p className="font-poppins">Cek Detail Harga</p>
             <ArrowRight strokeWidth={1.3} className={"w-25 group-hover:w-30 transition-all h-10"}/>
           </Link>

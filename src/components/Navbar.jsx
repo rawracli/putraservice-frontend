@@ -109,7 +109,7 @@ function Navbar() {
                 <div className="absolute border-b-2 w-0 group-hover:w-full ease-out duration-100 border-red-600 transition-all"></div>
               </NavLink>
               <NavLink
-                to="/about"
+                to="/tentang-kami"
                 onClick={() => {
                   window.scrollTo(0, 0);
                   setIsDropdownOpen(false);
@@ -124,7 +124,7 @@ function Navbar() {
                 <div className="absolute border-b-2 w-0 group-hover:w-full ease-out duration-100 border-red-600 transition-all"></div>
               </NavLink>
               <NavLink
-                to="/service"
+                to="/layanan"
                 onClick={() => {
                   window.scrollTo(0, 0);
                   setIsDropdownOpen(false);
@@ -172,7 +172,7 @@ function Navbar() {
                     }`}
                   >
                     <Link
-                      to="/contact"
+                      to="/kontak"
                       onClick={() => {
                         window.scrollTo(0, 0);
                         setIsDropdownOpen(false);
@@ -186,7 +186,7 @@ function Navbar() {
                       Kontak
                     </Link>
                     <Link
-                      to="/documentation"
+                      to="/dokumentasi"
                       onClick={() => {
                         window.scrollTo(0, 0);
                         setIsDropdownOpen(false);

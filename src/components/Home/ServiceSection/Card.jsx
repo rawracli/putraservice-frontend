@@ -18,7 +18,7 @@ const Layanan = ({image, title, description, className = ""}) => {
         </p>
         </div>
         <Link
-          to={`/service?category=${title}`}
+          to={`/layanan?category=${title}`}
           onClick={() => {window.scrollTo(0, 0)}}
           className="text-[#BA181B] bg-white font-inter mt-1.5 self-end w-fit sm:absolute bottom-3 right-3 text-[0.6rem] sm:text-xs font-semibold py-1 px-2 sm:py-1.5 sm:pl-4 sm:pr-3 rounded-md"
         >
