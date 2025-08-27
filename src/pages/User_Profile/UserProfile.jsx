@@ -65,7 +65,6 @@ function UserProfile() {
 
     try {
       const res = await updateProfile(formData);
-        console.log("Response dari updateProfile:", res);
   
         if (res.success) {
           setMessage("Profil berhasil diperbarui ✅");

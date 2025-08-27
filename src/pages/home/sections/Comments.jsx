@@ -96,8 +96,6 @@ function Comments() {
         const { bgColor, textColor } = generateProfileColors();
         const initials = generateInitials(name);
 
-        console.log('Generating profile picture:', { name, initials, bgColor, textColor });
-
         // Create canvas element
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
@@ -120,7 +118,6 @@ function Comments() {
         // Convert to data URL
         const dataUrl = canvas.toDataURL('image/png', 0.9); // 0.9 quality for smaller file size
         
-        console.log('Profile picture generated successfully');
         resolve(dataUrl);
 
       } catch (error) {
