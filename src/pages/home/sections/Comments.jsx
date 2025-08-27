@@ -29,7 +29,7 @@ function Comments() {
     const params = new URLSearchParams(window.location.search);
 
     if (
-      (url === "/comments" || params.get("verified") === "true") &&
+      (url === "/ulasan" || params.get("verified") === "true") &&
       commentsRef.current
     ) {
       commentsRef.current.scrollIntoView({ behavior: "smooth" });

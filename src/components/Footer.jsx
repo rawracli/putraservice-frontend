@@ -67,22 +67,22 @@ function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/tentang-kami" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Tentang
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Layanan
                     </Link>
                   </li>
                   <li>
-                    <Link to="/documentation" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/dokumentasi" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Dokumentasi
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/kontak" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Kontak
                     </Link>
                   </li>
@@ -94,17 +94,17 @@ function Footer() {
                 </h2>
                 <ul className="gap-1 flex flex-col text-[#DBDBDB]">
                   <li>
-                    <Link to="/service?category=serviceAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan?category=serviceAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Service AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service?category=cuciAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan?category=cuciAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Cuci AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service?category=bongkarPasangAC" className="text-nowrap" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan?category=bongkarPasangAC" className="text-nowrap" onClick={() => {window.scrollTo(0, 0)}}>
                       Bongkar & Pasang AC
                     </Link>
                   </li>
@@ -118,17 +118,17 @@ function Footer() {
                 </h2>
                 <ul className="gap-1 flex flex-col text-[#DBDBDB]">
                   <li>
-                    <Link to="/service?category=serviceAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan?category=serviceAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Service AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service?category=cuciAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan?category=cuciAC" className="" onClick={() => {window.scrollTo(0, 0)}}>
                       Cuci AC
                     </Link>
                   </li>
                   <li>
-                    <Link to="/service?category=bongkarPasangAC" className="text-nowrap" onClick={() => {window.scrollTo(0, 0)}}>
+                    <Link to="/layanan?category=bongkarPasangAC" className="text-nowrap" onClick={() => {window.scrollTo(0, 0)}}>
                       Bongkar & Pasang AC
                     </Link>
                   </li>

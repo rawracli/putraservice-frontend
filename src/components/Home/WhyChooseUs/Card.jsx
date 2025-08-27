@@ -14,7 +14,7 @@ export default function Card({ image, title, description, className }) {
       {/* <Link className="flex items-end w-fit gap-4 md:gap-6 h-full font-semibold pb-6 md:pb-8 mt-auto text-sm md:text-base">
         Read More <img src={Arrow} alt="" className="h-[0.75rem] md:h-[0.95rem] m-1" />
       </Link> */}
-      <Link to="/service" onClick={() => window.scrollTo(0, 0)} className="flex w-fit text-black pb-6 md:pb-8 mt-auto active:text-[#A30F00] transition hover:text-[#A30F00] group items-center gap-2 text-lg font-semibold">
+      <Link to="/layanan" onClick={() => window.scrollTo(0, 0)} className="flex w-fit text-black pb-6 md:pb-8 mt-auto active:text-[#A30F00] transition hover:text-[#A30F00] group items-center gap-2 text-lg font-semibold">
         <p>Read More</p>
         <ArrowRight strokeWidth={1.3} className={"w-25 group-hover:w-30 transition-all h-10"}/>
       </Link>

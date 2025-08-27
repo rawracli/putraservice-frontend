@@ -35,7 +35,7 @@ function Hero({data}) {
           >
             <Link
               className="hidden relative z-1 md:flex bg-[#A30F00] hover:bg-[#730B00] border border-[#FF0000] text-white text-center py-2 px-13 rounded-lg"
-              to="/service"
+              to="/layanan"
             >
               Layanan
             </Link>

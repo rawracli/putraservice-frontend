@@ -13,11 +13,11 @@ function AppRoute() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<App />} />
-        <Route path="/comments" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/documentation" element={<Documentation />} />
+        <Route path="/ulasan" element={<App />} />
+        <Route path="/tentang-kami" element={<About />} />
+        <Route path="/kontak" element={<Contact />} />
+        <Route path="/layanan" element={<Service />} />
+        <Route path="/dokumentasi" element={<Documentation />} />
       </Route>
       <Route
         path="/user-profile"

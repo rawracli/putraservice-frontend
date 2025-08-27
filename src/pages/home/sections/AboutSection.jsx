@@ -46,7 +46,7 @@ function AboutSection() {
           </p>
           <Link
             className="w-fit text-white text-[0.8rem] md:text-base bg-[#A30F00] font-semibold hover:bg-[#730B00] transition-all py-[0.4rem] px-5 md:py-2.5 md:px-8 rounded-lg mt-4"
-            to="/about"
+            to="/tentang-kami"
           >
             Read More...
           </Link>
