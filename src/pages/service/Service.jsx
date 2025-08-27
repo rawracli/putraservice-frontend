@@ -11,7 +11,7 @@
   import PriceList from "./section/PriceList";
   import useScrollBehaviour from "../../hooks/useScrollBehaviour";
 
-  const categories = ["serviceAC", "pembersihanAC", "bongkarPasangAC"];
+  const categories = ["serviceAC", "cuciAC", "bongkarPasangAC"];
   const descriptionData = [
     [
       {
@@ -35,10 +35,10 @@
     ],
     [
       {
-        title: "Pembersihan AC",
+        title: "Cuci AC",
         image: Photo,
         description:
-          "Pembersihan AC secara menyeluruh dari filter, evaporator, blower, hingga outdoor unit. Ideal dilakukan secara berkala untuk menjaga performa dan kebersihan udara ruangan.",
+          "Cuci AC secara menyeluruh dari filter, evaporator, blower, hingga outdoor unit. Ideal dilakukan secara berkala untuk menjaga performa dan kebersihan udara ruangan.",
         layanan: [
           "Cuci unit indoor & outdoor",
           "Semprot blower & evaporator",
@@ -182,7 +182,7 @@
     ],
     [
       {
-        title: "Pembersihan AC Biasa",
+        title: "Cuci AC Biasa",
         table: {
           thead: ["Tipe AC", "Harga", "Keterangan"],
           tbody: [
@@ -199,7 +199,7 @@
         },
       },
       {
-        title: "Pembersihan AC Biasa",
+        title: "Cuci AC Biasa",
         table: {
           thead: ["Tipe AC", "Harga", "Keterangan"],
           tbody: [
@@ -274,7 +274,7 @@
           backgroundImage={Banner}
           backgroundPosition={"64% center"}
           description={
-            "Penyedia Layanan Jasa Service AC, Pembersihan AC, pengganti suku cadang AC, Instalasi AC baru di Sukabumi yang Profesional dengan harga terjangkau dan bergaransi dengan layanan terbaik. Mulai dari cuci AC, penambahan freon AC, pengisian freon AC, perbaikan AC, pemasangan AC, dan Pengadaan sparepart AC. KEJUJURAN KUNCI UTAMA KAMI"
+            "Penyedia Layanan Jasa Service AC, Cuci AC, pengganti suku cadang AC, Instalasi AC baru di Sukabumi yang Profesional dengan harga terjangkau dan bergaransi dengan layanan terbaik. Mulai dari cuci AC, penambahan freon AC, pengisian freon AC, perbaikan AC, pemasangan AC, dan Pengadaan sparepart AC. KEJUJURAN KUNCI UTAMA KAMI"
           }
         />
         <div className={`py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 ${isVisible ? "top-13" : "-top-6"}`}>

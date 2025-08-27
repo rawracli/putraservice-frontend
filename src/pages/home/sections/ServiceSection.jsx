@@ -48,7 +48,7 @@ function ServiceSection() {
             />
             <Layanan
               image={Bersih}
-              title={"pembersihanAC"}
+              title={"cuciAC"}
               description={
                 "Bersihkan AC secara rutin untuk kinerja optimal. Tim kami siap membersihkan hingga ke sela-sela terdalam dengan cepat dan aman."
               }
