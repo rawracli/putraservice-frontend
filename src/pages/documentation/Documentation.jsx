@@ -136,80 +136,84 @@ function Documentation() {
   }
 
   return (
-    <div className="mx-auto">
-      <Hero
-        title={"DOKUMENTASI"}
-        backgroundImage={bgImage}
-        backgroundPosition={"60% center"}
-        children={
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
-        }
-      />
+    <>
+      <title>Dokumentasi & Hasil Pekerjaan - Putra Service</title>
+      <meta name="description" content="Lihat dokumentasi pengerjaan service AC, cuci AC, bongkar AC, pasang AC oleh tim Putra Service. Bukti nyata kualitas kerja kami." />
+      <div className="mx-auto">
+        <Hero
+          title={"DOKUMENTASI"}
+          backgroundImage={bgImage}
+          backgroundPosition={"60% center"}
+          children={
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-[#BCBCBC]/40"></div>
+          }
+        />
 
-      <section className="relative bg-white flex justify-center items-center flex-col w-full">
-        <div className="flex justify-center py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 w-full">
-          <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
-            <button
-              key="all"
-              onClick={!isLoading ? (() => handleCategoryChange("")) : (clickOnLoad)}
-              className={`px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold ${
-                currentCategory === ""
-                  ? "bg-[#730B00] text-white shadow-lg"
-                  : "bg-white"
-              } ${isLoading ? "cursor-not-allowed" : "cursor-pointer hover:bg-[#A30F00] hover:text-white"}`}
-            >
-              Semua
-            </button>
-
-            {categories.map((category) => (
+        <section className="relative bg-white flex justify-center items-center flex-col w-full">
+          <div className="flex justify-center py-10 bg-gradient-to-b from-[#A8A8A8]/50 to-[#FFFFFF]/10 sticky transition-all duration-300 w-full">
+            <div className="flex flex-wrap justify-center gap-3 lg:gap-7">
               <button
-                key={category.id}
-                onClick={!isLoading ? (() => handleCategoryChange(category.name)) : (clickOnLoad)}
+                key="all"
+                onClick={!isLoading ? (() => handleCategoryChange("")) : (clickOnLoad)}
                 className={`px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold ${
-                  currentCategory === category.name
+                  currentCategory === ""
                     ? "bg-[#730B00] text-white shadow-lg"
                     : "bg-white"
                 } ${isLoading ? "cursor-not-allowed" : "cursor-pointer hover:bg-[#A30F00] hover:text-white"}`}
               >
-                {category.name.split("-").map(word => word.toLowerCase() === "ac" ? "AC" : word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
+                Semua
               </button>
-            ))}
-          </div>
-          <p className="absolute bottom-0 max-sm:text-sm">{message}</p>
-        </div>
-        
-        <div className="w-full max-w-[1600px] mt-10 mb-10 px-3 sm:px-9 md:px-12 lg:px-19">
-          <div className="w-full flex justify-center items-center">
-            {items.length > 0 ? (
-              <Masonry
-                items={items}
-                ease="power3.out"
-                duration={0.6}
-                stagger={0.05}
-                animateFrom="bottom"
-                scaleOnHover={true}
-                hoverScale={1.05}
-                blurToFocus={true}
-                colorShiftOnHover={false}
-              />
-            ) : isLoading ? (
-              <Loading/>
-            ) : null}
-          </div>
 
-          {/* indikator loading batch berikutnya */}
-          {isLoading && items.length > 0 && (
-            <Loading/>
-          )}
-          {/* jika habis */}
-          {!hasMore && items.length > 0 && (
-            <div className="py-10 text-center text-gray-500">
-              Semua dokumen telah dimuat.
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={!isLoading ? (() => handleCategoryChange(category.name)) : (clickOnLoad)}
+                  className={`px-6 py-2 text-[0.7rem] min-w-[12rem] sm:text-[0.8rem] md:text-[0.9rem] border-1 border-[#A30F00] rounded-full text-[#A30F00] transition font-semibold ${
+                    currentCategory === category.name
+                      ? "bg-[#730B00] text-white shadow-lg"
+                      : "bg-white"
+                  } ${isLoading ? "cursor-not-allowed" : "cursor-pointer hover:bg-[#A30F00] hover:text-white"}`}
+                >
+                  {category.name.split("-").map(word => word.toLowerCase() === "ac" ? "AC" : word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
+                </button>
+              ))}
             </div>
-          )}
-        </div>
-      </section>
-    </div>
+            <p className="absolute bottom-0 max-sm:text-sm">{message}</p>
+          </div>
+            
+          <div className="w-full max-w-[1600px] mt-10 mb-10 px-3 sm:px-9 md:px-12 lg:px-19">
+            <div className="w-full flex justify-center items-center">
+              {items.length > 0 ? (
+                <Masonry
+                  items={items}
+                  ease="power3.out"
+                  duration={0.6}
+                  stagger={0.05}
+                  animateFrom="bottom"
+                  scaleOnHover={true}
+                  hoverScale={1.05}
+                  blurToFocus={true}
+                  colorShiftOnHover={false}
+                />
+              ) : isLoading ? (
+                <Loading/>
+              ) : null}
+            </div>
+
+            {/* indikator loading batch berikutnya */}
+            {isLoading && items.length > 0 && (
+              <Loading/>
+            )}
+            {/* jika habis */}
+            {!hasMore && items.length > 0 && (
+              <div className="py-10 text-center text-gray-500">
+                Semua dokumen telah dimuat.
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
 
