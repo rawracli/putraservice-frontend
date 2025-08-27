@@ -199,7 +199,7 @@ function ContactForm() {
                   <a
                     href="mailto:pianseptiana@yahoo.com"
                   >
-                    pianseptiana@yahoo.com
+                    admin@putraservice.com
                   </a>
                 </p>
               </div>
