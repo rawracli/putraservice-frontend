@@ -219,7 +219,7 @@ function Navbar() {
         {isOpen && (
           <div className="fixed z-20">
             <div className="fixed top-[68px] left-0 w-full bg-white shadow-lg z-20 px-6 py-4 animate-slide-down md:hidden">
-              {["", "about", "service", "contact", "documentation"].map(
+              {["", "tentang-kami", "layanan", "kontak", "dokumentasi"].map(
                 (value, index) => (
                   <NavLink
                     key={index}
