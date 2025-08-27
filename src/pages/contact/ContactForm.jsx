@@ -48,7 +48,7 @@ function ContactForm() {
 
   return (
     <section className="relative lg:h-[500px] md:h-[800px] h-[800px]">
-      <div className="absolute h-full lg:w-[942px] md:w-[600px] w-[600px] bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
+      <div className="absolute h-full lg:w-[942px] sm:w-[600px] w-full bottom-0 transform -translate-x-1/2 left-1/2 right-1/2">
         <div className="max-sm:max-w-85 mx-auto -mt-20 z-20 relative">
           <div
             ref={formRef} // ✅ target animasi GSAP
