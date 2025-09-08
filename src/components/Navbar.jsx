@@ -204,14 +204,12 @@ function Navbar() {
               </div>
             </div>
             <div className="w-full h-full hidden lg:flex items-center justify-end">
-              <a
-                href="https://wa.me/6281333330073"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/kontak"
                 className="bg-[#A30F00] text-white hover:bg-[#730B00] transition-all py-2 px-5 rounded-lg active:bg-[#600000]"
               >
                 Pesan Sekarang
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -239,15 +237,13 @@ function Navbar() {
                 )
               )}
               <div className="pt-4">
-                <a
-                  href="https://wa.me/6281333330073"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/kontak"
                   className="block w-full text-center bg-[#A30F00] text-white hover:bg-[#730B00] transition-all py-3 px-5 rounded-lg active:bg-[#600000] transform hover:scale-105 duration-200"
                   onClick={() => setIsOpen(false)}
                 >
                   Pesan Sekarang
-                </a>
+                </Link>
               </div>
             </div>
             <div

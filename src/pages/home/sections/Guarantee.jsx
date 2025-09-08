@@ -1,6 +1,5 @@
 'use client';
-import Lanyard from "../../../components/Home/Guarantee/Lanyard";
-
+import Lanyard from "../../../assets/Home/Guarantee/Lanyard/Lanyard.webp"
 function Guarantee() {
 
   return (
@@ -18,11 +17,7 @@ function Guarantee() {
       <h4 className=" md:pl-12 lg:pl-24 xl:pl-28 pt-6 md:pt-10 lg:pt-12 xl:pt-15 text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-4 md:pb-0">
         <span className="hidden md:block">Bulan</span><span className="md:hidden block">BULAN</span>
       </h4>
-      <Lanyard 
-        position={[0, 0, 20]} 
-        gravity={[0, -40, 0]} 
-        fov={34} 
-      />
+      <img src={Lanyard} alt="guarantee" className="absolute -top-13  md:-top-20 md:right-0 h-80 lg:h-100" />
     </section>
   );
 }
