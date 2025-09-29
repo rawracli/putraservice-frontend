@@ -52,8 +52,8 @@ function App() {
 
   return (
     <>
-      <title>Putra Service - Jasa Service AC Terpercaya di Sukabumi dan Cianjur</title>
-      <meta name="description" content="Putra Service melayani service AC dengan teknisi berpengalaman. Cepat, terpercaya, dan bergaransi." />
+      <title>Putra Service — Service, Cuci & Pasang AC di Sukabumi & Cianjur</title>
+      <meta name="description" content="Putra Service: teknisi AC berpengalaman untuk service, cuci, dan pasang AC di Sukabumi & Cianjur. Cepat, bergaransi. Hubungi WhatsApp untuk estimasi gratis." />
       <Hero data={testimonials} />
       <PricingBanner />
       <AboutSection />

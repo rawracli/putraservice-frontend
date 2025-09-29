@@ -6,7 +6,7 @@ function Contact() {
   return (
     <>
       <title>Kontak Putra Service - Hubungi Kami Sekarang</title>
-      <meta name="description" content="Butuh bantuan teknisi? Hubungi Putra Service melalui telepon, WhatsApp, atau email. Kami siap melayani Anda dengan cepat." />
+      <meta name="description" content="Butuh teknisi AC sekarang? Booking servis lewat WhatsApp atau telepon. Layanan cepat untuk Sukabumi & Cianjur — klik untuk hubungi kami." />
       <div className="contact">
         <Hero
           title={"KONTAK KAMI"}
