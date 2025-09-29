@@ -1,7 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/source-serif-pro');
-@import url('https://fonts.cdnfonts.com/css/poppins');
-@import url('https://fonts.cdnfonts.com/css/inter');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('./assets/fonts/SourceSerifPro/stylesheet.css');
+@import url('./assets/fonts/Poppins/stylesheet.css');
+@import url('./assets/fonts/Inter/stylesheet.css');
+@import url('./assets/fonts/AlbertSans/stylesheet.css');
 @import "tailwindcss";
 
 @theme {
