@@ -108,7 +108,7 @@ function ContactForm() {
 
                 <button
                   type="submit"
-                  className="bg-white cursor-pointer font-medium text-red-700 mt-5 border-2 border-red-700 px-6 py-2 rounded-lg hover:bg-red-800 hover:text-white sm:ml-75 transition"
+                  className="bg-white cursor-pointer font-medium text-red-700 mt-5 border-2 border-red-700 py-2 rounded-lg hover:bg-red-800 hover:text-white sm:ml-75 transition"
                 >
                   Kirim pesan
                 </button>
