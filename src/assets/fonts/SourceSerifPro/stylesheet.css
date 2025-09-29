@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Source Serif Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Source Serif Pro'), url('./SourceSerifPro-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Source Serif Pro'), url('./SourceSerifPro-SemiBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Source Serif Pro'), url('./SourceSerifPro-Bold.woff') format('woff');
+}
