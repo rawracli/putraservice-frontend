@@ -13,9 +13,19 @@ import FAQSection from "./pages/home/sections/FAQSection.jsx";
 import CTASection from "./pages/home/sections/CTASection.jsx";
 import Comments from "./pages/home/sections/Comments.jsx";
 import ReviewController from "./controllers/ReviewController.js";
+const dummyTestimonials = [
+  {
+    id: 0,
+    name: "Loading...",
+    komentar: "",
+    rating: 5,
+    updated_at: "",
+    avatar: null, // fallback ke Profile.webp
+  },
+];
 
 function App() {
-  const [testimonials, setTestimonials] = useState([]);
+  const [testimonials, setTestimonials] = useState(dummyTestimonials);
 
   // Ambil data review dari API
   useEffect(() => {
