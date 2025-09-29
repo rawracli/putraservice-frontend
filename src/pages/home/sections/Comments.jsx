@@ -509,7 +509,7 @@ function Comments() {
               >
                 {/* Konten overlay di tengah */}
                 <div className="relative bg-white px-8 rounded-lg shadow-lg max-w-md w-full pt-10 pb-5">
-                  <div className="absolute right-5 top-3 cursor-pointer w-5 h-5 font-black" id="close-button" onClick={closeOverlay}>✕</div>
+                  <div className="absolute right-5 top-3 cursor-pointer w-5 h-5" id="close-button" onClick={closeOverlay}>✕</div>
                   <h2 className="text-xl font-semibold mb-9 text-center">
                     Login terlebih dahulu agar dapat memberikan rating
                     dan komentar

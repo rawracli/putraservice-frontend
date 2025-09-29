@@ -13,7 +13,7 @@ const Layanan = ({image, title, description, className = ""}) => {
         <h4 className="text-[clamp(1.1rem,2vw,1.5rem)] font-bold ">
           {title.replace(/(?!^)(?<!A)([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
         </h4>
-        <p className="text-[clamp(12px,2vw,14px)] font-inter leading-snug tracking-normal font-light text-[#D1D0CF]">
+        <p className="text-[clamp(12px,2vw,14px)] font-inter leading-snug tracking-normal font-light text-[#D1D0CF] pr-2">
           {description}
         </p>
         </div>
