@@ -120,7 +120,7 @@ export const resendVerification = async () => {
 
     return res.data;
   } catch (err) {
-    console.error("Gagal kirim ulang verifikasi:", err.response?.data || err.message);
+    // Silent fail — error propagated to caller
     throw err.response?.data || { message: err.message };
   }
 };

@@ -65,8 +65,6 @@ function UserProfile() {
 
     try {
       const res = await updateProfile(formData);
-        console.log("Response dari updateProfile:", res);
-  
         if (res.success) {
           setMessage("Profil berhasil diperbarui ✅");
         } else if (res.errors) {
@@ -76,8 +74,8 @@ function UserProfile() {
         } else {
           setMessage(res.message || "Gagal memperbarui profil ❌");
         }
-    } catch (error) {
-      console.error("Error updateProfile:", error);
+    } catch {
+      // Silent fail — error shown via setMessage
       setMessage("Terjadi kesalahan saat mengirim data ❌");
     }
 

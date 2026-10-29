@@ -43,8 +43,8 @@ function App() {
         }
 
         setTestimonials(filledTestimonials);
-      } catch (error) {
-        console.error("Failed to fetch reviews:", error);
+      } catch {
+        // Silent fail — error handled by UI state
       }
     };
     fetchReviews();

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import LoadingPage from "../components/LoadingPage";
+import { getProfile } from "../controllers/AuthController.js";
 
 const ProtectedRoute = ({ children }) => {
   const [authChecked, setAuthChecked] = useState(false);
@@ -9,12 +10,25 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (token) {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
-    }
-    setAuthChecked(true); // cek selesai
+    const validateToken = async () => {
+      if (!token) {
+        setIsAuthenticated(false);
+        setAuthChecked(true);
+        return;
+      }
+
+      try {
+        const data = await getProfile();
+        setIsAuthenticated(!!data && !!data.name);
+      } catch {
+        localStorage.removeItem("token");
+        setIsAuthenticated(false);
+      } finally {
+        setAuthChecked(true);
+      }
+    };
+
+    validateToken();
   }, []);
 
   if (!authChecked) {

@@ -41,9 +41,9 @@ function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const nomor = "6281333330073";
-    const text = `Halo, nama saya ${nama}.%0A${pesan}`;
+    const text = encodeURIComponent(`Halo, nama saya ${nama}.%0A${pesan}`);
     const url = `https://wa.me/${nomor}?text=${text}`;
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener");
   };
 
   return (
